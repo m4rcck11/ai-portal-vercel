@@ -1,0 +1,25 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Node
+node_modules/
+
+# CSV não utilizado (versão global, pesada)
+institutions_ai.csv
+
+# Claude Code local
+.claude/
+CLAUDE.md
+
+# Backup
+_backup/
+
+# OS
+.DS_Store
+Thumbs.db

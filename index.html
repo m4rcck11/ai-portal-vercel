@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecossistema de Inteligência Artificial no Brasil</title>
+    <link rel="icon" type="image/png" href="logos/favicon.png">
+    <script src="https://unpkg.com/graphology@0.25.4/dist/graphology.umd.min.js"></script>
+    <script src="https://unpkg.com/sigma@2.4.0/build/sigma.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; background: #f5f5f5; }
+        h1 { max-width: 900px; margin: 24px auto 0; font-size: 22px; color: #222; }
+        h2 { max-width: 900px; margin: 32px auto 0; font-size: 18px; color: #444; }
+        .container {
+            max-width: 900px; margin: 24px auto;
+            display: flex; flex-direction: column; gap: 0;
+        }
+        .container iframe {
+            width: 100%; height: 450px;
+            border: 1px solid #ccc; display: block;
+        }
+        .filters {
+            display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+            padding: 12px 16px; background: #fff;
+            border: 1px solid #ccc; border-top: none;
+        }
+        .filters-top { border-top: 1px solid #ccc; border-bottom: none; }
+        .filters label { font-size: 13px; color: #333; }
+        .filters select { max-width: 160px; }
+        .filters select { margin-left: 6px; }
+        .year-range-group { gap: 8px; }
+        .year-range-group .noUi-target {
+            width: 160px; height: 4px;
+            border: none; border-radius: 2px;
+            background: #ddd; box-shadow: none;
+        }
+        .year-range-group .noUi-connect { background: #555; }
+        .year-range-group .noUi-handle {
+            width: 14px; height: 14px;
+            top: -5px; right: -7px;
+            border-radius: 50%;
+            background: #555; border: 2px solid #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+        .year-range-group .noUi-handle::before,
+        .year-range-group .noUi-handle::after { display: none; }
+        .filter-group { display: flex; align-items: center; gap: 4px; }
+        .range-val {
+            display: inline-block; min-width: 36px; text-align: center;
+            font-size: 13px; font-weight: bold; color: #555;
+        }
+        .legend {
+            display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+            padding: 8px 16px; background: #fff;
+            border: 1px solid #ccc; border-top: none;
+            font-size: 12px; color: #333;
+        }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .legend-dot {
+            width: 11px; height: 11px; border-radius: 50%;
+            display: inline-block; flex-shrink: 0;
+        }
+        .sigma-container {
+            width: 100%; height: 520px;
+            border: 1px solid #ccc; border-top: none;
+            background: #fff;
+            position: relative;
+        }
+        .edge-tooltip {
+            position: fixed;
+            display: none;
+            background: rgba(0,0,0,0.75);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            line-height: 1.6;
+            pointer-events: none;
+            z-index: 999;
+        }
+        .node-panel {
+            display: none;
+            position: absolute;
+            top: 12px; left: 12px;
+            width: 220px;
+            background: rgba(255,255,255,0.95);
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 12px 14px;
+            font-size: 12px;
+            line-height: 1.7;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .node-panel strong { display: block; font-size: 13px; margin-bottom: 6px; color: #111; }
+        .node-panel div { margin-top: 4px; }
+        #np-collaborators1, #np-collaborators2, #np-collaborators3 { margin-top: 6px; }
+        .node-panel .close-btn {
+            position: absolute; top: 6px; right: 10px;
+            cursor: pointer; font-size: 14px; color: #888;
+        }
+        .search-wrap {
+            position: relative; display: flex; align-items: center; gap: 4px;
+        }
+        .search-wrap input[type=text] {
+            padding: 3px 8px; font-size: 13px;
+            border: 1px solid #ccc; border-radius: 4px; width: 200px;
+        }
+        .search-suggestions {
+            display: none;
+            position: absolute; top: 100%; left: 0;
+            background: #fff; border: 1px solid #ccc; border-top: none;
+            border-radius: 0 0 4px 4px;
+            max-height: 180px; overflow-y: auto;
+            width: 200px; z-index: 100;
+            font-size: 12px;
+        }
+        .search-suggestions div {
+            padding: 5px 8px; cursor: pointer;
+        }
+        .search-suggestions div:hover { background: #f0f0f0; }
+        .lazy-wrap { position: relative; }
+        .lazy-overlay {
+            position: absolute;
+            inset: 0;
+            background: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            z-index: 11;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+        .lazy-overlay p { font-size: 14px; color: #666; margin: 0; }
+        .lazy-overlay button {
+            padding: 8px 22px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .lazy-overlay button:hover { background: #1d4ed8; }
+        .section-meta {
+            max-width: 900px;
+            margin: 10px auto 0;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.65;
+        }
+        .section-meta p { margin-top: 6px; }
+        .section-meta strong { color: #333; }
+        .section-meta a { color: #2563eb; text-decoration: none; }
+        .section-meta a:hover { text-decoration: underline; }
+        .site-footer {
+            max-width: 900px;
+            margin: 32px auto 28px;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid #ddd;
+            padding-top: 14px;
+        }
+        .site-footer a { color: #2563eb; text-decoration: none; }
+        .site-footer a:hover { text-decoration: underline; }
+        .intro {
+            max-width: 900px;
+            margin: 16px auto 0;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.75;
+            border-left: 3px solid #2563eb;
+            padding-left: 16px;
+        }
+        .intro p + p { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Ecossistema de Inteligência Artificial no Brasil</h1>
+    <div class="intro">
+        <p> Esta página apresenta a primeira etapa da pesquisa em curso. Aqui descrevemos a metodologia e técnicas de produção de dados utilizadas em cada uma das visualizações abaixo. </p>
+        <p>Procuramos mapear a produção de conhecimento em inteligência artificial no Brasil e as formas como se relaciona com outras áreas e com desenvolvimento tecnológico. Para tanto, mantemos um registro de dados sobre publicações acadêmicas, empresas, patentes, notícias da mídia, projetos de fomento à pesquisa, entre outros.</p>
+        <p>Usando tais dados e estruturando-os na forma de uma rede de atores e produtos de conhecimento atingimos um mapeamento que permite não apenas estudar o desenvolvimento da IA no Brasil como prover análises que permitirão decisões estratégicas sobre esse assunto.</p>
+        <p>Esta página apresenta a primeira etapa da pesquisa em curso. Aqui descrevemos a metodologia e as técnicas de produção de dados utilizadas em cada uma das visualizações abaixo.</p>
+    </div>
+
+    <h2>Instituições acadêmicas que desenvolvem pesquisa em IA no Brasil</h2>
+    <div class="section-meta">
+        <p><strong>Fonte de dados:</strong> Páginas de pesquisadores na Plataforma Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>), páginas de grupos de pesquisa e de instituições conhecidas.</p>
+        <p><strong>Metodologia:</strong> Dados investigados por busca direta e entrevistas com especialistas.</p>
+        <p><strong>Visualização:</strong> Para visualizar a localização e o nome das instituições, clique no zoom no canto superior esquerdo da tela (ou use o movimento de pinça, dependendo da interface que esta usando). </strong></p>
+
+    </div>
+    <div class="container">
+        <div class="filters filters-top">
+            <div class="filter-group">
+                <label>Estado:</label>
+                <select id="map1_state"><option value="">Todos</option></select>
+            </div>
+            <div class="filter-group search-wrap">
+                <label>Busca por Instituição:</label>
+                <input type="text" id="map1_search" autocomplete="off" placeholder="Nome do grupo…">
+                <div class="search-suggestions" id="map1_suggestions"></div>
+            </div>
+            <div class="filter-group search-wrap">
+                <label>Busca por Pesquisador:</label>
+                <input type="text" id="map1_researcher" autocomplete="off" placeholder="Nome do pesquisador…">
+                <div class="search-suggestions" id="map1_researcher_suggestions"></div>
+            </div>
+        </div>
+        <div class="lazy-wrap">
+            <div class="lazy-overlay" id="overlay-map1" onclick="loadIframe('map1_frame', 'data/centros_ia_br_busca_livre.html', 'overlay-map1')">
+                <button>Ver mapa</button>
+            </div>
+            <iframe id="map1_frame" src=""></iframe>
+        </div>
+    </div>
+
+    <h2>Instituições brasileiras que afiliam pesquisadores que publicaram trabalhos científicos em IA</h2>
+    <div class="section-meta">
+        <p><strong>Fonte de dados:</strong> Currículo Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>), OpenAlex (<a href="https://openalex.org" target="_blank">openalex.org</a>), Research Organization Registry (ROR — <a href="https://ror.org" target="_blank">ror.org</a>) e Capes Dados Abertos (<a href="https://dadosabertos.capes.gov.br" target="_blank">dadosabertos.capes.gov.br</a>).</p>
+        <p><strong>Metodologia:</strong> Coleta de instituições declaradas como afiliações de autores de publicações acadêmicas de áreas relacionadas a inteligência artificial dentro do registro do OpenAlex e manualmente curada pelos desenvolvedores desta página. Foram consideradas as instituições dentro do Brasil.</p>
+        <p><strong>Visualização:</strong> Para visualizar a localização e o nome das instituições, clique no zoom no canto superior esquerdo da tela (ou use o movimento de pinça, dependendo da interface que esta usando). </strong></p>
+
+    </div>
+    <div class="container">
+        <!-- =============================================================================
+             CORREÇÃO PROVISÓRIA — filtro de Estado oculto (dados sem campo estado)
+             -----------------------------------------------------------------------------
+             O campo "cidade" neste mapa contém apenas o nome da cidade, sem estado.
+             O filtro de Estado foi ocultado temporariamente e substituído por busca
+             textual por cidade como paliativo.
+             A correção definitiva deve ser feita no script Python que gera o HTML,
+             incluindo o estado em cada entrada (ex: "Adamantina, SP").
+             Ao corrigir na fonte, remover o campo "Busca por Cidade" e reativar o
+             select de Estado (#map2_state).
+             ============================================================================= -->
+        <div class="filters filters-top">
+            <div class="filter-group" style="display:none">
+                <label>Estado:</label>
+                <select id="map2_state"><option value="">Todos</option></select>
+            </div>
+            <div class="filter-group search-wrap">
+                <label>Busca por Instituição:</label>
+                <input type="text" id="map2_search" autocomplete="off" placeholder="Nome do grupo…">
+                <div class="search-suggestions" id="map2_suggestions"></div>
+            </div>
+            <div class="filter-group search-wrap">
+                <label>Busca por Cidade:</label>
+                <input type="text" id="map2_city" autocomplete="off" placeholder="Nome da cidade…">
+                <div class="search-suggestions" id="map2_city_suggestions"></div>
+            </div>
+        </div>
+        <div class="lazy-wrap">
+            <div class="lazy-overlay" id="overlay-map2" onclick="loadIframe('map2_frame', 'data/centros_ia_br_biblio_outra.html', 'overlay-map2')">
+                <button>Ver mapa</button>
+            </div>
+            <iframe id="map2_frame" src=""></iframe>
+        </div>
+    </div>
+
+    <h2>Rede de Colaboração em publicações</h2>
+    <div class="section-meta">
+        <p><strong>Fonte de dados:</strong> Currículo Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>) e OpenAlex (<a href="https://openalex.org" target="_blank">openalex.org</a>).</p>
+        <p><strong>Metodologia:</strong> Ligações de coautoria coletadas entre a lista de autores de trabalhos acadêmicos de área relacionadas a inteligência artificial dentro do registro do OpenAlex e manualmente curada pelos desenvolvedores desta página. Os autores das publicações indexadas foram filtrados também pela presença no currículo Lattes afiliados a uma instituição brasileira.</p>
+        <p><strong> Visualização:</strong>Use a ferramenta de zoom para ver detalhes e clique sobre os nós para ter mais informações sobre os autores da rede. A rede pode ser filtrada nos controles abaixo por datas de publicação, subáreas e número de publicações compartilhadas. É possível também fazer busca por nome do autor.</p>
+    </div>
+    <div class="container">
+        <div class="filters" id="filters1">
+            <div class="filter-group search-wrap">
+                <label>Autor:</label>
+                <input type="text" id="searchInput1" placeholder="Buscar autor...">
+                <div class="search-suggestions" id="searchSuggestions1"></div>
+            </div>
+            <div class="filter-group">
+                <label>Área:</label>
+                <select id="areaFilter1"><option value="">Todas</option></select>
+            </div>
+            <div class="filter-group year-range-group">
+                <label>Período:</label>
+                <span id="yearFromVal1" class="range-val">1999</span>
+                <div id="yearRangeSlider1"></div>
+                <span id="yearVal1" class="range-val">2024</span>
+            </div>
+            <div class="filter-group year-range-group">
+                <label>Publicações:</label>
+                <span id="worksFromVal1" class="range-val">–</span>
+                <div id="worksRangeSlider1"></div>
+                <span id="worksVal1" class="range-val">–</span>
+            </div>
+        </div>
+        <div class="legend" id="legend1"></div>
+        <div class="sigma-container" id="sigma1">
+            <div class="lazy-overlay" id="overlay-sigma1" onclick="loadGraph('data/ia_br.gexf', '1', 'overlay-sigma1')">
+                <button>Ver grafo</button>
+            </div>
+            <div class="node-panel" id="node-panel1">
+                <span class="close-btn" id="node-panel-close1">✕</span>
+                <strong id="np-nome1"></strong>
+                <div id="np-inst1"></div>
+                <div id="np-works1"></div>
+                <div id="np-lattes1"></div>
+                <div id="np-year1"></div>
+                <div id="np-areas1"></div>
+                <div id="np-collaborators1"></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Comunidades de Inteligência Artificial</h2>
+    <div class="section-meta">
+        <p><strong>Fonte de dados:</strong> Association for the Advancement of Artificial Intelligence (AAAI — <a href="https://aaai.org" target="_blank">aaai.org</a>), Currículo Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>) e OpenAlex (<a href="https://openalex.org" target="_blank">openalex.org</a>).</p>
+        <p><strong>Metodologia:</strong> A lista de áreas definidas pela AAAI foi a referência-base para o início da busca. A partir dessa lista de áreas, buscaram-se as principais revistas e conferências para cada uma das áreas. A partir daqui, usamos a seguinte metodologia: novas revistas e conferências foram sendo sistematicamente consideradas uma vez que possuíssem, pelo menos, 50% de autores em comum com as revistas e conferências já listadas.</p>
+        <p><strong>Visualização:</strong> As relações de co-autoria estão expressas pelas ligações entre cada pesquisador (representados pelas várias esferas coloridas). Podem ser traçadas entre os autores produzindo o gráfico mostrado com filtros das subáreas e ano de publicação. Na barra acima, é possível filtrar por período temporal, nome do autor e/ou área de pesquisa.</p>
+    </div>
+    <div class="container">
+        <div class="filters" id="filters2">
+            <div class="filter-group search-wrap">
+                <label>Autor:</label>
+                <input type="text" id="searchInput2" placeholder="Buscar autor...">
+                <div class="search-suggestions" id="searchSuggestions2"></div>
+            </div>
+            <div class="filter-group">
+                <label>Área:</label>
+                <select id="areaFilter2"><option value="">Todas</option></select>
+            </div>
+            <div class="filter-group year-range-group">
+                <label>Período:</label>
+                <span id="yearFromVal2" class="range-val">1999</span>
+                <div id="yearRangeSlider2"></div>
+                <span id="yearVal2" class="range-val">2024</span>
+            </div>
+            <div class="filter-group year-range-group">
+                <label>Publicações:</label>
+                <span id="worksFromVal2" class="range-val">–</span>
+                <div id="worksRangeSlider2"></div>
+                <span id="worksVal2" class="range-val">–</span>
+            </div>
+        </div>
+        <div class="legend" id="legend2"></div>
+        <div class="sigma-container" id="sigma2">
+            <div class="lazy-overlay" id="overlay-sigma2" onclick="loadGraph('data/comunidades_ia_br.gexf', '2', 'overlay-sigma2')">
+                <button>Ver grafo</button>
+            </div>
+            <div class="node-panel" id="node-panel2">
+                <span class="close-btn" id="node-panel-close2">✕</span>
+                <strong id="np-nome2"></strong>
+                <div id="np-inst2"></div>
+                <div id="np-works2"></div>
+                <div id="np-lattes2"></div>
+                <div id="np-year2"></div>
+                <div id="np-areas2"></div>
+                <div id="np-collaborators2"></div>
+            </div>
+        </div>
+    </div>
+    <h2>Áreas de Pesquisa no Brasil e seus pesquisadores Associados</h2>
+    <div class="section-meta">
+        <p><strong>Fonte de dados:</strong> Currículo Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>) e OpenAlex (<a href="https://openalex.org" target="_blank">openalex.org</a>).</p>
+        <p><strong>Metodologia:</strong> A base de publicações acadêmicas OpenAlex oferece uma classificação das diferentes áreas de pesquisa em diferentes campos do conhecimento. Fizemos uma curadoria dessas áreas de pesquisa, selecionando aquelas que consideramos relacionados à grande área da Inteligência Artificial (a lista de áreas se encontra abaixo). Para elaboração do grafo abaixo, foram considerados apenas os autores com filiação a instituições brasileiras. Além da declaração da afiliação na publicação acadêmica, essa informação foi posteriormente verificada pela presença desses autores no currículo Lattes com endereço de afiliação no Brasil.</p>
+        <strong>Visualização de Dados:</strong>as relações entre o pesquisador e a(s) área(s) de pesquisa da qual(is) participa estão expressas pelas ligações entre as esferas (na cor rosa) que representam os pesquisadores e as esferas (na cor verde) que representam as áreas de pesquisa. Para buscar por período temporal, autor e/ou área, use a barra superior.</p>
+    </div>
+    <div class="container">
+        <div class="filters" id="filters3">
+            <div class="filter-group search-wrap">
+                <label>Autor:</label>
+                <input type="text" id="searchInput3" placeholder="Buscar autor...">
+                <div class="search-suggestions" id="searchSuggestions3"></div>
+            </div>
+            <div class="filter-group">
+                <label>Área:</label>
+                <select id="areaFilter3"><option value="">Todas</option></select>
+            </div>
+            <div class="filter-group year-range-group">
+                <label>Período:</label>
+                <span id="yearFromVal3" class="range-val">1999</span>
+                <div id="yearRangeSlider3"></div>
+                <span id="yearVal3" class="range-val">2024</span>
+            </div>
+            <div class="filter-group year-range-group">
+                <label>Publicações:</label>
+                <span id="worksFromVal3" class="range-val">–</span>
+                <div id="worksRangeSlider3"></div>
+                <span id="worksVal3" class="range-val">–</span>
+            </div>
+        </div>
+        <div class="legend" id="legend3"></div>
+        <div class="sigma-container" id="sigma3">
+            <div class="lazy-overlay" id="overlay-sigma3" onclick="loadGraph('data/topicos_autores_ia_br.gexf', '3', 'overlay-sigma3')">
+                <button>Ver grafo</button>
+            </div>
+            <div class="node-panel" id="node-panel3">
+                <span class="close-btn" id="node-panel-close3">✕</span>
+                <strong id="np-nome3"></strong>
+                <div id="np-inst3"></div>
+                <div id="np-works3"></div>
+                <div id="np-lattes3"></div>
+                <div id="np-year3"></div>
+                <div id="np-areas3"></div>
+                <div id="np-collaborators3"></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Colaboração em Projetos</h2>
+    <div class="section-meta">
+        <p><strong>Fonte de dados:</strong> Currículo Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>) e OpenAlex (<a href="https://openalex.org" target="_blank">openalex.org</a>).</p>
+        <p><strong>Metodologia:</strong> Coleta de projetos e classificação em áreas pela descrição, com identificação dos participantes declarados nas fontes de dados.</p>
+    </div>
+    <div class="container">
+        <div class="filters" id="filters4">
+            <div class="filter-group search-wrap">
+                <label>Autor:</label>
+                <input type="text" id="searchInput4" placeholder="Buscar autor...">
+                <div class="search-suggestions" id="searchSuggestions4"></div>
+            </div>
+            <div class="filter-group">
+                <label>Área:</label>
+                <select id="areaFilter4"><option value="">Todas</option></select>
+            </div>
+            <div class="filter-group year-range-group">
+                <label>Período:</label>
+                <span id="yearFromVal4" class="range-val">1999</span>
+                <div id="yearRangeSlider4"></div>
+                <span id="yearVal4" class="range-val">2024</span>
+            </div>
+            <div class="filter-group year-range-group">
+                <label>Publicações:</label>
+                <span id="worksFromVal4" class="range-val">–</span>
+                <div id="worksRangeSlider4"></div>
+                <span id="worksVal4" class="range-val">–</span>
+            </div>
+        </div>
+        <div class="legend" id="legend4"></div>
+        <div class="sigma-container" id="sigma4">
+            <div class="lazy-overlay" id="overlay-sigma4" onclick="loadGraph('data/projetos_ia.gexf', '4', 'overlay-sigma4')">
+                <button>Ver grafo</button>
+            </div>
+            <div class="node-panel" id="node-panel4">
+                <span class="close-btn" id="node-panel-close4">✕</span>
+                <strong id="np-nome4"></strong>
+                <div id="np-inst4"></div>
+                <div id="np-works4"></div>
+                <div id="np-lattes4"></div>
+                <div id="np-year4"></div>
+                <div id="np-areas4"></div>
+                <div id="np-collaborators4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-footer">
+        <p>Atualização dos dados: abril de 2026. &nbsp;|&nbsp; Código: <a href="https://gitlab.uspdigital.usp.br/afmazoni/ociaam" target="_blank">gitlab.uspdigital.usp.br/afmazoni/ociaam</a></p>
+    </div>
+
+    <div class="edge-tooltip" id="edge-tooltip1"></div>
+    <div class="edge-tooltip" id="edge-tooltip2"></div>
+    <div class="edge-tooltip" id="edge-tooltip3"></div>
+    <div class="edge-tooltip" id="edge-tooltip4"></div>
+
+    <script>
+        function hslToHex(h, s, l) {
+            s /= 100; l /= 100;
+            const a = s * Math.min(l, 1 - l);
+            const f = n => {
+                const k = (n + h / 30) % 12;
+                return Math.round(255 * (l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1))));
+            };
+            return '#' + [f(0), f(8), f(4)].map(v => v.toString(16).padStart(2, '0')).join('');
+        }
+
+        function makeColorPalette(topics) {
+            const map = {};
+            topics.forEach((t, i) => {
+                const hue = Math.round((i / topics.length) * 360);
+                map[t] = hslToHex(hue, 70, 45);
+            });
+            return map;
+        }
+
+        const Graph = graphology.Graph;
+
+        function initGraph(gexfFile, suffix) {
+            let graph = null;
+            let sigmaInstance = null;
+
+            fetch(gexfFile)
+                .then(r => r.text())
+                .then(xml => {
+                    const doc = new DOMParser().parseFromString(xml, 'application/xml');
+                    const VIZ = 'http://gexf.net/1.3/viz';
+
+                    const rawNodes = [...doc.querySelectorAll('node')].map(n => {
+                        const posEl   = n.getElementsByTagNameNS(VIZ, 'position')[0];
+                        const sizeEl  = n.getElementsByTagNameNS(VIZ, 'size')[0];
+                        const colorEl = n.getElementsByTagNameNS(VIZ, 'color')[0];
+                        const attvals = {};
+                        n.querySelectorAll('attvalue').forEach(av => {
+                            attvals[av.getAttribute('for')] = av.getAttribute('value');
+                        });
+                        return {
+                            id:       n.getAttribute('id'),
+                            label:    n.getAttribute('label') || attvals['nome'] || '',
+                            x:        posEl  ? parseFloat(posEl.getAttribute('x'))  :  0,
+                            y:        posEl  ? -parseFloat(posEl.getAttribute('y')) :  0,
+                            size:     sizeEl ? parseFloat(sizeEl.getAttribute('value')) : 5,
+                            vizColor: colorEl ? `rgb(${colorEl.getAttribute('r')},${colorEl.getAttribute('g')},${colorEl.getAttribute('b')})` : null,
+                            idlattes: attvals['idlattes'] || '',
+                            works:    attvals['works']    || '',
+                            inst:     attvals['institution'] || attvals['endprofinstituicao'] || '',
+                            tipo:     attvals['tipo']     || ''
+                        };
+                    });
+
+                    const rawEdges = [...doc.querySelectorAll('edge')].map(e => {
+                        const attvals = {};
+                        e.querySelectorAll('attvalue').forEach(av => {
+                            attvals[av.getAttribute('for')] = av.getAttribute('value');
+                        });
+                        return {
+                            key:    e.getAttribute('id'),
+                            source: e.getAttribute('source'),
+                            target: e.getAttribute('target'),
+                            weight: parseFloat(e.getAttribute('weight') || '1'),
+                            area:   attvals['topic'] || attvals['area'] || '',
+                            year:   parseInt(attvals['publication_year'] || '0')
+                        };
+                    });
+
+                    const allTopics = suffix === '3'
+                        ? rawNodes.filter(n => n.tipo === 'topic').map(n => n.label).sort()
+                        : [...new Set(rawEdges.map(e => e.area).filter(Boolean))].sort();
+                    const AREA_COLORS = makeColorPalette(allTopics);
+
+                    graph = new Graph({ type: 'undirected', multi: true });
+
+                    const nodeAreaCount = {};
+                    rawEdges.forEach(e => {
+                        [e.source, e.target].forEach(id => {
+                            if (!nodeAreaCount[id]) nodeAreaCount[id] = {};
+                            nodeAreaCount[id][e.area] = (nodeAreaCount[id][e.area] || 0) + 1;
+                        });
+                    });
+                    function dominantColor(id) {
+                        const counts = nodeAreaCount[id];
+                        if (!counts) return '#888';
+                        const area = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+                        return AREA_COLORS[area] || '#888';
+                    }
+
+                    rawNodes.forEach(n => {
+                        graph.addNode(n.id, {
+                            x: n.x, y: n.y, size: n.size,
+                            color:    n.vizColor || dominantColor(n.id),
+                            label:    n.label,
+                            idlattes: n.idlattes,
+                            works:    n.works,
+                            inst:     n.inst,
+                            tipo:     n.tipo
+                        });
+                    });
+
+                    rawEdges.forEach(e => {
+                        const edgeColor = AREA_COLORS[e.area] || '#bbb';
+                        graph.addEdgeWithKey(e.key, e.source, e.target, {
+                            size:      0.5,
+                            color:     edgeColor,
+                            baseColor: edgeColor,
+                            area:      e.area,
+                            year:      e.year
+                        });
+                    });
+
+                    sigmaInstance = new Sigma(graph, document.getElementById('sigma' + suffix), {
+                        labelRenderedSizeThreshold: 999,
+                        renderEdgeLabels:  false,
+                        defaultNodeColor:  '#888',
+                        defaultEdgeColor:  '#bbb',
+                        minCameraRatio:    0.05,
+                        maxCameraRatio:    10
+                    });
+
+                    // --- Seleção de nó (highlight) ---
+                    let selectedNode = null;
+                    function selectNode(nodeId) {
+                        if (selectedNode) graph.setNodeAttribute(selectedNode, 'highlighted', false);
+                        selectedNode = nodeId;
+                        if (nodeId) {
+                            graph.setNodeAttribute(nodeId, 'highlighted', true);
+                            const connectedEdges = new Set(graph.edges(nodeId));
+                            graph.forEachEdge((edge, attrs) => {
+                                graph.setEdgeAttribute(edge, 'color', connectedEdges.has(edge) ? attrs.baseColor : '#e8e8e8');
+                            });
+                        } else {
+                            graph.forEachEdge((edge, attrs) => {
+                                graph.setEdgeAttribute(edge, 'color', attrs.baseColor);
+                            });
+                        }
+                        sigmaInstance.refresh();
+                    }
+
+                    // --- Node panel ---
+                    const nodePanel = document.getElementById('node-panel' + suffix);
+                    function showNodePanel(nodeId) {
+                        const a = graph.getNodeAttributes(nodeId);
+                        const isTopic = a.tipo === 'topic';
+
+                        document.getElementById('np-nome'  + suffix).textContent = a.label;
+                        document.getElementById('np-inst'  + suffix).textContent = a.inst || '—';
+                        document.getElementById('np-works' + suffix).textContent = a.works ? `Publicações: ${a.works}` : '';
+                        document.getElementById('np-lattes'+ suffix).innerHTML   = a.idlattes
+                            ? `Lattes: <a href="http://lattes.cnpq.br/${a.idlattes.replace(/'/g,'')}" target="_blank">${a.idlattes.replace(/'/g,'')}</a>`
+                            : '';
+
+                        // Ano mais recente
+                        const edges = graph.edges(nodeId);
+                        const years = edges.map(e => graph.getEdgeAttribute(e, 'year')).filter(y => y > 0);
+                        document.getElementById('np-year' + suffix).textContent =
+                            years.length ? `Ano mais recente: ${Math.max(...years)}` : '';
+
+                        // Áreas
+                        let areasText = '';
+                        if (suffix !== '3') {
+                            const areas = [...new Set(edges.map(e => graph.getEdgeAttribute(e, 'area')).filter(Boolean))].sort();
+                            if (areas.length) areasText = `Áreas: ${areas.join(', ')}`;
+                        } else if (!isTopic) {
+                            const topics = graph.neighbors(nodeId).map(n => graph.getNodeAttribute(n, 'label')).filter(Boolean).sort();
+                            if (topics.length) areasText = `Tópicos: ${topics.join(', ')}`;
+                        }
+                        document.getElementById('np-areas' + suffix).textContent = areasText;
+
+                        // Colaboradores / Pesquisadores
+                        const collabEl = document.getElementById('np-collaborators' + suffix);
+                        collabEl.textContent = '';
+                        const showCollab = suffix !== '3' || isTopic;
+                        if (showCollab) {
+                            const names = graph.neighbors(nodeId)
+                                .map(n => {
+                                    const label = graph.getNodeAttribute(n, 'label');
+                                    const w = graph.edges(nodeId, n).concat(graph.edges(n, nodeId))
+                                        .reduce((s, e) => s + (graph.getEdgeAttribute(e, 'weight') || 1), 0);
+                                    return { label, w };
+                                })
+                                .filter(x => x.label)
+                                .sort((a, b) => b.w - a.w)
+                                .slice(0, 8)
+                                .map(x => x.label);
+                            if (names.length) {
+                                const lbl = document.createElement('span');
+                                lbl.style.color = '#555';
+                                lbl.textContent = isTopic ? 'Pesquisadores:' : 'Colaboradores:';
+                                collabEl.appendChild(lbl);
+                                names.forEach(name => {
+                                    collabEl.appendChild(document.createElement('br'));
+                                    collabEl.appendChild(document.createTextNode(name));
+                                });
+                            }
+                        }
+
+                        nodePanel.style.display = 'block';
+                        selectNode(nodeId);
+                    }
+
+                    sigmaInstance.on('clickNode', ({ node }) => { showNodePanel(node); });
+                    sigmaInstance.on('clickStage', () => {
+                        nodePanel.style.display = 'none';
+                        selectNode(null);
+                    });
+                    document.getElementById('node-panel-close' + suffix).addEventListener('click', () => {
+                        nodePanel.style.display = 'none';
+                        selectNode(null);
+                    });
+
+                    // --- Search ---
+                    const searchInput = document.getElementById('searchInput' + suffix);
+                    const suggestions = document.getElementById('searchSuggestions' + suffix);
+
+                    searchInput.addEventListener('input', () => {
+                        const q = searchInput.value.trim().toLowerCase();
+                        suggestions.innerHTML = '';
+                        if (!q) { suggestions.style.display = 'none'; return; }
+                        const matches = [];
+                        graph.forEachNode((id, attrs) => {
+                            if (attrs.label && attrs.label.toLowerCase().includes(q)) matches.push({ id, label: attrs.label });
+                        });
+                        if (!matches.length) { suggestions.style.display = 'none'; return; }
+                        matches.slice(0, 10).forEach(m => {
+                            const div = document.createElement('div');
+                            div.textContent = m.label;
+                            div.addEventListener('click', () => {
+                                suggestions.style.display = 'none';
+                                searchInput.value = m.label;
+                                const pos = sigmaInstance.getNodeDisplayData(m.id);
+                                sigmaInstance.getCamera().animate({ x: pos.x, y: pos.y, ratio: 0.15 }, { duration: 500 });
+                                showNodePanel(m.id);
+                            });
+                            suggestions.appendChild(div);
+                        });
+                        suggestions.style.display = 'block';
+                    });
+
+                    document.addEventListener('click', e => {
+                        if (!searchInput.contains(e.target) && !suggestions.contains(e.target))
+                            suggestions.style.display = 'none';
+                    });
+
+                    // --- Edge tooltip ---
+                    const tooltip = document.getElementById('edge-tooltip' + suffix);
+                    sigmaInstance.on('enterEdge', ({ edge }) => {
+                        const a = graph.getEdgeAttributes(edge);
+                        const labelA = graph.getNodeAttribute(graph.source(edge), 'label');
+                        const labelB = graph.getNodeAttribute(graph.target(edge), 'label');
+                        tooltip.innerHTML = `<b>${a.area}</b><br>${labelA}<br>${labelB}`;
+                        tooltip.style.display = 'block';
+                    });
+                    sigmaInstance.on('leaveEdge', () => { tooltip.style.display = 'none'; });
+                    document.addEventListener('mousemove', e => {
+                        tooltip.style.left = (e.clientX + 14) + 'px';
+                        tooltip.style.top  = (e.clientY + 14) + 'px';
+                    });
+
+                    // --- Dropdown e legenda ---
+                    const sel = document.getElementById('areaFilter' + suffix);
+                    allTopics.forEach(a => {
+                        const opt = document.createElement('option');
+                        opt.value = a; opt.textContent = a;
+                        sel.appendChild(opt);
+                    });
+                    const legendEl = document.getElementById('legend' + suffix);
+                    if (suffix === '3') {
+                        const topicColor  = (rawNodes.find(n => n.tipo === 'topic')  || {}).vizColor || '#3fb17d';
+                        const personColor = (rawNodes.find(n => n.tipo === 'person') || {}).vizColor || '#ee7993';
+                        [['Área', topicColor], ['Pesquisador', personColor]].forEach(([label, color]) => {
+                            const div = document.createElement('div');
+                            div.className = 'legend-item';
+                            div.innerHTML = `<span class="legend-dot" style="background:${color}"></span>${label}`;
+                            legendEl.appendChild(div);
+                        });
+                    } else {
+                        allTopics.forEach(a => {
+                            const div = document.createElement('div');
+                            div.className = 'legend-item';
+                            div.innerHTML = `<span class="legend-dot" style="background:${AREA_COLORS[a]}"></span>${a}`;
+                            legendEl.appendChild(div);
+                        });
+                    }
+
+                    // --- Year range slider ---
+                    const years = rawEdges.map(e => e.year).filter(y => y > 0);
+                    const sliderEl = document.getElementById('yearRangeSlider' + suffix);
+                    if (years.length > 0) {
+                        const minYear = Math.min(...years);
+                        const maxYear = Math.max(...years);
+                        noUiSlider.create(sliderEl, {
+                            start: [minYear, maxYear],
+                            connect: true,
+                            step: 1,
+                            range: { min: minYear, max: maxYear },
+                            format: { to: v => Math.round(v), from: v => parseInt(v) }
+                        });
+                        document.getElementById('yearFromVal' + suffix).textContent = minYear;
+                        document.getElementById('yearVal'     + suffix).textContent = maxYear;
+                        sliderEl.noUiSlider.on('update', () => applyFilters(suffix, graph, sigmaInstance));
+                    } else {
+                        sliderEl.closest('.filter-group').style.display = 'none';
+                    }
+
+                    // --- Works range slider ---
+                    const worksNodes = suffix === '3'
+                        ? rawNodes.filter(n => n.tipo === 'person')
+                        : rawNodes;
+                    const worksValues = worksNodes.map(n => parseInt(n.works) || 0).filter(v => v > 0);
+                    const worksSliderEl = document.getElementById('worksRangeSlider' + suffix);
+                    if (worksValues.length > 0) {
+                        const minWorks = Math.min(...worksValues);
+                        const maxWorks = Math.max(...worksValues);
+                        noUiSlider.create(worksSliderEl, {
+                            start: [minWorks, maxWorks],
+                            connect: true,
+                            step: 1,
+                            range: { min: minWorks, max: maxWorks },
+                            format: { to: v => Math.round(v), from: v => parseInt(v) }
+                        });
+                        document.getElementById('worksFromVal' + suffix).textContent = minWorks;
+                        document.getElementById('worksVal'     + suffix).textContent = maxWorks;
+                        worksSliderEl.noUiSlider.on('update', () => applyFilters(suffix, graph, sigmaInstance));
+                    } else {
+                        worksSliderEl.closest('.filter-group').style.display = 'none';
+                    }
+
+                    sel.addEventListener('change', () => applyFilters(suffix, graph, sigmaInstance));
+                });
+        }
+
+        function applyFilters(suffix, graph, sigmaInstance) {
+            const area = document.getElementById('areaFilter' + suffix).value;
+            const sliderEl = document.getElementById('yearRangeSlider' + suffix);
+            const [minYear, maxYear] = sliderEl.noUiSlider.get().map(Number);
+            document.getElementById('yearFromVal' + suffix).textContent = minYear;
+            document.getElementById('yearVal'     + suffix).textContent = maxYear;
+
+            const worksSliderEl = document.getElementById('worksRangeSlider' + suffix);
+            let minWorks = 0, maxWorks = Infinity;
+            if (worksSliderEl.noUiSlider) {
+                [minWorks, maxWorks] = worksSliderEl.noUiSlider.get().map(Number);
+                document.getElementById('worksFromVal' + suffix).textContent = minWorks;
+                document.getElementById('worksVal'     + suffix).textContent = maxWorks;
+            }
+
+            const visibleNodes = new Set();
+            if (suffix === '3' && area) {
+                let topicId = null;
+                graph.forEachNode((id, attrs) => {
+                    if (attrs.tipo === 'topic' && attrs.label === area) topicId = id;
+                });
+                graph.forEachEdge((key, attrs) => {
+                    const yearOk = !attrs.year || (attrs.year >= minYear && attrs.year <= maxYear);
+                    const show   = yearOk && topicId && (graph.source(key) === topicId || graph.target(key) === topicId);
+                    graph.setEdgeAttribute(key, 'hidden', !show);
+                    if (show) {
+                        visibleNodes.add(graph.source(key));
+                        visibleNodes.add(graph.target(key));
+                    }
+                });
+            } else {
+                graph.forEachEdge((key, attrs) => {
+                    const yearOk = !attrs.year || (attrs.year >= minYear && attrs.year <= maxYear);
+                    const show   = (!area || attrs.area === area) && yearOk;
+                    graph.setEdgeAttribute(key, 'hidden', !show);
+                    if (show) {
+                        visibleNodes.add(graph.source(key));
+                        visibleNodes.add(graph.target(key));
+                    }
+                });
+            }
+            graph.forEachNode((id, attrs) => {
+                const works = parseInt(attrs.works) || 0;
+                const isTopic = attrs.tipo === 'topic';
+                const worksOk = isTopic || (works >= minWorks && works <= maxWorks);
+                graph.setNodeAttribute(id, 'hidden', !visibleNodes.has(id) || !worksOk);
+            });
+            sigmaInstance.refresh();
+        }
+
+        function loadGraph(gexfFile, suffix, overlayId) {
+            document.getElementById(overlayId).style.display = 'none';
+            initGraph(gexfFile, suffix);
+        }
+
+        function loadIframe(frameId, src, overlayId) {
+            document.getElementById(overlayId).style.display = 'none';
+            document.getElementById(frameId).src = src;
+        }
+
+        // =============================================================================
+        // CORREÇÃO PROVISÓRIA — NÃO É A SOLUÇÃO DEFINITIVA
+        // -----------------------------------------------------------------------------
+        // Algumas entradas do mapa "Lista Seletiva" chegam sem o estado no campo
+        // "cidade" (ex: "Campinas" em vez de "Campinas, São Paulo"). O mapeamento
+        // abaixo é um fallback manual para que essas instituições apareçam
+        // corretamente no filtro de estado.
+        //
+        // A correção correta deve ser feita NA FONTE DOS DADOS (script Python que
+        // gera o HTML), garantindo que todas as entradas tenham o formato
+        // "Cidade, Estado" no campo cidade.
+        //
+        // Ao corrigir na fonte, este dicionário pode (e deve) ser removido.
+        // =============================================================================
+        const CITY_TO_STATE_MAP1 = {
+            'Belo Horizonte': 'Minas Gerais',
+            'Campina Grande': 'Paraíba',
+            'Campinas':       'São Paulo',
+            'Fortaleza':      'Ceará',
+            'Goiânia':        'Goiás',
+            'Maceió':         'Alagoas',
+            'Recife':         'Pernambuco',
+            'Rio de Janeiro': 'Rio de Janeiro',
+            'Salvador':       'Bahia',
+            'São Carlos':     'São Paulo',
+            'São Paulo':      'São Paulo',
+            'Viçosa':         'Minas Gerais',
+        };
+
+        function initMapFilter(frameId, stateId, searchId, suggestionsId) {
+            const frame = document.getElementById(frameId);
+            frame.addEventListener('load', function() {
+                const win = frame.contentWindow;
+
+                // Encontra a variável do cluster dinamicamente
+                let cluster = null;
+                for (const key of Object.keys(win)) {
+                    if (key.startsWith('marker_cluster_')) {
+                        cluster = win[key];
+                        break;
+                    }
+                }
+                if (!cluster) return;
+
+                // Constrói lista de markers
+                const allMarkers = [];
+                cluster.eachLayer(function(layer) {
+                    const popup = layer.getPopup();
+                    const tooltip = layer.getTooltip();
+                    const popupHtml = popup ? (popup.getContent().innerHTML || '') : '';
+                    const stateMatch = popupHtml.match(/cidade:<\/b>\s*[^,<]+,\s*([^<\n]+)/i);
+                    const cityMatch  = popupHtml.match(/cidade:<\/b>\s*([^,<\n]+)/i);
+                    const city = cityMatch ? cityMatch[1].trim() : '';
+                    const cityFallback = (frameId === 'map1_frame') ? (CITY_TO_STATE_MAP1[city] || '') : '';
+                    const state = stateMatch ? stateMatch[1].trim() : cityFallback;
+                    const tooltipHtml = tooltip ? tooltip.getContent() : '';
+                    const tmp = win.document.createElement('div');
+                    tmp.innerHTML = tooltipHtml;
+                    const name = tmp.textContent.trim();
+                    const researchersMatch = popupHtml.match(/pesquisadores:<\/b>\s*([^<]+)/i);
+                    const researchers = researchersMatch
+                        ? researchersMatch[1].split(',').map(r => r.trim()).filter(r => r && !/^\d/.test(r))
+                        : [];
+                    allMarkers.push({ layer, state, name, researchers, city });
+                });
+
+                // Popula select de estados
+                const sel = document.getElementById(stateId);
+                const states = [...new Set(allMarkers.map(m => m.state).filter(Boolean))].sort();
+                states.forEach(s => {
+                    const o = document.createElement('option');
+                    o.value = s; o.textContent = s;
+                    sel.appendChild(o);
+                });
+
+                const researcherSearchId  = frameId === 'map1_frame' ? 'map1_researcher' : null;
+                const researcherSuggestId = frameId === 'map1_frame' ? 'map1_researcher_suggestions' : null;
+                const citySearchId        = frameId === 'map2_frame' ? 'map2_city' : null;
+                const citySuggestId       = frameId === 'map2_frame' ? 'map2_city_suggestions' : null;
+
+                function applyFilters() {
+                    const st = document.getElementById(stateId).value;
+                    const q  = document.getElementById(searchId).value.toLowerCase();
+                    const qr = researcherSearchId ? document.getElementById(researcherSearchId).value.toLowerCase() : '';
+                    const qc = citySearchId       ? document.getElementById(citySearchId).value.toLowerCase()       : '';
+                    cluster.clearLayers();
+                    allMarkers.forEach(m => {
+                        const stateOk      = !st || m.state === st;
+                        const nameOk       = !q  || m.name.toLowerCase().includes(q);
+                        const researcherOk = !qr || m.researchers.some(r => r.toLowerCase().includes(qr));
+                        const cityOk       = !qc || m.city.toLowerCase().includes(qc);
+                        if (stateOk && nameOk && researcherOk && cityOk) cluster.addLayer(m.layer);
+                    });
+                }
+
+                function showSuggestions() {
+                    const q = document.getElementById(searchId).value.toLowerCase();
+                    const st = document.getElementById(stateId).value;
+                    const sugg = document.getElementById(suggestionsId);
+                    sugg.innerHTML = '';
+                    if (!q) { sugg.style.display = 'none'; return; }
+                    const seen = {};
+                    const matches = allMarkers
+                        .filter(m => (!st || m.state === st) && m.name.toLowerCase().includes(q))
+                        .filter(m => { if (seen[m.name]) return false; seen[m.name] = true; return true; })
+                        .slice(0, 15);
+                    if (!matches.length) { sugg.style.display = 'none'; return; }
+                    matches.forEach(m => {
+                        const item = document.createElement('div');
+                        item.textContent = m.name;
+                        item.addEventListener('mouseover', () => item.style.background = '#f0f0f0');
+                        item.addEventListener('mouseout',  () => item.style.background = '');
+                        item.addEventListener('mousedown', e => {
+                            e.preventDefault();
+                            document.getElementById(searchId).value = m.name;
+                            sugg.style.display = 'none';
+                            applyFilters();
+                        });
+                        sugg.appendChild(item);
+                    });
+                    sugg.style.display = 'block';
+                }
+
+                function showResearcherSuggestions() {
+                    if (!researcherSearchId) return;
+                    const q = document.getElementById(researcherSearchId).value.toLowerCase();
+                    const sugg = document.getElementById(researcherSuggestId);
+                    sugg.innerHTML = '';
+                    if (!q) { sugg.style.display = 'none'; return; }
+                    const seen = {};
+                    const matches = allMarkers
+                        .flatMap(m => m.researchers)
+                        .filter(r => r.toLowerCase().includes(q))
+                        .filter(r => { if (seen[r]) return false; seen[r] = true; return true; })
+                        .sort()
+                        .slice(0, 15);
+                    if (!matches.length) { sugg.style.display = 'none'; return; }
+                    matches.forEach(r => {
+                        const item = document.createElement('div');
+                        item.textContent = r;
+                        item.addEventListener('mouseover', () => item.style.background = '#f0f0f0');
+                        item.addEventListener('mouseout',  () => item.style.background = '');
+                        item.addEventListener('mousedown', e => {
+                            e.preventDefault();
+                            document.getElementById(researcherSearchId).value = r;
+                            sugg.style.display = 'none';
+                            applyFilters();
+                        });
+                        sugg.appendChild(item);
+                    });
+                    sugg.style.display = 'block';
+                }
+
+                document.getElementById(stateId).addEventListener('change', () => { applyFilters(); showSuggestions(); });
+                document.getElementById(searchId).addEventListener('input', () => { applyFilters(); showSuggestions(); });
+                document.getElementById(searchId).addEventListener('blur', () => {
+                    setTimeout(() => { document.getElementById(suggestionsId).style.display = 'none'; }, 150);
+                });
+                document.getElementById(searchId).addEventListener('focus', showSuggestions);
+
+                if (researcherSearchId) {
+                    document.getElementById(researcherSearchId).addEventListener('input', () => { applyFilters(); showResearcherSuggestions(); });
+                    document.getElementById(researcherSearchId).addEventListener('blur', () => {
+                        setTimeout(() => { document.getElementById(researcherSuggestId).style.display = 'none'; }, 150);
+                    });
+                    document.getElementById(researcherSearchId).addEventListener('focus', showResearcherSuggestions);
+                }
+
+                if (citySearchId) {
+                    function showCitySuggestions() {
+                        const q = document.getElementById(citySearchId).value.toLowerCase();
+                        const sugg = document.getElementById(citySuggestId);
+                        sugg.innerHTML = '';
+                        if (!q) { sugg.style.display = 'none'; return; }
+                        const seen = {};
+                        const matches = allMarkers
+                            .map(m => m.city)
+                            .filter(c => c.toLowerCase().includes(q))
+                            .filter(c => { if (seen[c]) return false; seen[c] = true; return true; })
+                            .sort()
+                            .slice(0, 15);
+                        if (!matches.length) { sugg.style.display = 'none'; return; }
+                        matches.forEach(c => {
+                            const item = document.createElement('div');
+                            item.textContent = c;
+                            item.addEventListener('mouseover', () => item.style.background = '#f0f0f0');
+                            item.addEventListener('mouseout',  () => item.style.background = '');
+                            item.addEventListener('mousedown', e => {
+                                e.preventDefault();
+                                document.getElementById(citySearchId).value = c;
+                                sugg.style.display = 'none';
+                                applyFilters();
+                            });
+                            sugg.appendChild(item);
+                        });
+                        sugg.style.display = 'block';
+                    }
+
+                    document.getElementById(citySearchId).addEventListener('input', () => { applyFilters(); showCitySuggestions(); });
+                    document.getElementById(citySearchId).addEventListener('blur', () => {
+                        setTimeout(() => { document.getElementById(citySuggestId).style.display = 'none'; }, 150);
+                    });
+                    document.getElementById(citySearchId).addEventListener('focus', showCitySuggestions);
+                }
+            });
+        }
+
+        initMapFilter('map1_frame', 'map1_state', 'map1_search', 'map1_suggestions');
+        initMapFilter('map2_frame', 'map2_state', 'map2_search', 'map2_suggestions');
+    </script>
+</body>
+</html>

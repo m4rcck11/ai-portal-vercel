@@ -1,0 +1,4195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2ca34991cd73e676bc8071f2564eef08 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_2ca34991cd73e676bc8071f2564eef08" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2ca34991cd73e676bc8071f2564eef08 = L.map(
+                "map_2ca34991cd73e676bc8071f2564eef08",
+                {
+                    center: [-15.0, -60.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+  "language": "pt_br",
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4bb4d9ad83f51cb79086e29125872b59 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4bb4d9ad83f51cb79086e29125872b59.addTo(map_2ca34991cd73e676bc8071f2564eef08);
+        
+    
+            var marker_cluster_d11119ed12bcd0a22dd4c595653e21ad = L.markerClusterGroup(
+                {
+  "language": "pt_br",
+}
+            );
+        
+    
+            var marker_0a35d061fd8ecd764dc103ac742291d0 = L.marker(
+                [-23.5644866, -46.6357926],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_20df9f90b502929d5e094bdfafa4e705 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3ecdeb0a2c26641867da610bfd56d8c2 = $(`<div id="html_3ecdeb0a2c26641867da610bfd56d8c2" style="width: 100.0%; height: 100.0%;"><b>cidade:</b> São Paulo, São Paulo<br><b>nome:</b> ROBOFEI<br><b>url:</b> https://portal.fei.edu.br/robo-fei<br><b>pesquisadores:</b> Flavio Tonidandel, Plinio Thomaz Aquino Junior, Reinaldo Augusto da Costa Bianchi<br><b>latitude:</b> -23.5644866<br><b>longitude:</b> -46.6357926<br></div>`)[0];
+                popup_20df9f90b502929d5e094bdfafa4e705.setContent(html_3ecdeb0a2c26641867da610bfd56d8c2);
+            
+        
+
+        marker_0a35d061fd8ecd764dc103ac742291d0.bindPopup(popup_20df9f90b502929d5e094bdfafa4e705)
+        ;
+
+        
+    
+    
+            marker_0a35d061fd8ecd764dc103ac742291d0.bindTooltip(
+                `<div>
+                     ROBOFEI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6afce0cf3f7a8a5b8880c26eb3ad3ffc = L.marker(
+                [-5.1458957, -38.0936064],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_1d3f0b681236693a239276f4981a396e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_334833c68b046fe6574781282c6a3bd4 = $(`<div id="html_334833c68b046fe6574781282c6a3bd4" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Federal de Educação, Ciência e Tecnologia do Ceará<br><b>cidade:</b> Limoeiro do Norte, Ceará<br><b>nome:</b> Grupo de Pesquisa Avançada em Redes e Automação<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/5565486030988100<br><b>email:</b> rodrigo.costa@ifce.edu.br<br><b>coordenador:</b> Rodrigo Carvalho Souza Costa, Diego Aguiar Sousa<br><b>pesquisadores:</b> Diego Aguiar Sousa, Francisco Ivan de Oliveira, Karlane Holanda Araújo, Rodrigo Carvalho Souza Costa, Sinara Socorro Duarte Rocha<br><b>latitude:</b> -5.1458957<br><b>longitude:</b> -38.0936064<br></div>`)[0];
+                popup_1d3f0b681236693a239276f4981a396e.setContent(html_334833c68b046fe6574781282c6a3bd4);
+            
+        
+
+        marker_6afce0cf3f7a8a5b8880c26eb3ad3ffc.bindPopup(popup_1d3f0b681236693a239276f4981a396e)
+        ;
+
+        
+    
+    
+            marker_6afce0cf3f7a8a5b8880c26eb3ad3ffc.bindTooltip(
+                `<div>
+                     Grupo de Pesquisa Avançada em Redes e Automação
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_7d003c455e4f4713643ffc60b155943a = L.marker(
+                [-8.0594898, -34.9506023],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_498b46494deae901c38b81efc4a9bbd2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c2155a6a8c2a1d1fadc9c648d920d323 = $(`<div id="html_c2155a6a8c2a1d1fadc9c648d920d323" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Federal de Pernambuco<br><b>cidade:</b> Recife, Pernambuco<br><b>nome:</b> Computação Avançada, Pesquisa Aplicada, Computação Inteligente e Tecnologias Emergentes (CAPACITE)<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/4860811842968975<br><b>email:</b> luciano.cabral@jaboatao.ifpe.edu.br<br><b>coordenador:</b> Luciano de Souza Cabral, Francisco do Nascimento Júnior<br><b>pesquisadores:</b> Francisco do Nascimento Júnior, Frederico Luiz Gonçalves de Freitas, Luciano de Souza Cabral, Rafael Dueire Lins, Rinaldo José de Lima<br><b>latitude:</b> -8.0594898<br><b>longitude:</b> -34.9506023<br></div>`)[0];
+                popup_498b46494deae901c38b81efc4a9bbd2.setContent(html_c2155a6a8c2a1d1fadc9c648d920d323);
+            
+        
+
+        marker_7d003c455e4f4713643ffc60b155943a.bindPopup(popup_498b46494deae901c38b81efc4a9bbd2)
+        ;
+
+        
+    
+    
+            marker_7d003c455e4f4713643ffc60b155943a.bindTooltip(
+                `<div>
+                     Computação Avançada, Pesquisa Aplicada, Computação Inteligente e Tecnologias Emergentes (CAPACITE)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_38d86830e358d18f71e0c65c319129f6 = L.marker(
+                [-26.9307789, -48.6851059],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_abed0e78a47bdff550722d43a4e4c717 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_275e08a348f6283b9361a783cbbe643b = $(`<div id="html_275e08a348f6283b9361a783cbbe643b" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Federal de Santa Catarina<br><b>cidade:</b> Itajaí, Santa Catarina<br><b>nome:</b> Grupo de Pesquisas em Instrumentação e Medição Aplicada<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/4716945153199213<br><b>email:</b> roddy.romero@ifsc.edu.br<br><b>coordenador:</b> Roddy Alexander Romero Antayhua, Luis Fernando Pozas<br><b>pesquisadores:</b> Gustavo Artur de Andrade, Heron Eduardo de Lima Ávila, Luis Fernando Pozas, Sérgio Augusto Bitencourt Petrovcic, Roddy Alexander Romero Antayhua<br><b>latitude:</b> -26.9307789<br><b>longitude:</b> -48.6851059<br></div>`)[0];
+                popup_abed0e78a47bdff550722d43a4e4c717.setContent(html_275e08a348f6283b9361a783cbbe643b);
+            
+        
+
+        marker_38d86830e358d18f71e0c65c319129f6.bindPopup(popup_abed0e78a47bdff550722d43a4e4c717)
+        ;
+
+        
+    
+    
+            marker_38d86830e358d18f71e0c65c319129f6.bindTooltip(
+                `<div>
+                     Grupo de Pesquisas em Instrumentação e Medição Aplicada
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_43b5e54080636e3797626825f3c7c0a0 = L.marker(
+                [-23.3176237, -45.9836709],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_f36b80e2de0e4229f1a8ce85b46b54df = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_79e938a7b95b59f600247bff0b49db00 = $(`<div id="html_79e938a7b95b59f600247bff0b49db00" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Federal de São Paulo<br><b>cidade:</b> Jacareí, São Paulo<br><b>nome:</b> Ábaco<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/3156193714227418<br><b>email:</b> abaco.grupo.pesquisa@gmail.com<br><b>coordenador:</b> Luciana Brasil Rebelo dos Santos, Lucas Venezian Povoa<br><b>pesquisadores:</b> Carla Diacui Medeiros Berkenbrock, Gian Ricardo Berkenbrock, Lucas Venezian Povoa, Luciana Brasil Rebelo dos Santos, Nandamudi Lankalapalli Vijaykumar<br><b>latitude:</b> -23.3176237<br><b>longitude:</b> -45.9836709<br></div>`)[0];
+                popup_f36b80e2de0e4229f1a8ce85b46b54df.setContent(html_79e938a7b95b59f600247bff0b49db00);
+            
+        
+
+        marker_43b5e54080636e3797626825f3c7c0a0.bindPopup(popup_f36b80e2de0e4229f1a8ce85b46b54df)
+        ;
+
+        
+    
+    
+            marker_43b5e54080636e3797626825f3c7c0a0.bindTooltip(
+                `<div>
+                     Ábaco
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2d0e1a69fa35312999965f523bf805c5 = L.marker(
+                [-23.9283997, -46.4123488],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_e69f7c5bd260c51f3e6bc09b851ea3fc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9cf7738a59df0943edee4932d37a780a = $(`<div id="html_9cf7738a59df0943edee4932d37a780a" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Federal de São Paulo<br><b>cidade:</b> Cubatão, São Paulo<br><b>nome:</b> Autosystem<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/4313813336202326<br><b>email:</b> marcos.doro@ifsp.edu.br<br><b>coordenador:</b> Marcos Marinovic Doro, Marcelo Saraiva Coelho<br><b>pesquisadores:</b> Arnaldo de Carvalho Junior, Flávia Daylane Tavares de Luna, Marcos Marinovic Doro<br><b>latitude:</b> -23.9283997<br><b>longitude:</b> -46.4123488<br></div>`)[0];
+                popup_e69f7c5bd260c51f3e6bc09b851ea3fc.setContent(html_9cf7738a59df0943edee4932d37a780a);
+            
+        
+
+        marker_2d0e1a69fa35312999965f523bf805c5.bindPopup(popup_e69f7c5bd260c51f3e6bc09b851ea3fc)
+        ;
+
+        
+    
+    
+            marker_2d0e1a69fa35312999965f523bf805c5.bindTooltip(
+                `<div>
+                     Autosystem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_59ec279263a0db63d8b30f456c39fd57 = L.marker(
+                [-9.9310638, -67.8176709],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_99bccb6cf1863047f8177ef65886fc4e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f2bc9790cbc7f56c14f9457589b05a81 = $(`<div id="html_f2bc9790cbc7f56c14f9457589b05a81" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Federal do Acre<br><b>cidade:</b> Rio Branco, Acre<br><b>nome:</b> Aquiri Data Lab<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/4857201422275726<br><b>email:</b> aquiridatalab@ifac.edu.br<br><b>coordenador:</b> Adolfo Henrique dos Santos Fernandes, Willian Ramon Barbosa Bessa<br><b>pesquisadores:</b> Altemir da Silva Braga, Fábio Soares Pereira, Manoel Limeira de Lima Júnior Almeida<br><b>latitude:</b> -9.9310638<br><b>longitude:</b> -67.8176709<br></div>`)[0];
+                popup_99bccb6cf1863047f8177ef65886fc4e.setContent(html_f2bc9790cbc7f56c14f9457589b05a81);
+            
+        
+
+        marker_59ec279263a0db63d8b30f456c39fd57.bindPopup(popup_99bccb6cf1863047f8177ef65886fc4e)
+        ;
+
+        
+    
+    
+            marker_59ec279263a0db63d8b30f456c39fd57.bindTooltip(
+                `<div>
+                     Aquiri Data Lab
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e7c6f86e9fec974b0e57283f289d1d8d = L.marker(
+                [-7.2052386, -39.4479867],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_a974069c2602075303f93341c9a919a0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_453b6e0e099319860df7524847b29ddf = $(`<div id="html_453b6e0e099319860df7524847b29ddf" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Federal do Ceará<br><b>cidade:</b> Crato, Ceará<br><b>nome:</b> Grupo de Pesquisa Ciências Exatas Aplicadas<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/0955078279833835<br><b>email:</b> guilhermealvaro@ifce.edu.br<br><b>coordenador:</b> Guilherme Alvaro Rodrigues Maia Esmeraldo, Cícero Carlos Felix de Oliveira<br><b>pesquisadores:</b> Cícero Carlos Felix de Oliveira, Edson Barbosa Lisboa, Guilherme Alvaro Rodrigues Maia Esmeraldo, Miguel Angel Duran Roa<br><b>latitude:</b> -7.2052386<br><b>longitude:</b> -39.4479867<br></div>`)[0];
+                popup_a974069c2602075303f93341c9a919a0.setContent(html_453b6e0e099319860df7524847b29ddf);
+            
+        
+
+        marker_e7c6f86e9fec974b0e57283f289d1d8d.bindPopup(popup_a974069c2602075303f93341c9a919a0)
+        ;
+
+        
+    
+    
+            marker_e7c6f86e9fec974b0e57283f289d1d8d.bindTooltip(
+                `<div>
+                     Grupo de Pesquisa Ciências Exatas Aplicadas
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e95d682394817bb3e38111d81dc10696 = L.marker(
+                [-17.8125682, -49.2039576],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_81e6bff5bf936d7dfdcae0c1dfd64bb6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4a17926ba368c648cd9d55e2381fadff = $(`<div id="html_4a17926ba368c648cd9d55e2381fadff" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Federal Goiano<br><b>cidade:</b> Morrinhos, Goiás<br><b>nome:</b> Automação Inteligente de Processos e Algoritmos<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/2747242402994060<br><b>email:</b> fernando.matos@ifgoiano.edu.br<br><b>coordenador:</b> Fernando Barbosa Matos, Marcel da Silva Melo<br><b>pesquisadores:</b> Eliandra Maria Bianchini Oliveira, Fernando Barbosa Matos, Paulo Henrique Garcia Mansur<br><b>latitude:</b> -17.8125682<br><b>longitude:</b> -49.2039576<br></div>`)[0];
+                popup_81e6bff5bf936d7dfdcae0c1dfd64bb6.setContent(html_4a17926ba368c648cd9d55e2381fadff);
+            
+        
+
+        marker_e95d682394817bb3e38111d81dc10696.bindPopup(popup_81e6bff5bf936d7dfdcae0c1dfd64bb6)
+        ;
+
+        
+    
+    
+            marker_e95d682394817bb3e38111d81dc10696.bindTooltip(
+                `<div>
+                     Automação Inteligente de Processos e Algoritmos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_00c8cc43658b3b57c50a845af4c501db = L.marker(
+                [-17.8125682, -49.2039576],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_b2450df9be62df0a3ad7776d69354ce9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_94d27adc59065bdb857f8d37cdeec980 = $(`<div id="html_94d27adc59065bdb857f8d37cdeec980" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Federal Goiano<br><b>cidade:</b> Morrinhos, Goiás<br><b>departamento:</b> Campus Morrinhos<br><b>nome:</b> Grupo de Estudo Computação Aplicada<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/6331946208614528<br><b>email:</b> leila.roling@ifgoiano.edu.br<br><b>coordenador:</b> Leila Roling Scariot da Silva, Jesmmer da Silveira Alves<br><b>pesquisadores:</b> Jesmmer da Silveira Alves, Alexandre Carvalho Silva, Leila Roling Scariot da Silva<br><b>latitude:</b> -17.8125682<br><b>longitude:</b> -49.2039576<br></div>`)[0];
+                popup_b2450df9be62df0a3ad7776d69354ce9.setContent(html_94d27adc59065bdb857f8d37cdeec980);
+            
+        
+
+        marker_00c8cc43658b3b57c50a845af4c501db.bindPopup(popup_b2450df9be62df0a3ad7776d69354ce9)
+        ;
+
+        
+    
+    
+            marker_00c8cc43658b3b57c50a845af4c501db.bindTooltip(
+                `<div>
+                     Grupo de Estudo Computação Aplicada
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f7a5c0d2b23fea31cb20b8ed20ba66de = L.marker(
+                [-22.834445, -47.0480869],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_5d8514a6bbca9cf429ade05be25eb0e3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_db515141e7ee4466e51ca542ea23eb54 = $(`<div id="html_db515141e7ee4466e51ca542ea23eb54" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Pontifícia Universidade Católica de Campinas<br><b>cidade:</b> Campinas, São Paulo<br><b>departamento:</b> Faculdade de Engenharia da Computação<br><b>url:</b> http://dgp.cnpq.br/dgp/espelhogrupo/6948580501124731<br><b>email:</b> juan@puc-campinas.edu.br<br><b>coordenador:</b> Ademar Takeo Akabane, Juan Manuel Adán Coello<br><b>pesquisadores:</b> Ademar Takeo Akabane, Juan Manuel Adan Coello<br><b>latitude:</b> -22.834445<br><b>longitude:</b> -47.0480869<br></div>`)[0];
+                popup_5d8514a6bbca9cf429ade05be25eb0e3.setContent(html_db515141e7ee4466e51ca542ea23eb54);
+            
+        
+
+        marker_f7a5c0d2b23fea31cb20b8ed20ba66de.bindPopup(popup_5d8514a6bbca9cf429ade05be25eb0e3)
+        ;
+
+        
+    
+    
+            marker_f7a5c0d2b23fea31cb20b8ed20ba66de.bindTooltip(
+                `<div>
+                     nan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_23ed76bbe5cea8ffbf9c113a4f4b405f = L.marker(
+                [-19.9228622, -43.992595],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_682a04fdd312161b1e54401482574a8e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e40ee133afcef934157313fcfe908b5d = $(`<div id="html_e40ee133afcef934157313fcfe908b5d" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Pontifícia Universidade Católica de Minas Gerais<br><b>cidade:</b> Belo Horizonte, Minas Gerais<br><b>departamento:</b> Instituto Politécnico<br><b>nome:</b> CIPA<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/1739721515380426<br><b>email:</b> renata.umbelino@pucminas.br<br><b>coordenador:</b> Renata Umbelino Rêgo<br><b>pesquisadores:</b> André Fioravante de Oliveira, Attenister Tárcisio Rego, Renata Umbelino Rêgo, Tarcísio Flávio Umbelino Rêgo<br><b>latitude:</b> -19.9228622<br><b>longitude:</b> -43.992595<br></div>`)[0];
+                popup_682a04fdd312161b1e54401482574a8e.setContent(html_e40ee133afcef934157313fcfe908b5d);
+            
+        
+
+        marker_23ed76bbe5cea8ffbf9c113a4f4b405f.bindPopup(popup_682a04fdd312161b1e54401482574a8e)
+        ;
+
+        
+    
+    
+            marker_23ed76bbe5cea8ffbf9c113a4f4b405f.bindTooltip(
+                `<div>
+                     CIPA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e6700e0473ab2025608d2ad1e2bbbd1a = L.marker(
+                [-22.9797662, -43.2331714],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_9202abf5dad38e1b9abdce220d55137f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4b429ca56f88af1f38df48568dab637c = $(`<div id="html_4b429ca56f88af1f38df48568dab637c" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Pontifícia Universidade Católica do Rio de Janeiro<br><b>cidade:</b> Rio de Janeiro, Rio de Janeiro<br><b>departamento:</b> Departamento de Engenharia Elétrica<br><b>nome:</b> Laboratório de Inteligência Computacional Aplicada (ICA)<br><b>url:</b> https://puc-rio.ai/<br><b>coordenador:</b> Marco Aurélio Pacheco<br><b>pesquisadores:</b> Ana Carolina Abreu, Leonardo Mendoza, Manoela Kohler, Cristian Muños, José Bermudes, José Ruiz, Marco Antônio Dias, Ricardo Tanscheit, Smith Arauco, Maria Cláudia, Carmen Vargas, Evelyn Batista, Felipe Borges, Pedro Chataignier, Renato Sayão, William Ramirez, Vitor Bento de Sousa, Eleonora Weiner, Amanda Lucas Pereira, Douglas Abreu<br><b>latitude:</b> -22.9797662<br><b>longitude:</b> -43.2331714<br></div>`)[0];
+                popup_9202abf5dad38e1b9abdce220d55137f.setContent(html_4b429ca56f88af1f38df48568dab637c);
+            
+        
+
+        marker_e6700e0473ab2025608d2ad1e2bbbd1a.bindPopup(popup_9202abf5dad38e1b9abdce220d55137f)
+        ;
+
+        
+    
+    
+            marker_e6700e0473ab2025608d2ad1e2bbbd1a.bindTooltip(
+                `<div>
+                     Laboratório de Inteligência Computacional Aplicada (ICA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_aff5cbc90f036d12380c85980d588cd3 = L.marker(
+                [-30.0611379, -51.1738521],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_e6b876514579dd534774de4b0c1e57b6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_175e7cab0af40b54217be9e1645bbaaf = $(`<div id="html_175e7cab0af40b54217be9e1645bbaaf" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Pontifícia Universidade Católica do Rio Grande do Sul<br><b>cidade:</b> Porto Alegre, Rio Grande do Sul<br><b>departamento:</b> Escola Politécnica<br><b>nome:</b> Optimized Deep Learning based Representations for Computer Vision<br><b>url:</b> https://www.airespucrs.org/<br><b>email:</b> airesucla@gmail.com<br><b>coordenador:</b> Nicholas Kluge<br><b>pesquisadores:</b> Nicholas Kluge, Diogo Fernando Massmann, Lara Sosa Márquez<br><b>latitude:</b> -30.0611379<br><b>longitude:</b> -51.1738521<br></div>`)[0];
+                popup_e6b876514579dd534774de4b0c1e57b6.setContent(html_175e7cab0af40b54217be9e1645bbaaf);
+            
+        
+
+        marker_aff5cbc90f036d12380c85980d588cd3.bindPopup(popup_e6b876514579dd534774de4b0c1e57b6)
+        ;
+
+        
+    
+    
+            marker_aff5cbc90f036d12380c85980d588cd3.bindTooltip(
+                `<div>
+                     Optimized Deep Learning based Representations for Computer Vision
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_321b3e5ab3b88d9f20a9002ab9503fe3 = L.marker(
+                [-30.0611379, -51.1738521],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_1bfc47e34b7f8705d932a387fb7ac4ce = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f4aad14fe8ffed9d8a5e3d6af986a1ea = $(`<div id="html_f4aad14fe8ffed9d8a5e3d6af986a1ea" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Pontifícia Universidade Católica do Rio Grande do Sul<br><b>cidade:</b> Porto Alegre, Rio Grande do Sul<br><b>departamento:</b> Escola Politécnica<br><b>nome:</b> Laboratório de Sistemas Autônomos<br><b>url:</b> https://lsa-pucrs.github.io/<br><b>email:</b> mobile.robot.pucrs@gmail.com<br><b>coordenador:</b> Rafael Fraga Garibotti, Felipe Meneguzzi<br><b>pesquisadores:</b> Rafael Fraga Garibotti, Felipe Meneguzzi, Aurélio Tergolina Salton, Edson Prestes, Edson Moreno, Isabel Harb Manssour, Leonel Tedesco, Luiz Marcos Garcia Gonçalves, Marcia Borba Campos, Rafael Bordini, Regis Alexandre Lahm<br><b>latitude:</b> -30.0611379<br><b>longitude:</b> -51.1738521<br></div>`)[0];
+                popup_1bfc47e34b7f8705d932a387fb7ac4ce.setContent(html_f4aad14fe8ffed9d8a5e3d6af986a1ea);
+            
+        
+
+        marker_321b3e5ab3b88d9f20a9002ab9503fe3.bindPopup(popup_1bfc47e34b7f8705d932a387fb7ac4ce)
+        ;
+
+        
+    
+    
+            marker_321b3e5ab3b88d9f20a9002ab9503fe3.bindTooltip(
+                `<div>
+                     Laboratório de Sistemas Autônomos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_081809960f347a1f8f71a56ad818aec0 = L.marker(
+                [-30.0611379, -51.1738521],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_330cf8a345131c155c33054f994c07b9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_23fff2f0c8fff60424afc9b53af90bd4 = $(`<div id="html_23fff2f0c8fff60424afc9b53af90bd4" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Pontifícia Universidade Católica do Rio Grande do Sul<br><b>cidade:</b> Porto Alegre, Rio Grande do Sul<br><b>departamento:</b> Escola Politécnica<br><b>nome:</b> Simulação de Humanos Virtuais (SiHuV)<br><b>url:</b> http://dgp.cnpq.br/dgp/espelhogrupo/2273507001429659<br><b>email:</b> soraia.musse@pucrs.br<br><b>coordenador:</b> Soraia Raupp Musse<br><b>pesquisadores:</b> André da Silva Antonitsch, Bruna Martini Dalmoro, Diogo Hartmann Muller Schaffer, Gabriel Fonseca Silva, Greice Pinho Dal Molin, Júlia Kubiak Melgaré, Natália Dal Pizzol, Paulo Ricardo Knob, Victor Flávio de Andrade Araujo, Vitor Miguel Xavier Peres<br><b>latitude:</b> -30.0611379<br><b>longitude:</b> -51.1738521<br></div>`)[0];
+                popup_330cf8a345131c155c33054f994c07b9.setContent(html_23fff2f0c8fff60424afc9b53af90bd4);
+            
+        
+
+        marker_081809960f347a1f8f71a56ad818aec0.bindPopup(popup_330cf8a345131c155c33054f994c07b9)
+        ;
+
+        
+    
+    
+            marker_081809960f347a1f8f71a56ad818aec0.bindTooltip(
+                `<div>
+                     Simulação de Humanos Virtuais (SiHuV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_58d9a7f873996584b8240ede7100d2f0 = L.marker(
+                [-30.0611379, -51.1738521],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_c3462beeb9056dfe645d4cf2276002c5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_066fe6be0ec96e5eb4ab59a78ff5efea = $(`<div id="html_066fe6be0ec96e5eb4ab59a78ff5efea" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Pontifícia Universidade Católica do Rio Grande do Sul<br><b>cidade:</b> Porto Alegre, Rio Grande do Sul<br><b>departamento:</b> Escola Politécnica<br><b>nome:</b> Research Nucleus in Machine Intelligence and Robotics<br><b>url:</b> https://mir-pucrs.github.io/#staff<br><b>email:</b> mobile.robotics.pucrs@gmail.com<br><b>coordenador:</b> Felipe Meneguzzi<br><b>pesquisadores:</b> Rodrigo Barros, Duncan D. A. Ruiz, Alexandre Amory<br><b>latitude:</b> -30.0611379<br><b>longitude:</b> -51.1738521<br></div>`)[0];
+                popup_c3462beeb9056dfe645d4cf2276002c5.setContent(html_066fe6be0ec96e5eb4ab59a78ff5efea);
+            
+        
+
+        marker_58d9a7f873996584b8240ede7100d2f0.bindPopup(popup_c3462beeb9056dfe645d4cf2276002c5)
+        ;
+
+        
+    
+    
+            marker_58d9a7f873996584b8240ede7100d2f0.bindTooltip(
+                `<div>
+                     Research Nucleus in Machine Intelligence and Robotics
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_96ec561fc1464ac9ebe9735e7f839d45 = L.marker(
+                [-30.0611379, -51.1738521],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_f65c3fe4534464d12e3402671736111d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_92b1806eeae0af92b34fc523bd935313 = $(`<div id="html_92b1806eeae0af92b34fc523bd935313" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Pontifícia Universidade Católica do Rio Grande do Sul<br><b>cidade:</b> Porto Alegre, Rio Grande do Sul<br><b>departamento:</b> Escola Politécnica<br><b>nome:</b> Artificial Intelligence Research<br><b>url:</b> https://air-pucrs.github.io/<br><b>coordenador:</b> Rafael H. Bordini, Renata Vieira<br><b>pesquisadores:</b> Amanda Pestana, Avner Dal Bosco, Bernardo Scapini Consoli, Davi Kniest da Silva, Débora Cristina Engelmann, Eric Carlotto, Flavia Carpes Webster, Giovani Nícolas Bettoni, Henrique Dias, Janete Urbanetto, Joaquim Santos, Juliana Damasio, Rafael H. Bordini, Renata Vieira<br><b>latitude:</b> -30.0611379<br><b>longitude:</b> -51.1738521<br></div>`)[0];
+                popup_f65c3fe4534464d12e3402671736111d.setContent(html_92b1806eeae0af92b34fc523bd935313);
+            
+        
+
+        marker_96ec561fc1464ac9ebe9735e7f839d45.bindPopup(popup_f65c3fe4534464d12e3402671736111d)
+        ;
+
+        
+    
+    
+            marker_96ec561fc1464ac9ebe9735e7f839d45.bindTooltip(
+                `<div>
+                     Artificial Intelligence Research
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_80f396dfe99cf7ada0c7bb7947bb32a6 = L.marker(
+                [-8.0548955, -34.8877622],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_b85599f44d0997df249f421c689380d5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_00bf8e41d515bc830b66a67c346a7bd1 = $(`<div id="html_00bf8e41d515bc830b66a67c346a7bd1" style="width: 100.0%; height: 100.0%;"><b>sede:</b> UNICAP<br><b>cidade:</b> Recife, Pernambuco<br><b>departamento:</b> Centro de Ciências e Tecnologia<br><b>nome:</b> Grupo de Estudo Computação Aplicada<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/5376171124860933<br><b>email:</b> liliane.fonseca@unicap.br<br><b>coordenador:</b> Liliane Sheyla da Silva Fonseca<br><b>pesquisadores:</b> Andrea Maria Nogueira Cavalcanti Ribeiro, Diego Marconi Pinheiro Ferreira Silva, Francisco Madeiro Bernardino Junior, Liliane Sheyla da Silva Fonseca, Robson Cavalcanti Lins, Rodrigo de Paula Monteiro, Sérgio Murilo Maciel Fernandes, Tarcísio Daniel Pontes Lucas, Waldemar Pires Ferreira Neto<br><b>latitude:</b> -8.0548955<br><b>longitude:</b> -34.8877622<br></div>`)[0];
+                popup_b85599f44d0997df249f421c689380d5.setContent(html_00bf8e41d515bc830b66a67c346a7bd1);
+            
+        
+
+        marker_80f396dfe99cf7ada0c7bb7947bb32a6.bindPopup(popup_b85599f44d0997df249f421c689380d5)
+        ;
+
+        
+    
+    
+            marker_80f396dfe99cf7ada0c7bb7947bb32a6.bindTooltip(
+                `<div>
+                     Grupo de Estudo Computação Aplicada
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bad112c4a379a8d7f5f680cf5ed6e3ed = L.marker(
+                [-15.98961, -48.0443975],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_84dce91d44874e2d630fbf334cb99e78 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_13bff574b3f00eac51c8cae833073dd8 = $(`<div id="html_13bff574b3f00eac51c8cae833073dd8" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade de Brasília<br><b>cidade:</b> Brasília, Distrito Federal<br><b>departamento:</b> Faculdade do Gama<br><b>nome:</b> Laboratório de Inteligência Artificial (AI-LAB)<br><b>url:</b> https://ailab.unb.br/#home<br><b>email:</b> ailabunb@gmail.com<br><b>coordenador:</b> Fabricio Braz e Nilton Silva<br><b>pesquisadores:</b> Amanda Machado, Andrew Lucas, Bianca Guimarães, Caio Fernandes, Cauê Mateus, Cléber Júnior, Dafne Moretti, Gabriel Carvalho, Gabriel Tiveron, Gabriela Pivetta, Giovanna Bottino, Ícaro Pires, João Robson. João Lucas Zarbielli, Josué Nascimento, Leonardo Miranda, Lorrany Azevedo, Lucas Andrade, Lucas Dutra, Lucas Medeiros, Mariane Rocha, Mateus Gomes, Matheus Afonso, Matheus Gabriel, Murilo Dantas, Pedro Bayma, Ricardo Canela, Rogério Junior, Shayane Alcantara, Taynara Carvalho, Victor Hugo, Vinicius Lima, Vinicius Saturnino<br><b>latitude:</b> -15.98961<br><b>longitude:</b> -48.0443975<br></div>`)[0];
+                popup_84dce91d44874e2d630fbf334cb99e78.setContent(html_13bff574b3f00eac51c8cae833073dd8);
+            
+        
+
+        marker_bad112c4a379a8d7f5f680cf5ed6e3ed.bindPopup(popup_84dce91d44874e2d630fbf334cb99e78)
+        ;
+
+        
+    
+    
+            marker_bad112c4a379a8d7f5f680cf5ed6e3ed.bindTooltip(
+                `<div>
+                     Laboratório de Inteligência Artificial (AI-LAB)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d9c0ae9377a0d2b9d08a328f598d7c15 = L.marker(
+                [-3.7687753, -38.478061],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_98fbba0c03017239b97b8b9d00fe609d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_60557d889ddc1d4816888e0ac9e6dcd8 = $(`<div id="html_60557d889ddc1d4816888e0ac9e6dcd8" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade de Fortaleza<br><b>cidade:</b> Fortaleza, Ceará<br><b>nome:</b> Laboratório de Ciência de Dados e Inteligência Artificial (LCDIA)<br><b>url:</b> https://unifor.br/web/pesquisa-inovacao/lcdia<br><b>email:</b> lcdia@unifor.br<br><b>pesquisadores:</b> Caio César Ponte Silva, Carlos Caminha, Enerson Alves de Oliveira, Jorge Luiz Bezerra de Araújo, Napoleão Nepomuceno, Ricardo Colares, Rilder de Souza Pires, Romel Dias Saraiva, Vasco Furtado, Vládia Pinheiro<br><b>latitude:</b> -3.7687753<br><b>longitude:</b> -38.478061<br></div>`)[0];
+                popup_98fbba0c03017239b97b8b9d00fe609d.setContent(html_60557d889ddc1d4816888e0ac9e6dcd8);
+            
+        
+
+        marker_d9c0ae9377a0d2b9d08a328f598d7c15.bindPopup(popup_98fbba0c03017239b97b8b9d00fe609d)
+        ;
+
+        
+    
+    
+            marker_d9c0ae9377a0d2b9d08a328f598d7c15.bindTooltip(
+                `<div>
+                     Laboratório de Ciência de Dados e Inteligência Artificial (LCDIA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_acce336dd70eb66dc955b9e9fe57ed5e = L.marker(
+                [-23.5573607, -46.7272544],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_0d91c05f8648c87189e6fb9273f3b384 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cc24ca2beb7ad66f8ea9d44117d53518 = $(`<div id="html_cc24ca2beb7ad66f8ea9d44117d53518" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade de São Paulo<br><b>cidade:</b> São Paulo, São Paulo<br><b>departamento:</b> FAPESP, IBM<br><b>nome:</b> Center for Artificial Intelligence<br><b>url:</b> https://c4ai.inova.usp.br/about<br><b>coordenador:</b> Fabio Cozman<br><b>pesquisadores:</b> Fabio Cozman, Claudio Pinhaez, Fernando Osorio, Glauco Arbix, João Paulo Veiga, Alexandre Delbem, Jairo Carlos Filho, Maurício Klein<br><b>latitude:</b> -23.5573607<br><b>longitude:</b> -46.7272544<br></div>`)[0];
+                popup_0d91c05f8648c87189e6fb9273f3b384.setContent(html_cc24ca2beb7ad66f8ea9d44117d53518);
+            
+        
+
+        marker_acce336dd70eb66dc955b9e9fe57ed5e.bindPopup(popup_0d91c05f8648c87189e6fb9273f3b384)
+        ;
+
+        
+    
+    
+            marker_acce336dd70eb66dc955b9e9fe57ed5e.bindTooltip(
+                `<div>
+                     Center for Artificial Intelligence
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d92bdddd0a4e8aaa43ff41966aabb583 = L.marker(
+                [-23.5594024, -46.7318382],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_f06504f26f67eeb4dd768cb5ea4209ee = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d83422863e1b00186a45a41404d29099 = $(`<div id="html_d83422863e1b00186a45a41404d29099" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade de São Paulo<br><b>cidade:</b> São Paulo, São Paulo<br><b>departamento:</b> Instituto de Ciências Matemáticas e de Computação<br><b>nome:</b> Departamento de Ciência da Computação<br><b>url:</b> http://labic.icmc.usp.br/<br><b>coordenador:</b> Maria Carolina Monard<br><b>pesquisadores:</b> Solange Oliveira Rezende, Alneu de Andrade Lopes, Gustavo Enrique de Almeida Prado Alves Batista, Ricardo Marcondes Marcacini<br><b>latitude:</b> -23.5594024<br><b>longitude:</b> -46.7318382<br></div>`)[0];
+                popup_f06504f26f67eeb4dd768cb5ea4209ee.setContent(html_d83422863e1b00186a45a41404d29099);
+            
+        
+
+        marker_d92bdddd0a4e8aaa43ff41966aabb583.bindPopup(popup_f06504f26f67eeb4dd768cb5ea4209ee)
+        ;
+
+        
+    
+    
+            marker_d92bdddd0a4e8aaa43ff41966aabb583.bindTooltip(
+                `<div>
+                     Departamento de Ciência da Computação
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0a524afa6a1f209c6381ce92bd5f387a = L.marker(
+                [-21.1666127, -47.8542818],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_db6bf40f2eee67f659b449bae2333bc8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_60bf413a45c609b816e1ebe91e230b24 = $(`<div id="html_60bf413a45c609b816e1ebe91e230b24" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade de São Paulo<br><b>cidade:</b> Ribeirão Preto, São Paulo<br><b>departamento:</b> Escola Politécnica da Universidade de São Paulo (EPUSP)<br><b>nome:</b> Departamento de Engenharia de Computação e Sistemas Digitais (PCS)<br><b>url:</b> https://pcs.usp.br/lti/<br><b>coordenador:</b> Anna Helena Reali Costa, Jaime Simão Sichman, Marco Tulio Carvalho de Andrade<br><b>pesquisadores:</b> Priscilla Barreira Avegliano, Ricardo de Souza Jacomini, Vladimir E. M. Rocha, Leandro Luque, Juan Carlos Perafan Villota, Ruben Glatt Reinforcement, Felipe Leno Reinforcement, Alan Rafael Fachini, Artur Vidal Maia, Everton Rodrigues Reis, Felipe Lombardi Pierin, Filipe Ricardo Polizel, Marcio F. S. Junior, Pamela R. R. Quintanilla, Ricardo Mitollo Bertani, Rodrigo Cesar Bonini, Leticia da Silva Rodrigues, Flavio Henrique Barbosa Lima<br><b>latitude:</b> -21.1666127<br><b>longitude:</b> -47.8542818<br></div>`)[0];
+                popup_db6bf40f2eee67f659b449bae2333bc8.setContent(html_60bf413a45c609b816e1ebe91e230b24);
+            
+        
+
+        marker_0a524afa6a1f209c6381ce92bd5f387a.bindPopup(popup_db6bf40f2eee67f659b449bae2333bc8)
+        ;
+
+        
+    
+    
+            marker_0a524afa6a1f209c6381ce92bd5f387a.bindTooltip(
+                `<div>
+                     Departamento de Engenharia de Computação e Sistemas Digitais (PCS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_13d2331a6b0d31ba6bab7c2675dee56b = L.marker(
+                [-12.952777, -38.4594595],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_1623fb4dceac38852425364feb718538 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_88103fdd3c83a2b351ae91256481016f = $(`<div id="html_88103fdd3c83a2b351ae91256481016f" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade do Estado da Bahia<br><b>cidade:</b> Salvador, Bahia<br><b>nome:</b> Arquitetura de Computadores e Sistemas Operacionais (ACSO)<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/4875461296350899<br><b>email:</b> josemar@uneb.br<br><b>coordenador:</b> Josemar Rodrigues de Souza, Marco Antonio Costa Simões<br><b>pesquisadores:</b> Adailton de Jesus Cerqueira Junior, Ana Patrícia Fontes Magalhães Mascarenhas, Diego Gervasio Frías Suárez, Elias Cunha Bitencourt, Jorge Alberto Prado de Campos, Josemar Rodrigues de Souza, Marco Antonio Costa Simões, Murilo do Carmo Boratto, Oberdan Rocha Pinheiro, Robson Marinho da Silva, Romero Mendes Freire de Moura Júnior<br><b>latitude:</b> -12.952777<br><b>longitude:</b> -38.4594595<br></div>`)[0];
+                popup_1623fb4dceac38852425364feb718538.setContent(html_88103fdd3c83a2b351ae91256481016f);
+            
+        
+
+        marker_13d2331a6b0d31ba6bab7c2675dee56b.bindPopup(popup_1623fb4dceac38852425364feb718538)
+        ;
+
+        
+    
+    
+            marker_13d2331a6b0d31ba6bab7c2675dee56b.bindTooltip(
+                `<div>
+                     Arquitetura de Computadores e Sistemas Operacionais (ACSO)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_65f5807d570e0696c7f2df5879a4b661 = L.marker(
+                [-26.9161329, -48.6643288],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_c0bed33d5679a456e60b622288616852 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_27bca61014ea25fb59b99ed36a4c2809 = $(`<div id="html_27bca61014ea25fb59b99ed36a4c2809" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade do Vale do Itajaí<br><b>cidade:</b> Itajaí, Santa Catarina<br><b>departamento:</b> Ciência da Computação<br><b>nome:</b> Laboratório de Inteligência Aplicada<br><b>url:</b> https://www.univali.br/laboratorios/laboratorio-de-inteligencia-aplicada/Paginas/default.aspx<br><b>coordenador:</b> Anita Maria da Rocha Fernandes e Rudimar Luís Scaranto Dazzi<br><b>pesquisadores:</b> Alessandro Mueller, Aluizio Haendchen Filho, Anita Maria da Rocha Fernandes, Bruno Araujo Cautiero Horta, Graziela Liebel, Laio Oriel Seman, Rafael Ballottin Martins, Raimundo Celeste Ghizoni Teive, Rodrigo Lyra, Rudimar Luís Scaranto Dazzi<br><b>latitude:</b> -26.9161329<br><b>longitude:</b> -48.6643288<br></div>`)[0];
+                popup_c0bed33d5679a456e60b622288616852.setContent(html_27bca61014ea25fb59b99ed36a4c2809);
+            
+        
+
+        marker_65f5807d570e0696c7f2df5879a4b661.bindPopup(popup_c0bed33d5679a456e60b622288616852)
+        ;
+
+        
+    
+    
+            marker_65f5807d570e0696c7f2df5879a4b661.bindTooltip(
+                `<div>
+                     Laboratório de Inteligência Aplicada
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8e447f99c1f38b67ee9ea632823e7dc0 = L.marker(
+                [-22.8210849, -47.066406],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_a6914b8ed2fc23f0710c93a13aef54a3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f7975a073a80c1335115640fb59eb8d2 = $(`<div id="html_f7975a073a80c1335115640fb59eb8d2" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Estadual de Campinas, Fundação Oswaldo Cruz, Instituto Tecnológico de Aeronáutica, Universidade Federal do ABC, Universidade Federal do Amazonas, Universidade de São Paulo<br><b>cidade:</b> Campinas, São Paulo<br><b>departamento:</b> Faculdade de Engenharia Elétrica e de Computação<br><b>nome:</b> BI0S - Brazilian Institute of Data Science<br><b>url:</b> https://www.bi0s.com.br/<br><b>coordenador:</b> João Marcos Travassos Romano<br><b>pesquisadores:</b> Alexandre Gori Maia, Álvaro de Oliveira D'Antona, Claudia Regina Castellanos Pfeiffer, Henrique Nogueira de Sá Earp, Jorge Moreira de Souza, Jurandir Zullo Junior, Konradin Metze, Leonardo Tomazeli Duarte, Niro Higuchi, Peter Sussner, Renato Machado, Ricardo Suyama, Romis Ribeiro de Faissol Attux, Rosangela Ballini<br><b>latitude:</b> -22.8210849<br><b>longitude:</b> -47.066406<br></div>`)[0];
+                popup_a6914b8ed2fc23f0710c93a13aef54a3.setContent(html_f7975a073a80c1335115640fb59eb8d2);
+            
+        
+
+        marker_8e447f99c1f38b67ee9ea632823e7dc0.bindPopup(popup_a6914b8ed2fc23f0710c93a13aef54a3)
+        ;
+
+        
+    
+    
+            marker_8e447f99c1f38b67ee9ea632823e7dc0.bindTooltip(
+                `<div>
+                     BI0S - Brazilian Institute of Data Science
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_293d1110caff772e2f0908404a14e6ed = L.marker(
+                [-22.3481754, -49.0314926],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_9bb744e43e73986adc4cf4f1fcf01576 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5d575a79e646be66813289dc910fcfad = $(`<div id="html_5d575a79e646be66813289dc910fcfad" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Estadual de São Paulo<br><b>cidade:</b> Bauru, São Paulo<br><b>departamento:</b> Faculdade de Ciências<br><b>nome:</b> Departamento de Computação<br><b>url:</b> https://www.recogna.tech/<br><b>email:</b> recogna@fc.unesp.br<br><b>coordenador:</b> Aparecido Nilceu Marana, João Paulo Papa<br><b>pesquisadores:</b> Aparecido Nilceu Marana, João Paulo Papa, Alexandre Xavier Falcão, Danillo Roberto Pereira, Kelton Augusto Pontara da Costa, Patricia Bellin Ribeiro, Rodrigo José Pisani, Willian Paraguassu Amorim<br><b>latitude:</b> -22.3481754<br><b>longitude:</b> -49.0314926<br></div>`)[0];
+                popup_9bb744e43e73986adc4cf4f1fcf01576.setContent(html_5d575a79e646be66813289dc910fcfad);
+            
+        
+
+        marker_293d1110caff772e2f0908404a14e6ed.bindPopup(popup_9bb744e43e73986adc4cf4f1fcf01576)
+        ;
+
+        
+    
+    
+            marker_293d1110caff772e2f0908404a14e6ed.bindTooltip(
+                `<div>
+                     Departamento de Computação
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9b3c6824cb8ad080a8aa43c2a5c13e3a = L.marker(
+                [-22.3481754, -49.0314926],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_f931944bc837fd326cc8f423bbff2dd5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6a12bfbc5dc86affc616e4d25e39c009 = $(`<div id="html_6a12bfbc5dc86affc616e4d25e39c009" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Estadual de São Paulo<br><b>cidade:</b> Bauru, São Paulo<br><b>departamento:</b> Faculdade de Ciências<br><b>nome:</b> Departamento de Computação<br><b>url:</b> http://wwwp.fc.unesp.br/~fermarar/redes_neurais_sistemas_adaptativos_linhasdepesquisa.htm<br><b>email:</b> flash@feb.unesp.br<br><b>pesquisadores:</b> Joao Fernando Marar, Olympio Pinheiro<br><b>latitude:</b> -22.3481754<br><b>longitude:</b> -49.0314926<br></div>`)[0];
+                popup_f931944bc837fd326cc8f423bbff2dd5.setContent(html_6a12bfbc5dc86affc616e4d25e39c009);
+            
+        
+
+        marker_9b3c6824cb8ad080a8aa43c2a5c13e3a.bindPopup(popup_f931944bc837fd326cc8f423bbff2dd5)
+        ;
+
+        
+    
+    
+            marker_9b3c6824cb8ad080a8aa43c2a5c13e3a.bindTooltip(
+                `<div>
+                     Departamento de Computação
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a3096d7ae00d4d971455a9c2daddc0bb = L.marker(
+                [-25.4061631, -51.46977],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_8452bc054f3b5bbf844d8921d0a44112 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bc668cbef5120b15a6cbf471d191d75d = $(`<div id="html_bc668cbef5120b15a6cbf471d191d75d" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Estadual do Centro-Oeste<br><b>cidade:</b> Guarapuava, Paraná<br><b>nome:</b> Computação Natural e Paralela (COMPANAT)<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/6451070001521790<br><b>email:</b> companat@unicentro.br<br><b>coordenador:</b> Carolina Paula de Almeida, Sandra Mara Guse Scós Venske<br><b>pesquisadores:</b> Carolina Paula de Almeida, Lucas Marcondes Pavelski, Richard Aderbal Gonçalves, Sandra Mara Guse Scós Venske<br><b>latitude:</b> -25.4061631<br><b>longitude:</b> -51.46977<br></div>`)[0];
+                popup_8452bc054f3b5bbf844d8921d0a44112.setContent(html_bc668cbef5120b15a6cbf471d191d75d);
+            
+        
+
+        marker_a3096d7ae00d4d971455a9c2daddc0bb.bindPopup(popup_8452bc054f3b5bbf844d8921d0a44112)
+        ;
+
+        
+    
+    
+            marker_a3096d7ae00d4d971455a9c2daddc0bb.bindTooltip(
+                `<div>
+                     Computação Natural e Paralela (COMPANAT)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3fc4413ae8a6256064b997502a9b2635 = L.marker(
+                [-22.8585455, -43.2308078],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_e21dac41a63718d0f8cb6f492d22bd44 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4fbf31a098f9637b246df8e12fcd4b0e = $(`<div id="html_4fbf31a098f9637b246df8e12fcd4b0e" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Estadual do Rio de Janeiro<br><b>cidade:</b> Rio de Janeiro, Rio de Janeiro<br><b>departamento:</b> Centro de Tecnologia e Ciências<br><b>nome:</b> Ambientes Virtuais e Inteligentes<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/8374884218044319<br><b>email:</b> rcosta@ime.uerj.br<br><b>coordenador:</b> Rosa Maria Esteves Moreira da Costa, Vera Maria Benjamim Werneck<br><b>pesquisadores:</b> Rosa Maria Esteves Moreira da Costa, Vera Maria Benjamim Werneck, Flávia Maria Santoro<br><b>latitude:</b> -22.8585455<br><b>longitude:</b> -43.2308078<br></div>`)[0];
+                popup_e21dac41a63718d0f8cb6f492d22bd44.setContent(html_4fbf31a098f9637b246df8e12fcd4b0e);
+            
+        
+
+        marker_3fc4413ae8a6256064b997502a9b2635.bindPopup(popup_e21dac41a63718d0f8cb6f492d22bd44)
+        ;
+
+        
+    
+    
+            marker_3fc4413ae8a6256064b997502a9b2635.bindTooltip(
+                `<div>
+                     Ambientes Virtuais e Inteligentes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_558582b41d171ee6700322195562f755 = L.marker(
+                [-13.0011694, -38.5073858],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_845c7001f953b6ee3d44c5e1f2f8f224 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0f2f9cb8c5c6e55b4b1579830e4a2af3 = $(`<div id="html_0f2f9cb8c5c6e55b4b1579830e4a2af3" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal da Bahia<br><b>cidade:</b> Salvador, Bahia<br><b>departamento:</b> Instituto de Matemática<br><b>nome:</b> Departamento de Matemática<br><b>url:</b> http://www.dmat.ufba.br/gruposdepesquisa/grupo-pesquisa-em-intelig%C3%AAncia-artificial<br><b>coordenador:</b> Perfilino Eugênio Ferreira Júnior<br><b>pesquisadores:</b> Perfilino Eugênio Ferreira Júnior<br><b>latitude:</b> -13.0011694<br><b>longitude:</b> -38.5073858<br></div>`)[0];
+                popup_845c7001f953b6ee3d44c5e1f2f8f224.setContent(html_0f2f9cb8c5c6e55b4b1579830e4a2af3);
+            
+        
+
+        marker_558582b41d171ee6700322195562f755.bindPopup(popup_845c7001f953b6ee3d44c5e1f2f8f224)
+        ;
+
+        
+    
+    
+            marker_558582b41d171ee6700322195562f755.bindTooltip(
+                `<div>
+                     Departamento de Matemática
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_41f8403864da1fa1f4c8c53221db4cc4 = L.marker(
+                [-12.9996338, -38.5103015],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_d226fc339d9ff632a9e13115c9e8ef78 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7ef970dc1cd4f9a5e3d8797634f1fefc = $(`<div id="html_7ef970dc1cd4f9a5e3d8797634f1fefc" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal da Bahia<br><b>cidade:</b> Salvador, Bahia<br><b>departamento:</b> Departamento de Engenharia Elétrica e de Computação<br><b>nome:</b> Laboratório de Robótica (LaR)<br><b>url:</b> http://www.dee.eng.ufba.br/lar/<br><b>pesquisadores:</b> Andre Gustavo Scolari Conceicao, Eduardo Furtado de Simas Filho, Paulo César Machado de Abreu Farias, Wagner Luiz Alves de Oliveira, Igo Amaurí dos Santos Luz, Edmar Egidio Purcino de Souza, Moisés Araujo Oliveira, Linton Thiago Costa Esteves, Marton Sandes dos Santos, Elio Pithon Sarno Filho, Anderson Damacena Santos, Manoel Messias Silva Junior, Ricardo Menezes Prates, João Luiz Carneiro Carvalho, Juan Lieber Marin, Wild Santos, Lucas Cruz da Silva, André Pinto Marotta, Glauber Luiz de Moura Moraes, Gilvan Farias da Silva, Lucas Tavares Ferreira, Arthur Lúcide Cotta Weyll, Nestor Dias Pereira Neto, Geiza Barros, Leonardo Gama, Henrique Nunes Poleselo<br><b>latitude:</b> -12.9996338<br><b>longitude:</b> -38.5103015<br></div>`)[0];
+                popup_d226fc339d9ff632a9e13115c9e8ef78.setContent(html_7ef970dc1cd4f9a5e3d8797634f1fefc);
+            
+        
+
+        marker_41f8403864da1fa1f4c8c53221db4cc4.bindPopup(popup_d226fc339d9ff632a9e13115c9e8ef78)
+        ;
+
+        
+    
+    
+            marker_41f8403864da1fa1f4c8c53221db4cc4.bindTooltip(
+                `<div>
+                     Laboratório de Robótica (LaR)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8205d30179fad587105cebd1889308d0 = L.marker(
+                [-7.1622872, -34.8172081],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_a5c88a63394b9bdc91072296d7e4a61b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0b8976a4eb3b6c37841cf7d7f28e6a4b = $(`<div id="html_0b8976a4eb3b6c37841cf7d7f28e6a4b" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal da Paraíba<br><b>cidade:</b> João Pessoa, Paraíba<br><b>departamento:</b> Centro de Informática<br><b>nome:</b> Laboratório de Aplicações em Inteligência Artificial<br><b>url:</b> https://aria.ci.ufpb.br/<br><b>email:</b> aria@ci.ufpb.br<br><b>coordenador:</b> Telmo Filho, Thaís Gaudencio, Yuri Malheiros<br><b>pesquisadores:</b> Carlos Hacks, Leonardo Vidal, Lincoln Davi, Rafael Magalhães, Raoni Kulesza, Telmo Filho, Thaís Gaudencio, Yuri Malheiros<br><b>latitude:</b> -7.1622872<br><b>longitude:</b> -34.8172081<br></div>`)[0];
+                popup_a5c88a63394b9bdc91072296d7e4a61b.setContent(html_0b8976a4eb3b6c37841cf7d7f28e6a4b);
+            
+        
+
+        marker_8205d30179fad587105cebd1889308d0.bindPopup(popup_a5c88a63394b9bdc91072296d7e4a61b)
+        ;
+
+        
+    
+    
+            marker_8205d30179fad587105cebd1889308d0.bindTooltip(
+                `<div>
+                     Laboratório de Aplicações em Inteligência Artificial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e25791c45c41f78026696484032d06f8 = L.marker(
+                [-9.7015267, -36.6869357],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_47310ebdee976b61ab66211dc1332ffe = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c02e6340c114b33e26cb2fb954a461c0 = $(`<div id="html_c02e6340c114b33e26cb2fb954a461c0" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Alagoas<br><b>cidade:</b> Arapiraca, Alagoas<br><b>departamento:</b> Campus Arapiraca<br><b>nome:</b> Grupo de Estudo Computação Aplicada<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/3477129116119686<br><b>email:</b> patrick@ic.ufal.br<br><b>coordenador:</b> Patrick Henrique da Silva Brito, Tácito Trindade de Araújo Tiburtino Neves<br><b>pesquisadores:</b> Alexandre de Andrade Barbosa, Almir Pereira Guimarães, Eliana Silva de Almeida, Elthon Allex da Silva Oliveira, Fabiane da Silva Queiroz, Mário Hozano Lucas de Souza, Patrick Henrique da Silva Brito, Raquel da Silva Cabral, Ricardo Alexandre Afonso, Rodolfo Carneiro Cavalcante, Tácito Trindade de Araújo Tiburtino Neves, Tércio de Morais Sampaio Silva, Thiago Bruno Melo de Sales<br><b>latitude:</b> -9.7015267<br><b>longitude:</b> -36.6869357<br></div>`)[0];
+                popup_47310ebdee976b61ab66211dc1332ffe.setContent(html_c02e6340c114b33e26cb2fb954a461c0);
+            
+        
+
+        marker_e25791c45c41f78026696484032d06f8.bindPopup(popup_47310ebdee976b61ab66211dc1332ffe)
+        ;
+
+        
+    
+    
+            marker_e25791c45c41f78026696484032d06f8.bindTooltip(
+                `<div>
+                     Grupo de Estudo Computação Aplicada
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0302b1ddcc72ef742e7262128794d338 = L.marker(
+                [-21.420964, -45.948619],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_9229582a56be7efb19f2017bdfcd3780 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_504de47a8dd4e552c240fb639e9b016f = $(`<div id="html_504de47a8dd4e552c240fb639e9b016f" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Alfenas<br><b>cidade:</b> Alfenas, Minas Gerais<br><b>departamento:</b> Centro de Inteligência Artificial, Mercados e Análise da UNIFAL-MG<br><b>url:</b> http://cia-research.com.br/#Nossa_Equipe<br><b>coordenador:</b> Gabriel Pessanha<br><b>pesquisadores:</b> Gabriel Pessanha, Reinaldo Marques, Deive Ciro, Clarissa Dourado, Eleanderson Campos<br><b>latitude:</b> -21.420964<br><b>longitude:</b> -45.948619<br></div>`)[0];
+                popup_9229582a56be7efb19f2017bdfcd3780.setContent(html_504de47a8dd4e552c240fb639e9b016f);
+            
+        
+
+        marker_0302b1ddcc72ef742e7262128794d338.bindPopup(popup_9229582a56be7efb19f2017bdfcd3780)
+        ;
+
+        
+    
+    
+            marker_0302b1ddcc72ef742e7262128794d338.bindTooltip(
+                `<div>
+                     nan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_fd661248e04b10c6be7c74bc7ea05274 = L.marker(
+                [-19.8695878, -43.9646524],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_76aa54cc7c2cb5a3c4744b973522ebfc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3137706c29d7de1ade21d541a705ff68 = $(`<div id="html_3137706c29d7de1ade21d541a705ff68" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Minas Gerais<br><b>cidade:</b> Belo Horizonte, Minas Gerais<br><b>departamento:</b> Departamento de Ciência da Computação<br><b>nome:</b> Laboratório Multidisciplinar de Pesquisa em Jogos<br><b>url:</b> http://www.j.dcc.ufmg.br/<br><b>email:</b> j@listas.dcc.ufmg.br<br><b>coordenador:</b> Luiz Chaimovicz<br><b>pesquisadores:</b> Luiz Chaimowicz, Dorgival Neto, Erickson Rangel, Raques Prates, Renato Ferreira<br><b>latitude:</b> -19.8695878<br><b>longitude:</b> -43.9646524<br></div>`)[0];
+                popup_76aa54cc7c2cb5a3c4744b973522ebfc.setContent(html_3137706c29d7de1ade21d541a705ff68);
+            
+        
+
+        marker_fd661248e04b10c6be7c74bc7ea05274.bindPopup(popup_76aa54cc7c2cb5a3c4744b973522ebfc)
+        ;
+
+        
+    
+    
+            marker_fd661248e04b10c6be7c74bc7ea05274.bindTooltip(
+                `<div>
+                     Laboratório Multidisciplinar de Pesquisa em Jogos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_359a388017c2c3b34f6fe0a8f4add200 = L.marker(
+                [-19.8695878, -43.9646524],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_5289cc9d33cc750ab7f1a521764a6e49 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_590d37ca62de6fa9574a68278eea4626 = $(`<div id="html_590d37ca62de6fa9574a68278eea4626" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Minas Gerais<br><b>cidade:</b> Belo Horizonte, Minas Gerais<br><b>departamento:</b> Departamento de Ciência da Computação<br><b>nome:</b> Laboratório de Interação Humano-Computador<br><b>url:</b> https://dcc.ufmg.br/interacao-humano-computador/<br><b>email:</b> rprates@dcc.ufmg.br, clarindo@dcc.ufmg.br<br><b>coordenador:</b> Raquel Oliveira Prates<br><b>pesquisadores:</b> Rarquel Oliveira Prates, Clarindo Isaias Pereira da Silva e Pádua<br><b>latitude:</b> -19.8695878<br><b>longitude:</b> -43.9646524<br></div>`)[0];
+                popup_5289cc9d33cc750ab7f1a521764a6e49.setContent(html_590d37ca62de6fa9574a68278eea4626);
+            
+        
+
+        marker_359a388017c2c3b34f6fe0a8f4add200.bindPopup(popup_5289cc9d33cc750ab7f1a521764a6e49)
+        ;
+
+        
+    
+    
+            marker_359a388017c2c3b34f6fe0a8f4add200.bindTooltip(
+                `<div>
+                     Laboratório de Interação Humano-Computador
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9aa544c2cee619ee3d196ae9aebcea69 = L.marker(
+                [-19.8695878, -43.9646524],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_ac6e4d8a4bb26d0c030030d6edf8b34e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3dfc98e4d1897074d3653ed1f720e543 = $(`<div id="html_3dfc98e4d1897074d3653ed1f720e543" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Minas Gerais<br><b>cidade:</b> Belo Horizonte, Minas Gerais<br><b>departamento:</b> Departamento de Ciência da Computação<br><b>nome:</b> Aprendizagem de Máquina Baseada em Modelos Probabilísticos e Estatísticos<br><b>url:</b> https://dcc.ufmg.br/centro-de-analise-e-modelagem-de-performance-de-sistemas-2/<br><b>email:</b> assuncao@dcc.ufmg.br, olmo@dcc.ufmg.br, jefersson@dcc.ufmg.br, murai@dcc.ufmg.br, flaviovdf@dcc.ufmg.br, ramosh@dcc.ufmg.br<br><b>coordenador:</b> Renato Martins Assunção<br><b>pesquisadores:</b> Rnato Martins Assunção, Pedro Olmo Stancioli Zaz de Melo, Jefersson Alex dos Santos, Fabrício Murai Ferreira, Flavio Vinicius Diniz de Figueiredo, Heitor Soares Ramos Filho<br><b>latitude:</b> -19.8695878<br><b>longitude:</b> -43.9646524<br></div>`)[0];
+                popup_ac6e4d8a4bb26d0c030030d6edf8b34e.setContent(html_3dfc98e4d1897074d3653ed1f720e543);
+            
+        
+
+        marker_9aa544c2cee619ee3d196ae9aebcea69.bindPopup(popup_ac6e4d8a4bb26d0c030030d6edf8b34e)
+        ;
+
+        
+    
+    
+            marker_9aa544c2cee619ee3d196ae9aebcea69.bindTooltip(
+                `<div>
+                     Aprendizagem de Máquina Baseada em Modelos Probabilísticos e Estatísticos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6cb289edc8ec5fbfc6f37f21d2fb91ab = L.marker(
+                [-20.3981642, -43.5068542],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_56acd060a1a3f40afeb054b014b02d2d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6600e3298bbda3fe641140249ba37541 = $(`<div id="html_6600e3298bbda3fe641140249ba37541" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Ouro Preto<br><b>cidade:</b> Ouro Preto, Minas Gerais<br><b>departamento:</b> Instituto de Ciências Exatas Aplicadas<br><b>nome:</b> Laboratório de Inteligência Computacional e Sistemas (LaIC)<br><b>url:</b> https://laic.icea.ufop.br/<br><b>pesquisadores:</b> Fernando Bernardes de Oliveira, Janniele Aparecida Soares Araujo, Samuel Souza Brito, Helen de Cássia Sousa da Costa Lima<br><b>latitude:</b> -20.3981642<br><b>longitude:</b> -43.5068542<br></div>`)[0];
+                popup_56acd060a1a3f40afeb054b014b02d2d.setContent(html_6600e3298bbda3fe641140249ba37541);
+            
+        
+
+        marker_6cb289edc8ec5fbfc6f37f21d2fb91ab.bindPopup(popup_56acd060a1a3f40afeb054b014b02d2d)
+        ;
+
+        
+    
+    
+            marker_6cb289edc8ec5fbfc6f37f21d2fb91ab.bindTooltip(
+                `<div>
+                     Laboratório de Inteligência Computacional e Sistemas (LaIC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0c1f8505cacef4242a28c949e9b95756 = L.marker(
+                [-20.3953621, -43.5100476],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_a6cb27a1b2dd2f60b0ac7ccc4179cdc5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_64180de8ef84025ed9fcaef4d0219928 = $(`<div id="html_64180de8ef84025ed9fcaef4d0219928" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Ouro Preto<br><b>cidade:</b> Ouro Preto, Minas Gerais<br><b>departamento:</b> Departamento de Ciência da Computação<br><b>nome:</b> Programa Pós-Graduação em Ciência da Computação<br><b>url:</b> http://www3.decom.ufop.br/pos/pesquisa/otimizacao-e-inteligencia-computacional/<br><b>email:</b> secretaria.ppgcc@ufop.edu.br<br><b>pesquisadores:</b> Eduardo José da Silva Luz, Fernanda Sumika Hojo de Souza, Gladston Juliano Prates Moreira, Marco Antonio Moreira de Carvalho, Marcone Jamilson Freitas Souza, Puca Huachi Vaz Penna, Rodrigo César Pedrosa Silva, Túlio Ângelo Machado Toffolo<br><b>latitude:</b> -20.3953621<br><b>longitude:</b> -43.5100476<br></div>`)[0];
+                popup_a6cb27a1b2dd2f60b0ac7ccc4179cdc5.setContent(html_64180de8ef84025ed9fcaef4d0219928);
+            
+        
+
+        marker_0c1f8505cacef4242a28c949e9b95756.bindPopup(popup_a6cb27a1b2dd2f60b0ac7ccc4179cdc5)
+        ;
+
+        
+    
+    
+            marker_0c1f8505cacef4242a28c949e9b95756.bindTooltip(
+                `<div>
+                     Programa Pós-Graduação em Ciência da Computação
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e73a19c32f209be8a5cfe8451356bede = L.marker(
+                [-20.3953621, -43.5100476],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_1ff12e12c14ccf12d1253aca1e4328a9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1f193769a67e3457dfcf8ad382059e03 = $(`<div id="html_1f193769a67e3457dfcf8ad382059e03" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Ouro Preto<br><b>cidade:</b> Ouro Preto, Minas Gerais<br><b>departamento:</b> Departamento de Ciência da Computação<br><b>nome:</b> Laboratorio de Processamento Digital de Imagens<br><b>url:</b> http://www.decom.ufop.br/lapdi/#section-home<br><b>email:</b> guillermo@ufop.edu.br, andrea@ufop.edu.br<br><b>pesquisadores:</b> Guillermo Camara Chavez, Andrea Gomes Campos Bianchi<br><b>latitude:</b> -20.3953621<br><b>longitude:</b> -43.5100476<br></div>`)[0];
+                popup_1ff12e12c14ccf12d1253aca1e4328a9.setContent(html_1f193769a67e3457dfcf8ad382059e03);
+            
+        
+
+        marker_e73a19c32f209be8a5cfe8451356bede.bindPopup(popup_1ff12e12c14ccf12d1253aca1e4328a9)
+        ;
+
+        
+    
+    
+            marker_e73a19c32f209be8a5cfe8451356bede.bindTooltip(
+                `<div>
+                     Laboratorio de Processamento Digital de Imagens
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5328892654ae61b618bb904a70746aa7 = L.marker(
+                [-20.3953621, -43.5100476],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_eee23ac7863c69ff71db1e6ac405d6f3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_904108453ec0e972fcb63ad86470dbbd = $(`<div id="html_904108453ec0e972fcb63ad86470dbbd" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Ouro Preto<br><b>cidade:</b> Ouro Preto, Minas Gerais<br><b>departamento:</b> Departamento de Ciência da Computação<br><b>nome:</b> Laboratório de Computação de Sistemas Inteligentes<br><b>url:</b> https://csilab.ufop.br/<br><b>email:</b> csilab.decom@ufop.edu.br<br><b>coordenador:</b> Gladston Moreira, Eduardo Luz<br><b>pesquisadores:</b> Vander Freitas, Pedro Silva, Jadson Castro, Valéria Santos, Rodrigo Silva<br><b>latitude:</b> -20.3953621<br><b>longitude:</b> -43.5100476<br></div>`)[0];
+                popup_eee23ac7863c69ff71db1e6ac405d6f3.setContent(html_904108453ec0e972fcb63ad86470dbbd);
+            
+        
+
+        marker_5328892654ae61b618bb904a70746aa7.bindPopup(popup_eee23ac7863c69ff71db1e6ac405d6f3)
+        ;
+
+        
+    
+    
+            marker_5328892654ae61b618bb904a70746aa7.bindTooltip(
+                `<div>
+                     Laboratório de Computação de Sistemas Inteligentes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e173c62e599f208ae9d2724a3b64d443 = L.marker(
+                [-31.7793145, -52.3396264],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_5b7b0ca68205a628ec1c873fdd73c5f9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b33340ceb7968419a6c75609be436294 = $(`<div id="html_b33340ceb7968419a6c75609be436294" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Pelotas<br><b>cidade:</b> Pelotas, Rio Grande do Sul<br><b>departamento:</b> Grupo de Pesquisa em Ciência de Dados<br><b>nome:</b> Laboratório de Aprendizado de Máquina, Inteligência Artificial e Ciência de Dados<br><b>url:</b> https://wp.ufpel.edu.br/datalab/<br><b>email:</b> ricardo@inf.ufpel.edu.br<br><b>coordenador:</b> Ricardo Matsumura Araujo<br><b>pesquisadores:</b> Gisele Simas, Ramásio Melo, Ulisses Corrêa, Ihan Bender, Felipe Gruendemann, Juan Burtet, Matheus Hertzog, Vinicius Furlan, Alexandre Bender, André Teixeira, Lorenzo Antunez, Lukas Iepsen, Victor Cosenza, Vitor Plentz, William Angelo<br><b>latitude:</b> -31.7793145<br><b>longitude:</b> -52.3396264<br></div>`)[0];
+                popup_5b7b0ca68205a628ec1c873fdd73c5f9.setContent(html_b33340ceb7968419a6c75609be436294);
+            
+        
+
+        marker_e173c62e599f208ae9d2724a3b64d443.bindPopup(popup_5b7b0ca68205a628ec1c873fdd73c5f9)
+        ;
+
+        
+    
+    
+            marker_e173c62e599f208ae9d2724a3b64d443.bindTooltip(
+                `<div>
+                     Laboratório de Aprendizado de Máquina, Inteligência Artificial e Ciência de Dados
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6afe4eb379be0a88cfe8c2f519924089 = L.marker(
+                [-31.7793145, -52.3396264],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_1004520289b7b547ddf1f03dae1d2fb9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_acd6076824ca69361ee514ffe1a8d5f7 = $(`<div id="html_acd6076824ca69361ee514ffe1a8d5f7" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Pelotas<br><b>cidade:</b> Pelotas, Rio Grande do Sul<br><b>nome:</b> Grupo de Aplicações em Inteligência Artificial (GAIA)<br><b>url:</b> https://wp.ufpel.edu.br/gaia/<br><b>email:</b> akanehar@gmail.com<br><b>pesquisadores:</b> Felipe Lopes, Wilians Junior, Dione Silveira da Silva, Anderson Priebe Ferrugem, Marilton Sanchotene de Aguiar, Tiago Primo, Marcelo Lemos Rossi, Maurício Braga de Paula, Alessandro Bof de Oliveira<br><b>latitude:</b> -31.7793145<br><b>longitude:</b> -52.3396264<br></div>`)[0];
+                popup_1004520289b7b547ddf1f03dae1d2fb9.setContent(html_acd6076824ca69361ee514ffe1a8d5f7);
+            
+        
+
+        marker_6afe4eb379be0a88cfe8c2f519924089.bindPopup(popup_1004520289b7b547ddf1f03dae1d2fb9)
+        ;
+
+        
+    
+    
+            marker_6afe4eb379be0a88cfe8c2f519924089.bindTooltip(
+                `<div>
+                     Grupo de Aplicações em Inteligência Artificial (GAIA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_07c7b4ae9a944cdb3a44040d8333b25c = L.marker(
+                [-8.0554591, -34.95133],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_0f7fe4cb43a792915f516d0b899aea4c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_aac34195359507568a1ecaa84184ce82 = $(`<div id="html_aac34195359507568a1ecaa84184ce82" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Pernambuco<br><b>cidade:</b> Recife, Pernambuco<br><b>departamento:</b> Centro de Informática<br><b>nome:</b> Centro de Informática<br><b>url:</b> https://ai.cin.ufpe.br/www.cin.ufpe.br<br><b>email:</b> contato@cin.ufpe.br<br><b>pesquisadores:</b> Adenilton J. da Silva, Adiel T. de Almeida Filho, Carlos Alexandre Barros de Mello, Cleber Zanchettin, Francisco de A. T. de Carvalho, Fernando M. de Paula Neto, George DC Cavalcanti, Hansenclever Bassani, Leandro Maciel Almeida, Nivan Ferreira, Paulo Salgado Gomes de Mattos Neto, Renata Maria Cardoso Rodrigues de Souza, Teresa B Ludermir<br><b>latitude:</b> -8.0554591<br><b>longitude:</b> -34.95133<br></div>`)[0];
+                popup_0f7fe4cb43a792915f516d0b899aea4c.setContent(html_aac34195359507568a1ecaa84184ce82);
+            
+        
+
+        marker_07c7b4ae9a944cdb3a44040d8333b25c.bindPopup(popup_0f7fe4cb43a792915f516d0b899aea4c)
+        ;
+
+        
+    
+    
+            marker_07c7b4ae9a944cdb3a44040d8333b25c.bindTooltip(
+                `<div>
+                     Centro de Informática
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1400e53e686ee7bb80211aa4c25e494f = L.marker(
+                [-27.6001269, -48.5170718],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_ff8a01e25cc3fbdd05186681ab740118 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a58d09ce6eb99b872c271107abac345c = $(`<div id="html_a58d09ce6eb99b872c271107abac345c" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Santa Catarina<br><b>cidade:</b> Florianópolis, Santa Catarina<br><b>departamento:</b> Centro Tecnológico<br><b>nome:</b> Departamento de Informática e Estatística<br><b>url:</b> https://giaa.ufsc.br/<br><b>pesquisadores:</b> Alexandre Gonçalves Silva, Álvaro Junio Pereira Franco, Elder Rizzon Santos, Guilherme Alex Derenievicz, Jerusa Marchi, Maicon Rafael Zatelli, Pedro Belin Castellucci, Rafael de Santiago<br><b>latitude:</b> -27.6001269<br><b>longitude:</b> -48.5170718<br></div>`)[0];
+                popup_ff8a01e25cc3fbdd05186681ab740118.setContent(html_a58d09ce6eb99b872c271107abac345c);
+            
+        
+
+        marker_1400e53e686ee7bb80211aa4c25e494f.bindPopup(popup_ff8a01e25cc3fbdd05186681ab740118)
+        ;
+
+        
+    
+    
+            marker_1400e53e686ee7bb80211aa4c25e494f.bindTooltip(
+                `<div>
+                     Departamento de Informática e Estatística
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8c2fcbcfd427066ddac577667f7dfd6e = L.marker(
+                [-27.5999666, -48.5194152],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_e208d699b528dd60a5771ca97a725a2d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1796d76ad30b5025f57be97acf879943 = $(`<div id="html_1796d76ad30b5025f57be97acf879943" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Santa Catarina<br><b>cidade:</b> Florianópolis, Santa Catarina<br><b>nome:</b> ARGumentation applied to Artificial Intelligence (ArgAI)<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/3488422218306852<br><b>email:</b> alisonpanisson@gmail.com<br><b>coordenador:</b> Alison Roberto Panisson<br><b>pesquisadores:</b> Alison Roberto Panisson, Giovani Parente Farias, Rafael Heitor Bordini<br><b>latitude:</b> -27.5999666<br><b>longitude:</b> -48.5194152<br></div>`)[0];
+                popup_e208d699b528dd60a5771ca97a725a2d.setContent(html_1796d76ad30b5025f57be97acf879943);
+            
+        
+
+        marker_8c2fcbcfd427066ddac577667f7dfd6e.bindPopup(popup_e208d699b528dd60a5771ca97a725a2d)
+        ;
+
+        
+    
+    
+            marker_8c2fcbcfd427066ddac577667f7dfd6e.bindTooltip(
+                `<div>
+                     ARGumentation applied to Artificial Intelligence (ArgAI)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2fa9c4eab56a9b8131e7b18b62cd09e9 = L.marker(
+                [-21.9796715, -47.8803937],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_f0ca72eae1bf97526dade95d0abee72d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cdeb21bb99163f468b436faf102fdef9 = $(`<div id="html_cdeb21bb99163f468b436faf102fdef9" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de São Carlos<br><b>cidade:</b> São Carlos, São Paulo<br><b>departamento:</b> Pesquisa em Inteligência Artificial e Automação do Programa de Pós Graduação em Ciências da Computação<br><b>nome:</b> Departamento de Computação<br><b>url:</b> http://www.liaa.dc.ufscar.br/index.htm<br><b>email:</b> estevam@dc.ufscar.br, heloisa@dc.ufscar.br, lucia@dc.ufscar.br, carmo@dc.ufscar.br<br><b>pesquisadores:</b> Estevam Rafael Hruschka Junior, Heloisa de Arruda Camargo, Lucia Helena Machado Rino, Maria do Carmo Nicoletti, Orides Morandin Junior<br><b>latitude:</b> -21.9796715<br><b>longitude:</b> -47.8803937<br></div>`)[0];
+                popup_f0ca72eae1bf97526dade95d0abee72d.setContent(html_cdeb21bb99163f468b436faf102fdef9);
+            
+        
+
+        marker_2fa9c4eab56a9b8131e7b18b62cd09e9.bindPopup(popup_f0ca72eae1bf97526dade95d0abee72d)
+        ;
+
+        
+    
+    
+            marker_2fa9c4eab56a9b8131e7b18b62cd09e9.bindTooltip(
+                `<div>
+                     Departamento de Computação
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_239d4c6dff9e235af89f493477818060 = L.marker(
+                [-18.9187273, -48.2597688],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_0a94fadc0a0d3494541b392aad5395f0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_af3b33bb41a65906238313567aab793c = $(`<div id="html_af3b33bb41a65906238313567aab793c" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Uberlândia<br><b>cidade:</b> Uberlândia, Minas Gerais<br><b>departamento:</b> Faculdade de Computação<br><b>nome:</b> Laboratório Interdisciplinar de Processamento e Análise de Imagens (LIPAI)<br><b>url:</b> https://lipaiufu.com.br/index.php<br><b>pesquisadores:</b> Adilmar C. Dantas, Adriano Barbosa, Alessandro Santana, Dalí Freire Dias, Guilherme Freire, Marcelo Zanchetta, Paulo Rogério, Pedro Antônio, Thaína Aparecida<br><b>latitude:</b> -18.9187273<br><b>longitude:</b> -48.2597688<br></div>`)[0];
+                popup_0a94fadc0a0d3494541b392aad5395f0.setContent(html_af3b33bb41a65906238313567aab793c);
+            
+        
+
+        marker_239d4c6dff9e235af89f493477818060.bindPopup(popup_0a94fadc0a0d3494541b392aad5395f0)
+        ;
+
+        
+    
+    
+            marker_239d4c6dff9e235af89f493477818060.bindTooltip(
+                `<div>
+                     Laboratório Interdisciplinar de Processamento e Análise de Imagens (LIPAI)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_14fdf03cedf4aa8a46db93b755845677 = L.marker(
+                [-18.9173659, -48.2576618],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_59bdde7908b83b9675889fd37e22594a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_21860185e1510d3bfe4c32cca65262ce = $(`<div id="html_21860185e1510d3bfe4c32cca65262ce" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal de Uberlândia<br><b>cidade:</b> Uberlândia, Minas Gerais<br><b>departamento:</b> Faculdade de Ciências da Computação<br><b>nome:</b> Blade-Runner<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/7603912003348815<br><b>email:</b> ritasilvajulia@gmail.com<br><b>coordenador:</b> Rita Maria da Silva Julia<br><b>pesquisadores:</b> André Carlos Ponce de Leon Ferreira de Carvalho, Elaine Ribeiro de Faria Paiva, Gina Maira Barbosa de Oliveira, Henrique Coelho Fernandes, Marcelo Zanchetta do Nascimento, Rita Maria da Silva Julia, Stéphane Julia<br><b>latitude:</b> -18.9173659<br><b>longitude:</b> -48.2576618<br></div>`)[0];
+                popup_59bdde7908b83b9675889fd37e22594a.setContent(html_21860185e1510d3bfe4c32cca65262ce);
+            
+        
+
+        marker_14fdf03cedf4aa8a46db93b755845677.bindPopup(popup_59bdde7908b83b9675889fd37e22594a)
+        ;
+
+        
+    
+    
+            marker_14fdf03cedf4aa8a46db93b755845677.bindTooltip(
+                `<div>
+                     Blade-Runner
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9c2825cf19790a64d30a8c034aeda32e = L.marker(
+                [-9.5532244, -35.7768039],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_1195cec0c04379f4d63b9a583ba732d4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_72144bd5fea6a52877eb54d787a05c3a = $(`<div id="html_72144bd5fea6a52877eb54d787a05c3a" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Alagoas<br><b>cidade:</b> Maceió, Alagoas<br><b>departamento:</b> Instituto de Computação<br><b>nome:</b> Edge<br><b>url:</b> http://edgebr.org/<br><b>coordenador:</b> Rodrigo Paes<br><b>pesquisadores:</b> Rodrigo Paes, Willy Tiengo<br><b>latitude:</b> -9.5532244<br><b>longitude:</b> -35.7768039<br></div>`)[0];
+                popup_1195cec0c04379f4d63b9a583ba732d4.setContent(html_72144bd5fea6a52877eb54d787a05c3a);
+            
+        
+
+        marker_9c2825cf19790a64d30a8c034aeda32e.bindPopup(popup_1195cec0c04379f4d63b9a583ba732d4)
+        ;
+
+        
+    
+    
+            marker_9c2825cf19790a64d30a8c034aeda32e.bindTooltip(
+                `<div>
+                     Edge
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_00397eca4396e9ffea33762fe4442f5d = L.marker(
+                [-9.5532244, -35.7768039],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_64c3045d4f2e77b8721f47478a6b6259 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_576ec8eb18c6672fdf9d27c4a7f98926 = $(`<div id="html_576ec8eb18c6672fdf9d27c4a7f98926" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Alagoas<br><b>cidade:</b> Maceió, Alagoas<br><b>departamento:</b> Instituto de Computação<br><b>nome:</b> Engenharia de Sistemas Cognitivos<br><b>url:</b> https://ic.ufal.br/pt-br/pesquisa/grupos-e-nucleos/engenharia-de-sistemas-cognitivos<br><b>coordenador:</b> Leandro Dias da Silva<br><b>pesquisadores:</b> Baldoino Fonseca dos Santos Neto, Cleumar da Silva Moreira, Evandro de Barros Costa, Leandro Dias da Silva, Márcio de Medeiros Ribeiro, Rodrigo de Barros Paes, Willy Carvalho Tiengo<br><b>latitude:</b> -9.5532244<br><b>longitude:</b> -35.7768039<br></div>`)[0];
+                popup_64c3045d4f2e77b8721f47478a6b6259.setContent(html_576ec8eb18c6672fdf9d27c4a7f98926);
+            
+        
+
+        marker_00397eca4396e9ffea33762fe4442f5d.bindPopup(popup_64c3045d4f2e77b8721f47478a6b6259)
+        ;
+
+        
+    
+    
+            marker_00397eca4396e9ffea33762fe4442f5d.bindTooltip(
+                `<div>
+                     Engenharia de Sistemas Cognitivos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5eec159cc183112e721ea8bd140b1be6 = L.marker(
+                [-3.1002425, -59.9765378],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_324a05b87cc3c05588cd9e9f741dfaa1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_70d504abdb72ca51dcc32ce3622f2e6b = $(`<div id="html_70d504abdb72ca51dcc32ce3622f2e6b" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Amazonas<br><b>cidade:</b> Manaus, Amazonas<br><b>departamento:</b> Progama de Pós Graduação em Informática<br><b>nome:</b> Linha de Pesquisa Inteligência Artificial<br><b>url:</b> https://ppgi.ufam.edu.br/area-de-concentracao-e-linhas-de-pesquisa/2-uncategorised/112-inteligencia-artificial.html<br><b>latitude:</b> -3.1002425<br><b>longitude:</b> -59.9765378<br></div>`)[0];
+                popup_324a05b87cc3c05588cd9e9f741dfaa1.setContent(html_70d504abdb72ca51dcc32ce3622f2e6b);
+            
+        
+
+        marker_5eec159cc183112e721ea8bd140b1be6.bindPopup(popup_324a05b87cc3c05588cd9e9f741dfaa1)
+        ;
+
+        
+    
+    
+            marker_5eec159cc183112e721ea8bd140b1be6.bindTooltip(
+                `<div>
+                     Linha de Pesquisa Inteligência Artificial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f37333b8c3b2eb49aafa1a832bf745bc = L.marker(
+                [-4.9466645, -37.9743309],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_f7139a751de138288040d27f0aa8df64 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5da16bf18d0e7367a91ff4ae27cdec0a = $(`<div id="html_5da16bf18d0e7367a91ff4ae27cdec0a" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Ceará<br><b>cidade:</b> Russas, Ceará<br><b>nome:</b> Laboratório de Tecnologias Inovadoras<br><b>url:</b> https://lti.ufc.br/pt/linhas-de-pesquisa/inteligencia-artificial/<br><b>email:</b> lti@ufc.br<br><b>coordenador:</b> Alexandre Matos Arruda<br><b>pesquisadores:</b> Alexandre Matos Arruda<br><b>latitude:</b> -4.9466645<br><b>longitude:</b> -37.9743309<br></div>`)[0];
+                popup_f7139a751de138288040d27f0aa8df64.setContent(html_5da16bf18d0e7367a91ff4ae27cdec0a);
+            
+        
+
+        marker_f37333b8c3b2eb49aafa1a832bf745bc.bindPopup(popup_f7139a751de138288040d27f0aa8df64)
+        ;
+
+        
+    
+    
+            marker_f37333b8c3b2eb49aafa1a832bf745bc.bindTooltip(
+                `<div>
+                     Laboratório de Tecnologias Inovadoras
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_084e4faa3fc1bef20b52ee2c764491f6 = L.marker(
+                [-20.273314, -40.3059384],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_69613331ca28ed9bd3a593ffdde07f70 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3a1d7918c0f1959b3709ece60d8c410c = $(`<div id="html_3a1d7918c0f1959b3709ece60d8c410c" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Espírito Santo<br><b>cidade:</b> Vitória, Espírito Santo<br><b>departamento:</b> Centro Tecnológico<br><b>nome:</b> Núcleo de Inferência e Algoritmos<br><b>url:</b> https://ninfa.inf.ufes.br/site/en/home<br><b>email:</b> fvarejao@inf.ufes.br<br><b>pesquisadores:</b> Sistemas Inteligentes, Otimização, Heurísticas e Meta-heurísticas, Computação Evolutiva, Redes Neurais, Sistemas Baseados em Conhecimento<br><b>latitude:</b> -20.273314<br><b>longitude:</b> -40.3059384<br></div>`)[0];
+                popup_69613331ca28ed9bd3a593ffdde07f70.setContent(html_3a1d7918c0f1959b3709ece60d8c410c);
+            
+        
+
+        marker_084e4faa3fc1bef20b52ee2c764491f6.bindPopup(popup_69613331ca28ed9bd3a593ffdde07f70)
+        ;
+
+        
+    
+    
+            marker_084e4faa3fc1bef20b52ee2c764491f6.bindTooltip(
+                `<div>
+                     Núcleo de Inferência e Algoritmos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_aa4204f7fcd4a33451563e6f3320fa89 = L.marker(
+                [-20.273314, -40.3059384],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_647236c3c4d0af284c671e811efbf4cf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7683d7b0d6cd69ba56b73a1d130896d6 = $(`<div id="html_7683d7b0d6cd69ba56b73a1d130896d6" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Espírito Santo<br><b>cidade:</b> Vitória, Espírito Santo<br><b>departamento:</b> Centro Tecnológico<br><b>nome:</b> Departamento de Informática<br><b>url:</b> https://informatica.ufes.br/pt-br/pos-graduacao/PPGI/detalhes-da-linha-de-pesquisa?id=570<br><b>pesquisadores:</b> Alberto Ferreira De Souza, Celso Jose Munaro, Claudine Santos Badue Gonçalves, Flávio Miguel Varejão, Renato Antônio Krohling, Thiago Oliveira dos Santos, Thomas Walter Rauber<br><b>latitude:</b> -20.273314<br><b>longitude:</b> -40.3059384<br></div>`)[0];
+                popup_647236c3c4d0af284c671e811efbf4cf.setContent(html_7683d7b0d6cd69ba56b73a1d130896d6);
+            
+        
+
+        marker_aa4204f7fcd4a33451563e6f3320fa89.bindPopup(popup_647236c3c4d0af284c671e811efbf4cf)
+        ;
+
+        
+    
+    
+            marker_aa4204f7fcd4a33451563e6f3320fa89.bindTooltip(
+                `<div>
+                     Departamento de Informática
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_7578ebe30f7aeb5ba0308287a0b7f8b7 = L.marker(
+                [-16.6035364, -49.2665232],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_9822973ac127fddd98e6db7303fe9ca2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b6afa009a05be8deb28f7ddeb7e5891a = $(`<div id="html_b6afa009a05be8deb28f7ddeb7e5891a" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Goiás<br><b>cidade:</b> Goiânia, Goiás<br><b>departamento:</b> Instituto de Informática, FAPEG, Embrapii<br><b>nome:</b> Centro de Excelência em Inteligência Artificial (Ceia-UFG)<br><b>url:</b> https://inf.ufg.br/p/39527-centro-de-excelencia-em-inteligencia-artificial-ceia<br><b>email:</b> contato.centrodeia@gmail.com<br><b>coordenador:</b> Telma Woerle de Lima Soares<br><b>latitude:</b> -16.6035364<br><b>longitude:</b> -49.2665232<br></div>`)[0];
+                popup_9822973ac127fddd98e6db7303fe9ca2.setContent(html_b6afa009a05be8deb28f7ddeb7e5891a);
+            
+        
+
+        marker_7578ebe30f7aeb5ba0308287a0b7f8b7.bindPopup(popup_9822973ac127fddd98e6db7303fe9ca2)
+        ;
+
+        
+    
+    
+            marker_7578ebe30f7aeb5ba0308287a0b7f8b7.bindTooltip(
+                `<div>
+                     Centro de Excelência em Inteligência Artificial (Ceia-UFG)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3252e9f2efc122f1cc32b197c91971a9 = L.marker(
+                [-21.2317572, -44.9947798],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_f999c4c0cc19f7e126e008246412f16a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c24fc30046530974e7014f6ab25246eb = $(`<div id="html_c24fc30046530974e7014f6ab25246eb" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Lavras<br><b>cidade:</b> Lavras, Minas Gerais<br><b>departamento:</b> Departamento de Engenharia<br><b>nome:</b> Automação e Inteligência Artificial<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/2126663173433818<br><b>email:</b> brunohb@ufla.br<br><b>coordenador:</b> Bruno Henrique Groenner Barbosa, Danton Diego Ferreira<br><b>pesquisadores:</b> Belisario Nina Huallpa, Bruno Henrique Groenner Barbosa, Daniel Augusto Pereira, Danton Diego Ferreira, Felipe Oliveira e Silva, Leonardo Silveira Paiva, Ricardo Rodrigues Magalhães, Silvia Costa Ferreira, Wilian Soares Lacerda<br><b>latitude:</b> -21.2317572<br><b>longitude:</b> -44.9947798<br></div>`)[0];
+                popup_f999c4c0cc19f7e126e008246412f16a.setContent(html_c24fc30046530974e7014f6ab25246eb);
+            
+        
+
+        marker_3252e9f2efc122f1cc32b197c91971a9.bindPopup(popup_f999c4c0cc19f7e126e008246412f16a)
+        ;
+
+        
+    
+    
+            marker_3252e9f2efc122f1cc32b197c91971a9.bindTooltip(
+                `<div>
+                     Automação e Inteligência Artificial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a1965e01ee17d34922e28f98a27821e7 = L.marker(
+                [-21.2317572, -44.9947798],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_212b0bc2bcccb0cfaa4c011b88f24500 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bd9a6e5b7b1ab14fe81aa04386e3ba3f = $(`<div id="html_bd9a6e5b7b1ab14fe81aa04386e3ba3f" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Lavras<br><b>cidade:</b> Lavras, Minas Gerais<br><b>departamento:</b> Departamento de Ciência da Computação<br><b>nome:</b> Behavioural Informatics Laboratory (BILbo)<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/3946643535471484<br><b>email:</b> eric@ufla.br<br><b>coordenador:</b> Eric Fernandes de Mello Araújo<br><b>pesquisadores:</b> Angélica Sousa da Mata, Denilson Alves Pereira, Eric Fernandes de Mello Araújo, Erick Galani Maziero, Fabiano Lemes Ribeiro, Michele Valquíria dos Reis<br><b>latitude:</b> -21.2317572<br><b>longitude:</b> -44.9947798<br></div>`)[0];
+                popup_212b0bc2bcccb0cfaa4c011b88f24500.setContent(html_bd9a6e5b7b1ab14fe81aa04386e3ba3f);
+            
+        
+
+        marker_a1965e01ee17d34922e28f98a27821e7.bindPopup(popup_212b0bc2bcccb0cfaa4c011b88f24500)
+        ;
+
+        
+    
+    
+            marker_a1965e01ee17d34922e28f98a27821e7.bindTooltip(
+                `<div>
+                     Behavioural Informatics Laboratory (BILbo)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6b1a9fe291b23233fb0be993072bb1e3 = L.marker(
+                [-20.5025212, -54.6134556],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_9b14623553250d79400e9853d7791516 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d667af8afb458510428196f02df5175d = $(`<div id="html_d667af8afb458510428196f02df5175d" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Mato Grosso do Sul<br><b>cidade:</b> Campo Grande, Mato Grosso do Sul<br><b>departamento:</b> Faculdade de Computação<br><b>nome:</b> Laboratório de Inteligência Artificial<br><b>url:</b> http://lia.facom.ufms.br/<br><b>pesquisadores:</b> Jonathan de Andrade Silva, Wesley Nunes Gonçalves, Anderson Viçoso de Araujo, Fábio Iaione, Eraldo Luís Rezende Fernandes, Amaury Antônio de Castro Junior, Bruno Magalhães Nogueira, Edson Takashi Matsubara<br><b>latitude:</b> -20.5025212<br><b>longitude:</b> -54.6134556<br></div>`)[0];
+                popup_9b14623553250d79400e9853d7791516.setContent(html_d667af8afb458510428196f02df5175d);
+            
+        
+
+        marker_6b1a9fe291b23233fb0be993072bb1e3.bindPopup(popup_9b14623553250d79400e9853d7791516)
+        ;
+
+        
+    
+    
+            marker_6b1a9fe291b23233fb0be993072bb1e3.bindTooltip(
+                `<div>
+                     Laboratório de Inteligência Artificial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c6b3b939a514a74c74ca7d79ffd021de = L.marker(
+                [-15.6084043, -56.0628341],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_782cddf3f8b20912b1f06c0bb578ea0f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4aab48494428cbc6176a1e4570765bd7 = $(`<div id="html_4aab48494428cbc6176a1e4570765bd7" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Mato Grosso do Sul<br><b>cidade:</b> Cuiabá, Mato Grosso<br><b>departamento:</b> Instituto de Computação<br><b>nome:</b> Inteligência Artificial Robótica e Automação (IARA)<br><b>url:</b> https://eit.ufmt.br/EitL/public/portfolio-items/iara-inteligencia-artificial-robotica-e-automacao/?portfolioCats=66%2C38%2C67%2C39<br><b>email:</b> elmo@ic.ufmt.b<br><b>coordenador:</b> Elmo Batista de Faria<br><b>pesquisadores:</b> Elmo Batista de Faria<br><b>latitude:</b> -15.6084043<br><b>longitude:</b> -56.0628341<br></div>`)[0];
+                popup_782cddf3f8b20912b1f06c0bb578ea0f.setContent(html_4aab48494428cbc6176a1e4570765bd7);
+            
+        
+
+        marker_c6b3b939a514a74c74ca7d79ffd021de.bindPopup(popup_782cddf3f8b20912b1f06c0bb578ea0f)
+        ;
+
+        
+    
+    
+            marker_c6b3b939a514a74c74ca7d79ffd021de.bindTooltip(
+                `<div>
+                     Inteligência Artificial Robótica e Automação (IARA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_36117629040bf547f150fe704aa55808 = L.marker(
+                [-1.4745037, -48.4561587],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_5dbb18363a581c03b056f03bb2808c21 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2b77d2d569a039425ad3d3797835aaf9 = $(`<div id="html_2b77d2d569a039425ad3d3797835aaf9" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Pará<br><b>cidade:</b> Belém, Pará<br><b>departamento:</b> Instituto de Ciências Exatas e Naturais<br><b>nome:</b> Laboratory of Applied Artificial Intelligence<br><b>url:</b> https://laai.ufpa.br/people/<br><b>email:</b> dionne@ufpa.br<br><b>coordenador:</b> Dionne Cavalcante Monteiro<br><b>pesquisadores:</b> Dionne Cavalcante Monteiro, Filipe Saraiva, Lídio Campos, Raimundo Viégas Junior<br><b>latitude:</b> -1.4745037<br><b>longitude:</b> -48.4561587<br></div>`)[0];
+                popup_5dbb18363a581c03b056f03bb2808c21.setContent(html_2b77d2d569a039425ad3d3797835aaf9);
+            
+        
+
+        marker_36117629040bf547f150fe704aa55808.bindPopup(popup_5dbb18363a581c03b056f03bb2808c21)
+        ;
+
+        
+    
+    
+            marker_36117629040bf547f150fe704aa55808.bindTooltip(
+                `<div>
+                     Laboratory of Applied Artificial Intelligence
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_54184b5e51acb12178f606395d79183b = L.marker(
+                [-25.450457, -49.2317319],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_4651c5dcdf094b785117299fe39c9c9a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3d0c2290f2871f1ee8775d2be4b7e472 = $(`<div id="html_3d0c2290f2871f1ee8775d2be4b7e472" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Paraná<br><b>cidade:</b> Curitiba, Paraná<br><b>departamento:</b> Departamento de Informática<br><b>nome:</b> Departamento de Informática<br><b>url:</b> https://www.inf.ufpr.br/liamf/<br><b>pesquisadores:</b> Alexandre Ibrahim Direne, Fabiano Silva, Leticia Mara Peres, Luis Allan Künzle, Marcos Alexandre Castilho<br><b>latitude:</b> -25.450457<br><b>longitude:</b> -49.2317319<br></div>`)[0];
+                popup_4651c5dcdf094b785117299fe39c9c9a.setContent(html_3d0c2290f2871f1ee8775d2be4b7e472);
+            
+        
+
+        marker_54184b5e51acb12178f606395d79183b.bindPopup(popup_4651c5dcdf094b785117299fe39c9c9a)
+        ;
+
+        
+    
+    
+            marker_54184b5e51acb12178f606395d79183b.bindTooltip(
+                `<div>
+                     Departamento de Informática
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2d9d8a7713735c639b5d3d025894598a = L.marker(
+                [-25.450457, -49.2317319],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_3974508adc310ac947a69c7d834c7140 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_88a028688daeb79777a8e766c8ae42ba = $(`<div id="html_88a028688daeb79777a8e766c8ae42ba" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Paraná<br><b>cidade:</b> Curitiba, Paraná<br><b>departamento:</b> Departamento de Informática<br><b>nome:</b> Centro de Computação Científica e Software Livre (C3SL)<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/0267764541406129<br><b>email:</b> castilho@ufpr.br<br><b>coordenador:</b> Marcos Alexandre Castilho<br><b>pesquisadores:</b> André Ricardo Abed Grégio, Carlos Alberto Martins de Carvalho, Daniel Weingaertner, Eduardo Cunha de Almeida, Eduardo Todt, Fabiano Silva, Guilherme Alex Derenievicz, Leticia Mara Peres, Luis Carlos Erpen de Bona, Marcos Alexandre Castilho, Marcos Didonet Del Fabro, Marcos Sfair Sunye, Roberto Pereira<br><b>latitude:</b> -25.450457<br><b>longitude:</b> -49.2317319<br></div>`)[0];
+                popup_3974508adc310ac947a69c7d834c7140.setContent(html_88a028688daeb79777a8e766c8ae42ba);
+            
+        
+
+        marker_2d9d8a7713735c639b5d3d025894598a.bindPopup(popup_3974508adc310ac947a69c7d834c7140)
+        ;
+
+        
+    
+    
+            marker_2d9d8a7713735c639b5d3d025894598a.bindTooltip(
+                `<div>
+                     Centro de Computação Científica e Software Livre (C3SL)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_fc8b51394d35e8c0a82e146cd6ca1436 = L.marker(
+                [-12.6572237, -39.0909105],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_cd46e9ef38a46b1ddb099f282746d757 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1b42753758957e2019c1b643d9a3ef75 = $(`<div id="html_1b42753758957e2019c1b643d9a3ef75" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Recóncavo Baiano<br><b>cidade:</b> Cruz das Almas, Bahia<br><b>departamento:</b> Centro de Ciências Exatas e Tecnológicas<br><b>nome:</b> Robotics and Artificial Intelligence (RAI)<br><b>url:</b> http://dgp.cnpq.br/dgp/espelhogrupo/7591400891965345<br><b>email:</b> camilabezerra@ufrb.edu.br<br><b>coordenador:</b> Camila Bezerra da Silva, André Luiz Carvalho Ottoni<br><b>pesquisadores:</b> André Luiz Carvalho Ottoni, Camila Bezerra<br><b>latitude:</b> -12.6572237<br><b>longitude:</b> -39.0909105<br></div>`)[0];
+                popup_cd46e9ef38a46b1ddb099f282746d757.setContent(html_1b42753758957e2019c1b643d9a3ef75);
+            
+        
+
+        marker_fc8b51394d35e8c0a82e146cd6ca1436.bindPopup(popup_cd46e9ef38a46b1ddb099f282746d757)
+        ;
+
+        
+    
+    
+            marker_fc8b51394d35e8c0a82e146cd6ca1436.bindTooltip(
+                `<div>
+                     Robotics and Artificial Intelligence (RAI)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f700e161dfb2f6173c58838fe5db9713 = L.marker(
+                [-22.8599338, -43.2184486],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_757c5e4990b8f179e17f515486e8c5e1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_524989e4ce8ca7fd6a50c3b212c3f092 = $(`<div id="html_524989e4ce8ca7fd6a50c3b212c3f092" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Rio de Janeiro<br><b>cidade:</b> Rio de Janeiro, Rio de Janeiro<br><b>departamento:</b> Instituto Alberto Luiz Coimbra de Pós-Graduação e Pesquisa de Engenharia (COPPE)<br><b>nome:</b> Laboratório de Inteligência Artificial (LabIA)<br><b>url:</b> https://www.coppe.ufrj.br/pt-br/pesquisa/laboratorios/laboratorio-de-inteligencia-artificial-labia<br><b>coordenador:</b> Gerson Zaverucha<br><b>pesquisadores:</b> Gerson Zaverucha<br><b>latitude:</b> -22.8599338<br><b>longitude:</b> -43.2184486<br></div>`)[0];
+                popup_757c5e4990b8f179e17f515486e8c5e1.setContent(html_524989e4ce8ca7fd6a50c3b212c3f092);
+            
+        
+
+        marker_f700e161dfb2f6173c58838fe5db9713.bindPopup(popup_757c5e4990b8f179e17f515486e8c5e1)
+        ;
+
+        
+    
+    
+            marker_f700e161dfb2f6173c58838fe5db9713.bindTooltip(
+                `<div>
+                     Laboratório de Inteligência Artificial (LabIA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2c61fdb291990bd476aad3fd4528f7a1 = L.marker(
+                [-22.8599338, -43.2184486],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_934b16e5d6ad35e433b7e9fdf9b6f761 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_89df357610802038a19d76e7a55dac68 = $(`<div id="html_89df357610802038a19d76e7a55dac68" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Rio de Janeiro<br><b>cidade:</b> Rio de Janeiro, Rio de Janeiro<br><b>departamento:</b> Instituto Alberto Luiz Coimbra de Pós-Graduação e Pesquisa de Engenharia (COPPE)<br><b>nome:</b> Linha de pesquisa de Inteligência Artificial<br><b>url:</b> https://www.cos.ufrj.br/index.php/pt-BR/linhas-de-pesquisa-artigo/33-inteligncia-artificial-2<br><b>email:</b> pedreira56@gmail.com, edmundo@land.ufrj.br, felipe@cos.ufrj.br, gerson@cos.ufrj.br, valmir@cos.ufrj.br<br><b>coordenador:</b> Carlos Eduardo Pedreira<br><b>pesquisadores:</b> Carlos Eduardo Pedreira, Edmundo Albuquerque de Souza e Silva, Felipe Maia Galvão França, Gerson Zaverucha, Valmir Carneiro Barbosa<br><b>latitude:</b> -22.8599338<br><b>longitude:</b> -43.2184486<br></div>`)[0];
+                popup_934b16e5d6ad35e433b7e9fdf9b6f761.setContent(html_89df357610802038a19d76e7a55dac68);
+            
+        
+
+        marker_2c61fdb291990bd476aad3fd4528f7a1.bindPopup(popup_934b16e5d6ad35e433b7e9fdf9b6f761)
+        ;
+
+        
+    
+    
+            marker_2c61fdb291990bd476aad3fd4528f7a1.bindTooltip(
+                `<div>
+                     Linha de pesquisa de Inteligência Artificial
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_42cb727be1815fc005a1b6eb551e5777 = L.marker(
+                [-5.8415191, -35.1983215],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_6c9e5a03f926121d150358366e5bdf3c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_28e426242c784bf2ec47405edfbc7fb2 = $(`<div id="html_28e426242c784bf2ec47405edfbc7fb2" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Rio Grande do Norte<br><b>cidade:</b> Natal, Rio Grande do Norte<br><b>departamento:</b> Departamento de Informática e Matemática Aplicada<br><b>nome:</b> Laboratório Computabilidade, Raciocínio Aproximado, Estruturas ordenadas, e Lógicas - CAROL<br><b>url:</b> http://carol.dimap.ufrn.br/<br><b>email:</b> carol.dimap@gmail.com.<br><b>coordenador:</b> Joao Marcos de Almeida, Benjamín René Callejas Bedregal<br><b>pesquisadores:</b> Joao Marcos de Almeida, Benjamín René Callejas Bedregal, Anderson Paiva Cruz, Athanasios Tsouanas, Carlos Alberto Olarte Vega, Elaine Gouvêa Pimentel, Fágner Lemos de Santana, Patrick Cesar Alves Terrematte, Regivan Hugo Nunes Santiago, Umberto Rivieccio<br><b>latitude:</b> -5.8415191<br><b>longitude:</b> -35.1983215<br></div>`)[0];
+                popup_6c9e5a03f926121d150358366e5bdf3c.setContent(html_28e426242c784bf2ec47405edfbc7fb2);
+            
+        
+
+        marker_42cb727be1815fc005a1b6eb551e5777.bindPopup(popup_6c9e5a03f926121d150358366e5bdf3c)
+        ;
+
+        
+    
+    
+            marker_42cb727be1815fc005a1b6eb551e5777.bindTooltip(
+                `<div>
+                     Laboratório Computabilidade, Raciocínio Aproximado, Estruturas ordenadas, e Lógicas - CAROL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5799ad3880a71fc489948c0be2db2516 = L.marker(
+                [-5.8321399, -35.2054712],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_f807e7b5c72b0c76f2ca0479fa31a09a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a3bfcc11a0c9d7d2c59d6644b7119028 = $(`<div id="html_a3bfcc11a0c9d7d2c59d6644b7119028" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Rio Grande do Norte<br><b>cidade:</b> Natal, Rio Grande do Norte<br><b>departamento:</b> Instituto Metrópole Digital<br><b>nome:</b> Núcleo de Inteligência Artificial e Ciências de Dados (NIACD)<br><b>coordenador:</b> Marcelo Augusto Costa e Fernandes<br><b>latitude:</b> -5.8321399<br><b>longitude:</b> -35.2054712<br></div>`)[0];
+                popup_f807e7b5c72b0c76f2ca0479fa31a09a.setContent(html_a3bfcc11a0c9d7d2c59d6644b7119028);
+            
+        
+
+        marker_5799ad3880a71fc489948c0be2db2516.bindPopup(popup_f807e7b5c72b0c76f2ca0479fa31a09a)
+        ;
+
+        
+    
+    
+            marker_5799ad3880a71fc489948c0be2db2516.bindTooltip(
+                `<div>
+                     Núcleo de Inteligência Artificial e Ciências de Dados (NIACD)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0651f63edeead8bca92550081d508920 = L.marker(
+                [-30.0688963, -51.1206198],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_cf256a27ff8e331c26ce49bfcae297f8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f93117d9642d3c007d1c94687c5d59ec = $(`<div id="html_f93117d9642d3c007d1c94687c5d59ec" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Rio Grande do Sul<br><b>cidade:</b> Porto Alegre, Rio Grande do Sul<br><b>departamento:</b> Instituto de Informática<br><b>nome:</b> Grupo de Inteligência Artificial (GIA)<br><b>url:</b> https://www.inf.ufrgs.br/site/pesquisa/grupos-de-pesquisa/inteligencia-artificial/<br><b>email:</b> informat@inf.ufrgs.br<br><b>pesquisadores:</b> Aline Villavicencio, Álvaro Freitas Moreira, Ana Lucia Cetertich Bazzan, André Grahl Pereira, Bruno Castro da Silva, Claudio Fernando Resin Geyer, Dante Augusto Couto Barone, Edson Prestes, Ingrid Oliveira de Nunes, Joel Luís Carbonera, Luís da Cunha Lamb, Mara Abel, Mariana Luderitz Kolberg, Mariana Recamonde Mendoza, Rosa Maria Vicari<br><b>latitude:</b> -30.0688963<br><b>longitude:</b> -51.1206198<br></div>`)[0];
+                popup_cf256a27ff8e331c26ce49bfcae297f8.setContent(html_f93117d9642d3c007d1c94687c5d59ec);
+            
+        
+
+        marker_0651f63edeead8bca92550081d508920.bindPopup(popup_cf256a27ff8e331c26ce49bfcae297f8)
+        ;
+
+        
+    
+    
+            marker_0651f63edeead8bca92550081d508920.bindTooltip(
+                `<div>
+                     Grupo de Inteligência Artificial (GIA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6531e30eafad438e86f20ed95520bfad = L.marker(
+                [-10.9237549, -37.1013585],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_44d3e2dd2878929638b2f96aa95f587e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_231ef23c2a68d28512ff7ca066c9aa11 = $(`<div id="html_231ef23c2a68d28512ff7ca066c9aa11" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Sergipe<br><b>cidade:</b> Aracaju, Sergipe<br><b>departamento:</b> Centro de Ciências Exatas e Tecnologia<br><b>nome:</b> BioChaves<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/8886300633892187<br><b>email:</b> jugurta.montalvao@gmail.com<br><b>coordenador:</b> Jugurta Rosa Montalvao Filho, Jânio Coutinho Canuto<br><b>pesquisadores:</b> Jugurta Rosa Montalvao Filho, Jânio Coutinho Canuto<br><b>latitude:</b> -10.9237549<br><b>longitude:</b> -37.1013585<br></div>`)[0];
+                popup_44d3e2dd2878929638b2f96aa95f587e.setContent(html_231ef23c2a68d28512ff7ca066c9aa11);
+            
+        
+
+        marker_6531e30eafad438e86f20ed95520bfad.bindPopup(popup_44d3e2dd2878929638b2f96aa95f587e)
+        ;
+
+        
+    
+    
+            marker_6531e30eafad438e86f20ed95520bfad.bindTooltip(
+                `<div>
+                     BioChaves
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d2506c149dd5fe7e75f16fdb2192d6d0 = L.marker(
+                [-10.1799044, -48.3628604],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_504ff5981ba57af0b9d5a7a10d44b7c3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0241e9e18e1b5bc2d01e692697fba3a0 = $(`<div id="html_0241e9e18e1b5bc2d01e692697fba3a0" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal do Tocantins<br><b>cidade:</b> Palmas, Tocantins<br><b>nome:</b> Laboratório de Computational Modeling of Artificial Intelligence Solutions (Comais)<br><b>url:</b> https://ww2.uft.edu.br/index.php/ultimas-noticias/29921-laboratorio-computational-modeling-of-artificial-intelligence-solutions-sera-apresentado-dia-25<br><b>coordenador:</b> David Nadler<br><b>pesquisadores:</b> Rogério Nogueira, David Nadler<br><b>latitude:</b> -10.1799044<br><b>longitude:</b> -48.3628604<br></div>`)[0];
+                popup_504ff5981ba57af0b9d5a7a10d44b7c3.setContent(html_0241e9e18e1b5bc2d01e692697fba3a0);
+            
+        
+
+        marker_d2506c149dd5fe7e75f16fdb2192d6d0.bindPopup(popup_504ff5981ba57af0b9d5a7a10d44b7c3)
+        ;
+
+        
+    
+    
+            marker_d2506c149dd5fe7e75f16fdb2192d6d0.bindTooltip(
+                `<div>
+                     Laboratório de Computational Modeling of Artificial Intelligence Solutions (Comais)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_87501f0ad0bce6571fca57d20b9f4904 = L.marker(
+                [-22.9064188, -43.1332356],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_b9ad620274a9a3943223ac22527d0db9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7028d1960041f2acd66b180f17dcda14 = $(`<div id="html_7028d1960041f2acd66b180f17dcda14" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal Fluminense<br><b>cidade:</b> Niterói, Rio de Janeiro<br><b>departamento:</b> Instituto de Computação da Universidade Federal Fluminense<br><b>nome:</b> Laboratório de Documentação Ativa e Design Inteligente<br><b>url:</b> https://www.addlabs.uff.br/<br><b>coordenador:</b> Rodrigo S. Monteiro<br><b>pesquisadores:</b> Flavia Bernardini, Luiz André Paes Leme, José Viterbo Filho, Rogério F. de Lacerda, Jessica Q. Kubrusly, Nayat Sánchez Pi, Luis Martí<br><b>latitude:</b> -22.9064188<br><b>longitude:</b> -43.1332356<br></div>`)[0];
+                popup_b9ad620274a9a3943223ac22527d0db9.setContent(html_7028d1960041f2acd66b180f17dcda14);
+            
+        
+
+        marker_87501f0ad0bce6571fca57d20b9f4904.bindPopup(popup_b9ad620274a9a3943223ac22527d0db9)
+        ;
+
+        
+    
+    
+            marker_87501f0ad0bce6571fca57d20b9f4904.bindTooltip(
+                `<div>
+                     Laboratório de Documentação Ativa e Design Inteligente
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a3f610c47054db389391e7e2edc67d36 = L.marker(
+                [-22.5062903, -44.0845917],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_09b8942b1b7f2082543f0e3a33c7409d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2445f323bd4e16bc1bdb1232abe2740c = $(`<div id="html_2445f323bd4e16bc1bdb1232abe2740c" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal Fluminense<br><b>cidade:</b> Volta Redonda, Rio de Janeiro<br><b>nome:</b> Computação Cognitiva em Redes Complexas<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/7935202824746348<br><b>email:</b> landrade@id.uff.br<br><b>coordenador:</b> Lúcio Pereira de Andrade, Rogério Pinto Espíndola<br><b>pesquisadores:</b> Elaine Ribeiro Sigette, José Cláudio Garcia Damaso, Lúcio Pereira de Andrade, Rogério Pinto Espíndola<br><b>latitude:</b> -22.5062903<br><b>longitude:</b> -44.0845917<br></div>`)[0];
+                popup_09b8942b1b7f2082543f0e3a33c7409d.setContent(html_2445f323bd4e16bc1bdb1232abe2740c);
+            
+        
+
+        marker_a3f610c47054db389391e7e2edc67d36.bindPopup(popup_09b8942b1b7f2082543f0e3a33c7409d)
+        ;
+
+        
+    
+    
+            marker_a3f610c47054db389391e7e2edc67d36.bindTooltip(
+                `<div>
+                     Computação Cognitiva em Redes Complexas
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d1afaa5d11e958611b4b422d159933ee = L.marker(
+                [-5.2038619, -37.3290981],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_e54d5039b1cb9d01c30b05f60700e0aa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_191fd0e0dd7261e265b287e0a11c95a6 = $(`<div id="html_191fd0e0dd7261e265b287e0a11c95a6" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Federal Rural do Semi-árido<br><b>cidade:</b> Mossoró, Rio Grande do Norte<br><b>departamento:</b> Pró-Reitoria de Pesquisa e Pós Graduação<br><b>nome:</b> 4Vision - Grupo de Pesquisa em Visão Computacional<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/6997994143432592<br><b>email:</b> xico@ufersa.edu.br<br><b>coordenador:</b> Francisco de Assis Pereira Vasconcelos de Arruda<br><b>pesquisadores:</b> Francisco de Assis Pereira Vasconcelos de Arruda, José Gildo de Araújo Júnior, Wellington Barbosa do Nascimento Junior<br><b>latitude:</b> -5.2038619<br><b>longitude:</b> -37.3290981<br></div>`)[0];
+                popup_e54d5039b1cb9d01c30b05f60700e0aa.setContent(html_191fd0e0dd7261e265b287e0a11c95a6);
+            
+        
+
+        marker_d1afaa5d11e958611b4b422d159933ee.bindPopup(popup_e54d5039b1cb9d01c30b05f60700e0aa)
+        ;
+
+        
+    
+    
+            marker_d1afaa5d11e958611b4b422d159933ee.bindTooltip(
+                `<div>
+                     4Vision - Grupo de Pesquisa em Visão Computacional
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9fd3b2bf342924ba17b21815138a04b1 = L.marker(
+                [-29.9174051, -51.1802408],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_4a1614d97fae63104bfb1bc6fb94251f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1b5f13564f38fa3d1eadb6a46107e237 = $(`<div id="html_1b5f13564f38fa3d1eadb6a46107e237" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade La Salle<br><b>cidade:</b> Canoas, Rio Grande do Sul<br><b>nome:</b> Centro de Inovação e Pesquisa em Educação e Computação (CIPEC)<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/4260328082837511<br><b>email:</b> roquetrindade@uesb.edu.br<br><b>coordenador:</b> Roque Mendes Prado Trindade, Alzira Ferreira da Silva<br><b>pesquisadores:</b> Alexsandra Oliveira Andrade, Alzira Ferreira da Silva, Benedito Melo Acióly, Cátia Mesquita Brasil Khouri, Clênia Andrade Oliveira de Melo, Daniela Andrade Monteiro Veiga, Fabio Moura Pereira, Francisco dos Santos Carvalho, Giovanilton Ferreira da Silva, Gonçalo Renildo Lima Cerqueira, Helio Lopes dos Santos, Jose Alberto Diaz Amado, José Carlos Martins Oliveira, Maísa Soares dos Santos Lopes, Marian dos Santos Oliveira, Raphaell Maciel de Sousa, Roberto Hugo Melo dos Santos, Roque Mendes Prado Trindade, Rosalve Lucas Marcelino, Sergio da Silva Aguiar, Valmir Henrique de Araujo, Vanêssa Brito Fernandes Neves, Vera Pacheco<br><b>latitude:</b> -29.9174051<br><b>longitude:</b> -51.1802408<br></div>`)[0];
+                popup_4a1614d97fae63104bfb1bc6fb94251f.setContent(html_1b5f13564f38fa3d1eadb6a46107e237);
+            
+        
+
+        marker_9fd3b2bf342924ba17b21815138a04b1.bindPopup(popup_4a1614d97fae63104bfb1bc6fb94251f)
+        ;
+
+        
+    
+    
+            marker_9fd3b2bf342924ba17b21815138a04b1.bindTooltip(
+                `<div>
+                     Centro de Inovação e Pesquisa em Educação e Computação (CIPEC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_7a5e687766885e36a5c08d93dba65751 = L.marker(
+                [-29.9174051, -51.1802408],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_e1a87751581807e5dcb70389f3366f08 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f32815daef338da0548ebc583133f0dc = $(`<div id="html_f32815daef338da0548ebc583133f0dc" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade La Salle<br><b>cidade:</b> Canoas, Rio Grande do Sul<br><b>nome:</b> Cidades Inteligentes<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/0831565657651460<br><b>email:</b> mozart.siqueira@unilasalle.edu.br<br><b>coordenador:</b> Mozart Lemos de Siqueira, Patricia Kayser Vargas Mangan<br><b>pesquisadores:</b> Mozart Lemos de Siqueira, Patricia Kayser Vargas Mangan<br><b>latitude:</b> -29.9174051<br><b>longitude:</b> -51.1802408<br></div>`)[0];
+                popup_e1a87751581807e5dcb70389f3366f08.setContent(html_f32815daef338da0548ebc583133f0dc);
+            
+        
+
+        marker_7a5e687766885e36a5c08d93dba65751.bindPopup(popup_e1a87751581807e5dcb70389f3366f08)
+        ;
+
+        
+    
+    
+            marker_7a5e687766885e36a5c08d93dba65751.bindTooltip(
+                `<div>
+                     Cidades Inteligentes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0edf9b28c4916dece6fe3010bb9d67bc = L.marker(
+                [-23.6532228, -46.5757334],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_05a57f1cf8c684cd56bb39ed02643d40 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e3252c8cb906c11e41eb081c90d95bc0 = $(`<div id="html_e3252c8cb906c11e41eb081c90d95bc0" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Metodista de São Paulo<br><b>cidade:</b> São Bernardo do Campo, São Paulo<br><b>nome:</b> Ciência de Dados e Inteligência Artificial (C3DI)<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/1528532932101404<br><b>email:</b> marcio.oliverio@metodista.br<br><b>coordenador:</b> Marcio Araujo Oliverio<br><b>pesquisadores:</b> Marcio Araujo Oliverio<br><b>latitude:</b> -23.6532228<br><b>longitude:</b> -46.5757334<br></div>`)[0];
+                popup_05a57f1cf8c684cd56bb39ed02643d40.setContent(html_e3252c8cb906c11e41eb081c90d95bc0);
+            
+        
+
+        marker_0edf9b28c4916dece6fe3010bb9d67bc.bindPopup(popup_05a57f1cf8c684cd56bb39ed02643d40)
+        ;
+
+        
+    
+    
+            marker_0edf9b28c4916dece6fe3010bb9d67bc.bindTooltip(
+                `<div>
+                     Ciência de Dados e Inteligência Artificial (C3DI)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_23d58cae495e975f00e6e09328c8608b = L.marker(
+                [-25.0517857, -50.1319292],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_98898a0f9c00d2a576af6cf105bf2f52 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_77b5fb5e69b1828807df86dd6b480831 = $(`<div id="html_77b5fb5e69b1828807df86dd6b480831" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Tecnológica Federal do Paraná<br><b>cidade:</b> Ponta Grossa, Paraná<br><b>nome:</b> Grupo de pesquisa Ciências Computacionais Aplicadas<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/3954170619985692<br><b>email:</b> itamariliuk@utfpr.edu.br<br><b>coordenador:</b> Itamar Iliuk, Fernando Henrique Campos<br><b>pesquisadores:</b> Arlete Teresinha Beuren, Davi Marcondes Rocha, Fernando Henrique Campos, Giuvane Conti, Itamar Iliuk, Kelyn Schenatto, Tatiane Tambarussi, Thiago França Naves, Vera Lúcia Vasilévski dos Santos Araújo, Vitor Alex Alves de Marchi<br><b>latitude:</b> -25.0517857<br><b>longitude:</b> -50.1319292<br></div>`)[0];
+                popup_98898a0f9c00d2a576af6cf105bf2f52.setContent(html_77b5fb5e69b1828807df86dd6b480831);
+            
+        
+
+        marker_23d58cae495e975f00e6e09328c8608b.bindPopup(popup_98898a0f9c00d2a576af6cf105bf2f52)
+        ;
+
+        
+    
+    
+            marker_23d58cae495e975f00e6e09328c8608b.bindTooltip(
+                `<div>
+                     Grupo de pesquisa Ciências Computacionais Aplicadas
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ddcdb243b1f98ce238a498f9f0da0cea = L.marker(
+                [-25.0517857, -50.1319292],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_299a0d8702cd560ae4e5bc8a0ee804c9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_72ab5083fa6cefabd41c8e04be0be0f7 = $(`<div id="html_72ab5083fa6cefabd41c8e04be0be0f7" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Tecnológica Federal do Paraná<br><b>cidade:</b> Ponta Grossa, Paraná<br><b>nome:</b> Aprendizagem de Máquina e Agentes de Software<br><b>url:</b> http://dgp.cnpq.br/dgp/espelhogrupo/41762<br><b>email:</b> helyane@utfpr.edu.br<br><b>coordenador:</b> Helyane Bronoski Borges, André Pinz Borges<br><b>pesquisadores:</b> Helyane Bronoski Borges, André Pinz Borges, Simone de Almeida, Simone Nasser Matos, Gleifer Vaz Alves<br><b>latitude:</b> -25.0517857<br><b>longitude:</b> -50.1319292<br></div>`)[0];
+                popup_299a0d8702cd560ae4e5bc8a0ee804c9.setContent(html_72ab5083fa6cefabd41c8e04be0be0f7);
+            
+        
+
+        marker_ddcdb243b1f98ce238a498f9f0da0cea.bindPopup(popup_299a0d8702cd560ae4e5bc8a0ee804c9)
+        ;
+
+        
+    
+    
+            marker_ddcdb243b1f98ce238a498f9f0da0cea.bindTooltip(
+                `<div>
+                     Aprendizagem de Máquina e Agentes de Software
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5bc165e8df06545fda70e42b73be6fbd = L.marker(
+                [-25.0517857, -50.1319292],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_28547cd6c0b36098a9eb8e27950292b6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d0d474b03c69f8d1c71c50c8c012c712 = $(`<div id="html_d0d474b03c69f8d1c71c50c8c012c712" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Universidade Tecnológica Federal do Paraná<br><b>cidade:</b> Ponta Grossa, Paraná<br><b>nome:</b> Grupo Interdisciplinar de Inteligência Computacional<br><b>url:</b> dgp.cnpq.br/dgp/espelhogrupo/4276529814098113<br><b>email:</b> hugosiqueira@utfpr.edu.br<br><b>coordenador:</b> Hugo Valadares Siqueira, Levy Boccato<br><b>pesquisadores:</b> Hugo Valadares Siqueira, Levy Boccato, Antonio Vanderley Herrero Sola, Carmelo Jose Albanez Bastos Filho, Cristhiane Gonçalves, Fábio Luiz Usberti, Fernanda Cristina Corrêa, Flavio Trojan, João Fausto Lorenzato de Oliveira, Ivette Raymunda Luna Huamani, Marcella Scoczynski Ribeiro Martins, Mauren Louise Sguario Coelho de Andrade, Mauricio dos Santos Kaster, Paulo Salgado Gomes de Mattos Neto, Romis Ribeiro de Faissol Attux, Sergio Luiz Stevan Junior, Thiago Antonini Alves, Virgínia Helena Varotto Baroncini, Yara de Souza Tadano<br><b>latitude:</b> -25.0517857<br><b>longitude:</b> -50.1319292<br></div>`)[0];
+                popup_28547cd6c0b36098a9eb8e27950292b6.setContent(html_d0d474b03c69f8d1c71c50c8c012c712);
+            
+        
+
+        marker_5bc165e8df06545fda70e42b73be6fbd.bindPopup(popup_28547cd6c0b36098a9eb8e27950292b6)
+        ;
+
+        
+    
+    
+            marker_5bc165e8df06545fda70e42b73be6fbd.bindTooltip(
+                `<div>
+                     Grupo Interdisciplinar de Inteligência Computacional
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_898e9b120b19875640a355ad418db29b = L.marker(
+                [-23.557436, -46.727068],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_35dab30263cc8d77aa80a8e2af1ecdf8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0d95cc383fc8826f5070c569aabf1928 = $(`<div id="html_0d95cc383fc8826f5070c569aabf1928" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Av. Prof. Lúcio Martins Rodrigues, 370 - bloco C, 1º andar. Butantã, São Paulo, SP, 05508-020. Av. Prof. Lúcio Martins Rodrigues, 370 – bloco C, 1º andar<br><b>cidade:</b> São Paulo<br><b>nome:</b> Centro de Inteligência Artificial e Aprendizado de Máquina (CIAAM)<br><b>url:</b> https://ciaam.usp.br/<br><b>email:</b> ciaam@usp.br<br><b>coordenador:</b> Prof. Fabio Cozman<br><b>pesquisadores:</b> 57 pesquisadores diretamente relacionados a projetos<br><b>latitude:</b> -23.557436<br><b>longitude:</b> -46.727068<br></div>`)[0];
+                popup_35dab30263cc8d77aa80a8e2af1ecdf8.setContent(html_0d95cc383fc8826f5070c569aabf1928);
+            
+        
+
+        marker_898e9b120b19875640a355ad418db29b.bindPopup(popup_35dab30263cc8d77aa80a8e2af1ecdf8)
+        ;
+
+        
+    
+    
+            marker_898e9b120b19875640a355ad418db29b.bindTooltip(
+                `<div>
+                     Centro de Inteligência Artificial e Aprendizado de Máquina (CIAAM)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_08c58e2a7116d223f100b6c1a86a9c00 = L.marker(
+                [-23.557436, -46.727068],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_abdd38e3a54de89f474e67aa572024d2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bad38a81107193979d2f60ccdd6a398a = $(`<div id="html_bad38a81107193979d2f60ccdd6a398a" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Av. Prof. Lúcio Martins Rodrigues, 370 – Bloco C, 1º andar – Butantã, São Paulo - SP, 05508-020.<br><b>cidade:</b> São Paulo<br><b>nome:</b> Centro de Inteligência Artificial (C4AI)<br><b>url:</b> https://c4ai.inova.usp.br/<br><b>latitude:</b> -23.557436<br><b>longitude:</b> -46.727068<br></div>`)[0];
+                popup_abdd38e3a54de89f474e67aa572024d2.setContent(html_bad38a81107193979d2f60ccdd6a398a);
+            
+        
+
+        marker_08c58e2a7116d223f100b6c1a86a9c00.bindPopup(popup_abdd38e3a54de89f474e67aa572024d2)
+        ;
+
+        
+    
+    
+            marker_08c58e2a7116d223f100b6c1a86a9c00.bindTooltip(
+                `<div>
+                     Centro de Inteligência Artificial (C4AI)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_163b08327fda7ba6042e8d1992f06d7d = L.marker(
+                [-22.007035, -47.894932],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_2330bbce713e55f3be46319034246c1f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6232c2b48e9dc85c26711a8a7882d8f8 = $(`<div id="html_6232c2b48e9dc85c26711a8a7882d8f8" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto de Ciências Matemáticas e de Computação (ICMC), USP São Carlos<br><b>cidade:</b> São Carlos<br><b>nome:</b> Centro de Pesquisa Aplicada em Inteligência Artificial Recriando Ambientes (IARA)<br><b>url:</b> https://fapesp.br/cpe/inteligencia_artificial_na_reconstrucao_de_ambientes_urbanos_(iara)/156<br><b>coordenador:</b> Prof. André de Carvalho<br><b>latitude:</b> -22.007035<br><b>longitude:</b> -47.894932<br></div>`)[0];
+                popup_2330bbce713e55f3be46319034246c1f.setContent(html_6232c2b48e9dc85c26711a8a7882d8f8);
+            
+        
+
+        marker_163b08327fda7ba6042e8d1992f06d7d.bindPopup(popup_2330bbce713e55f3be46319034246c1f)
+        ;
+
+        
+    
+    
+            marker_163b08327fda7ba6042e8d1992f06d7d.bindTooltip(
+                `<div>
+                     Centro de Pesquisa Aplicada em Inteligência Artificial Recriando Ambientes (IARA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3fb30d1e68a94490cf02b6ec52b7d07e = L.marker(
+                [-23.482085, -46.500491],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_ce118c810d157022d32baf4826f6e799 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cade3b8c6eafaf9841e33028ae8c5542 = $(`<div id="html_cade3b8c6eafaf9841e33028ae8c5542" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Rua Arlindo Béttio, 1000 - Ermelino Matarazzo, São Paulo<br><b>cidade:</b> São Paulo<br><b>departamento:</b> Escola de Artes, Ciências e Humanidades (EACH), USP<br><b>nome:</b> Laboratório de Aplicações de Informática em Saúde (LApIS)<br><b>latitude:</b> -23.482085<br><b>longitude:</b> -46.500491<br></div>`)[0];
+                popup_ce118c810d157022d32baf4826f6e799.setContent(html_cade3b8c6eafaf9841e33028ae8c5542);
+            
+        
+
+        marker_3fb30d1e68a94490cf02b6ec52b7d07e.bindPopup(popup_ce118c810d157022d32baf4826f6e799)
+        ;
+
+        
+    
+    
+            marker_3fb30d1e68a94490cf02b6ec52b7d07e.bindTooltip(
+                `<div>
+                     Laboratório de Aplicações de Informática em Saúde (LApIS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_05af7773ada0741161173be4ba60e5af = L.marker(
+                [-23.557719, -46.668925],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_36474540987ed4463d3a7928f5d4696f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_921b63902870febfb782f882dc6671d2 = $(`<div id="html_921b63902870febfb782f882dc6671d2" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Av. Dr. Enéas Carvalho de Aguiar, 155 - Cerqueira César, São Paulo - SP, 05403-000<br><b>cidade:</b> São Paulo<br><b>departamento:</b> Hospital das Clínicas, USP<br><b>nome:</b> Núcleo de Inovação Tecnológica (Inova HC)<br><b>latitude:</b> -23.557719<br><b>longitude:</b> -46.668925<br></div>`)[0];
+                popup_36474540987ed4463d3a7928f5d4696f.setContent(html_921b63902870febfb782f882dc6671d2);
+            
+        
+
+        marker_05af7773ada0741161173be4ba60e5af.bindPopup(popup_36474540987ed4463d3a7928f5d4696f)
+        ;
+
+        
+    
+    
+            marker_05af7773ada0741161173be4ba60e5af.bindTooltip(
+                `<div>
+                     Núcleo de Inovação Tecnológica (Inova HC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_cf8a3f0d251fa011ebb62eb88c85ff7f = L.marker(
+                [-23.554343, -46.672491],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_91d83c2c66b7eed02987a42cfe93c58f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9291757dadffc3a1b4b0ccf965643fc6 = $(`<div id="html_9291757dadffc3a1b4b0ccf965643fc6" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Endereço: Av. Dr. Arnaldo, 715 - Cerqueira César, São Paulo - SP, 01246-904.<br><b>cidade:</b> São Paulo<br><b>departamento:</b> Faculdade de Saúde Pública (FSP), USP<br><b>nome:</b> Laboratório de Big Data e Análise Preditiva em Saúde (LABDAPS)<br><b>url:</b> https://sites.google.com/view/labdaps/ e https://www.fsp.usp.br/labdaps/<br><b>email:</b> labdaps@usp.br<br><b>coordenador:</b> Prof. Alexandre Dias Porto Chiavegatto Filho<br><b>pesquisadores:</b> 25 estudantes formados ao longo de 8 anos (até 2025)<br><b>latitude:</b> -23.554343<br><b>longitude:</b> -46.672491<br></div>`)[0];
+                popup_91d83c2c66b7eed02987a42cfe93c58f.setContent(html_9291757dadffc3a1b4b0ccf965643fc6);
+            
+        
+
+        marker_cf8a3f0d251fa011ebb62eb88c85ff7f.bindPopup(popup_91d83c2c66b7eed02987a42cfe93c58f)
+        ;
+
+        
+    
+    
+            marker_cf8a3f0d251fa011ebb62eb88c85ff7f.bindTooltip(
+                `<div>
+                     Laboratório de Big Data e Análise Preditiva em Saúde (LABDAPS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d7731c08a506eef131dffa202709599a = L.marker(
+                [-22.821085, -47.066406],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_283349b62808ce2ffb529f4cdeea6d04 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_39025cf27e8a5eb1cdc9900ec124a97b = $(`<div id="html_39025cf27e8a5eb1cdc9900ec124a97b" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Faculdade de Engenharia Elétrica e de Computação (FEEC), Unicamp<br><b>cidade:</b> Campinas<br><b>nome:</b> Brazilian Institute of Data Science (BI0S)<br><b>url:</b> https://www.bi0s.unicamp.br/<br><b>coordenador:</b> Prof. João Marcos Travassos Romano (Pró-Reitor de Pesquisa da Unicamp)<br><b>latitude:</b> -22.821085<br><b>longitude:</b> -47.066406<br></div>`)[0];
+                popup_283349b62808ce2ffb529f4cdeea6d04.setContent(html_39025cf27e8a5eb1cdc9900ec124a97b);
+            
+        
+
+        marker_d7731c08a506eef131dffa202709599a.bindPopup(popup_283349b62808ce2ffb529f4cdeea6d04)
+        ;
+
+        
+    
+    
+            marker_d7731c08a506eef131dffa202709599a.bindTooltip(
+                `<div>
+                     Brazilian Institute of Data Science (BI0S)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8e46661d15ab21aef9dae524a240ad67 = L.marker(
+                [-23.557098, -46.732071],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_c9cc907accbb07f9c45f470e75129473 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_77bb096af75667fd2d3c00058cf4f9c7 = $(`<div id="html_77bb096af75667fd2d3c00058cf4f9c7" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Professor Luciano Gualberto, Travessa 3, nº 158 – Butantã, São Paulo - SP, 05508-010.<br><b>cidade:</b> São Paulo<br><b>nome:</b> Centro de Ciência de Dados (C2D)<br><b>latitude:</b> -23.557098<br><b>longitude:</b> -46.732071<br></div>`)[0];
+                popup_c9cc907accbb07f9c45f470e75129473.setContent(html_77bb096af75667fd2d3c00058cf4f9c7);
+            
+        
+
+        marker_8e46661d15ab21aef9dae524a240ad67.bindPopup(popup_c9cc907accbb07f9c45f470e75129473)
+        ;
+
+        
+    
+    
+            marker_8e46661d15ab21aef9dae524a240ad67.bindTooltip(
+                `<div>
+                     Centro de Ciência de Dados (C2D)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ecb8b575d4065d2656011db13afaaddc = L.marker(
+                [-23.532629, -46.667381],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_5507663793caa5bd31bdde78b575ce79 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3113c54d41e7321af0a7c1e8b8d4066e = $(`<div id="html_3113c54d41e7321af0a7c1e8b8d4066e" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Rua Lincoln de Albuquerque, 259 – Lincoln Offices, Conjunto 38, Bloco B – Perdizes, São Paulo - SP, 05004-010.<br><b>cidade:</b> São Paulo<br><b>nome:</b> Centro de Pesquisa em Engenharia Ciência de Dados para a Indústria Inteligente (CDI2)<br><b>latitude:</b> -23.532629<br><b>longitude:</b> -46.667381<br></div>`)[0];
+                popup_5507663793caa5bd31bdde78b575ce79.setContent(html_3113c54d41e7321af0a7c1e8b8d4066e);
+            
+        
+
+        marker_ecb8b575d4065d2656011db13afaaddc.bindPopup(popup_5507663793caa5bd31bdde78b575ce79)
+        ;
+
+        
+    
+    
+            marker_ecb8b575d4065d2656011db13afaaddc.bindTooltip(
+                `<div>
+                     Centro de Pesquisa em Engenharia Ciência de Dados para a Indústria Inteligente (CDI2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_cd98dc7431875976a78bcc4b6a842462 = L.marker(
+                [-23.533226, -46.668177],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_5bd82cdc84d47d43e52c13235e0d491c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f00ddb9f2c20ec65078b45c06a69ca14 = $(`<div id="html_f00ddb9f2c20ec65078b45c06a69ca14" style="width: 100.0%; height: 100.0%;"><b>sede:</b> RUA LINCOLN ALBUQUERQUE, CONJ 38 BLOCO B, PERDIZES, São Paulo - SP<br><b>cidade:</b> São Paulo<br><b>departamento:</b> Unesp<br><b>nome:</b> Instituto Avançado para Inteligência Artificial (AI2)<br><b>latitude:</b> -23.533226<br><b>longitude:</b> -46.668177<br></div>`)[0];
+                popup_5bd82cdc84d47d43e52c13235e0d491c.setContent(html_f00ddb9f2c20ec65078b45c06a69ca14);
+            
+        
+
+        marker_cd98dc7431875976a78bcc4b6a842462.bindPopup(popup_5bd82cdc84d47d43e52c13235e0d491c)
+        ;
+
+        
+    
+    
+            marker_cd98dc7431875976a78bcc4b6a842462.bindTooltip(
+                `<div>
+                     Instituto Avançado para Inteligência Artificial (AI2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_93e94587c47ab7fe7ba4c54ef13383e1 = L.marker(
+                [-23.556794, -46.734754],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_97f83a882576eb023d9a6d8b04bb948c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_95da6b9a76304bbb49335a45da24bb09 = $(`<div id="html_95da6b9a76304bbb49335a45da24bb09" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto de Pesquisas Tecnológicas (IPT), São Paulo<br><b>cidade:</b> São Paulo<br><b>nome:</b> Plataforma Inteligência Artificial, Soluções para Manufatura Inteligente (IASMIN)<br><b>url:</b> https://plataformaiasmin.org.br/<br><b>latitude:</b> -23.556794<br><b>longitude:</b> -46.734754<br></div>`)[0];
+                popup_97f83a882576eb023d9a6d8b04bb948c.setContent(html_95da6b9a76304bbb49335a45da24bb09);
+            
+        
+
+        marker_93e94587c47ab7fe7ba4c54ef13383e1.bindPopup(popup_97f83a882576eb023d9a6d8b04bb948c)
+        ;
+
+        
+    
+    
+            marker_93e94587c47ab7fe7ba4c54ef13383e1.bindTooltip(
+                `<div>
+                     Plataforma Inteligência Artificial, Soluções para Manufatura Inteligente (IASMIN)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5f678ab2c56fd58b3c9d1a77059ec5bc = L.marker(
+                [-19.869623, -43.964573],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_fadd33326ae2c766b6a70a3eb5995766 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_09fe81d59d442f604ed44c13b7df0e7c = $(`<div id="html_09fe81d59d442f604ed44c13b7df0e7c" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto de Ciências Exatas (ICEx), UFMG<br><b>cidade:</b> Belo Horizonte<br><b>nome:</b> Centro de Inovação em Inteligência Artificial para a Saúde (CIIA-Saúde)<br><b>latitude:</b> -19.869623<br><b>longitude:</b> -43.964573<br></div>`)[0];
+                popup_fadd33326ae2c766b6a70a3eb5995766.setContent(html_09fe81d59d442f604ed44c13b7df0e7c);
+            
+        
+
+        marker_5f678ab2c56fd58b3c9d1a77059ec5bc.bindPopup(popup_fadd33326ae2c766b6a70a3eb5995766)
+        ;
+
+        
+    
+    
+            marker_5f678ab2c56fd58b3c9d1a77059ec5bc.bindTooltip(
+                `<div>
+                     Centro de Inovação em Inteligência Artificial para a Saúde (CIIA-Saúde)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0848449185f2e16cf7c42db187d8fb32 = L.marker(
+                [-22.864989, -43.218851],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_adba80f9c2eaa92c14470f804fa09376 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d318147f2b0e7fed1ea55b10d49d5151 = $(`<div id="html_d318147f2b0e7fed1ea55b10d49d5151" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Parque Tecnológico da UFRJ<br><b>cidade:</b> Rio de Janeiro<br><b>nome:</b> Centro de Excelência em Transformação Digital e Inteligência Artificial do Estado do Rio de Janeiro (Hub.Rio)<br><b>url:</b> https://parque.ufrj.br/<br><b>latitude:</b> -22.864989<br><b>longitude:</b> -43.218851<br></div>`)[0];
+                popup_adba80f9c2eaa92c14470f804fa09376.setContent(html_d318147f2b0e7fed1ea55b10d49d5151);
+            
+        
+
+        marker_0848449185f2e16cf7c42db187d8fb32.bindPopup(popup_adba80f9c2eaa92c14470f804fa09376)
+        ;
+
+        
+    
+    
+            marker_0848449185f2e16cf7c42db187d8fb32.bindTooltip(
+                `<div>
+                     Centro de Excelência em Transformação Digital e Inteligência Artificial do Estado do Rio de Janeiro (Hub.Rio)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c69d327361be0df71335c7ded69029ad = L.marker(
+                [-22.867453, -43.215191],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_be517bdc8afe3cc41dce13a3f161562e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b7c5c16319c0413c7639c0e699bf582a = $(`<div id="html_b7c5c16319c0413c7639c0e699bf582a" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Instituto Alberto Luiz Coimbra de Pós-Graduação e Pesquisa de Engenharia (COPPE), UFRJ<br><b>cidade:</b> Rio de Janeiro<br><b>nome:</b> Centro de Excelência em Inteligência Artificial para Energias Renováveis (CEIAER)<br><b>coordenador:</b> Prof. Álvaro Luiz Gayoso de Azeredo Coutinho<br><b>latitude:</b> -22.867453<br><b>longitude:</b> -43.215191<br></div>`)[0];
+                popup_be517bdc8afe3cc41dce13a3f161562e.setContent(html_b7c5c16319c0413c7639c0e699bf582a);
+            
+        
+
+        marker_c69d327361be0df71335c7ded69029ad.bindPopup(popup_be517bdc8afe3cc41dce13a3f161562e)
+        ;
+
+        
+    
+    
+            marker_c69d327361be0df71335c7ded69029ad.bindTooltip(
+                `<div>
+                     Centro de Excelência em Inteligência Artificial para Energias Renováveis (CEIAER)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_53fb1b7d3edd95c84a44f12c20f513c5 = L.marker(
+                [-22.979226, -43.242384],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_b332ee21649b1e97ddae71da6e71a3fd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cac28af50596a4233fdf84f10f11c27f = $(`<div id="html_cac28af50596a4233fdf84f10f11c27f" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Estrada Santa Marinha, 723 – Gávea, Rio de Janeiro - RJ, 22451-240<br><b>cidade:</b> Rio de Janeiro<br><b>departamento:</b> PUC-Rio<br><b>nome:</b> Laboratório de Inteligência Computacional Aplicada (ICA)<br><b>latitude:</b> -22.979226<br><b>longitude:</b> -43.242384<br></div>`)[0];
+                popup_b332ee21649b1e97ddae71da6e71a3fd.setContent(html_cac28af50596a4233fdf84f10f11c27f);
+            
+        
+
+        marker_53fb1b7d3edd95c84a44f12c20f513c5.bindPopup(popup_b332ee21649b1e97ddae71da6e71a3fd)
+        ;
+
+        
+    
+    
+            marker_53fb1b7d3edd95c84a44f12c20f513c5.bindTooltip(
+                `<div>
+                     Laboratório de Inteligência Computacional Aplicada (ICA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b69ebc674429ed05faa6fb670b22ae00 = L.marker(
+                [-22.980151, -43.233461],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_87a1680ed881cc2041f674f306b6765a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8442fa48cc88a606f4b79b42e3d19cc6 = $(`<div id="html_8442fa48cc88a606f4b79b42e3d19cc6" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Rua Marquês de São Vicente, 225 – Gávea, Rio de Janeiro - RJ, 22451-900.<br><b>cidade:</b> Rio de Janeiro<br><b>departamento:</b> Departamento de Informática, PUC-Rio<br><b>nome:</b> Experimentação Ágil, Cocriação e Transformação Digital (ExACTa)<br><b>latitude:</b> -22.980151<br><b>longitude:</b> -43.233461<br></div>`)[0];
+                popup_87a1680ed881cc2041f674f306b6765a.setContent(html_8442fa48cc88a606f4b79b42e3d19cc6);
+            
+        
+
+        marker_b69ebc674429ed05faa6fb670b22ae00.bindPopup(popup_87a1680ed881cc2041f674f306b6765a)
+        ;
+
+        
+    
+    
+            marker_b69ebc674429ed05faa6fb670b22ae00.bindTooltip(
+                `<div>
+                     Experimentação Ágil, Cocriação e Transformação Digital (ExACTa)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3e99e601f44ca07d89bae4d18eaf7778 = L.marker(
+                [-8.055459, -34.95133],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_8f500e0527aed36618755c75f93720bc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_02b3365bcf74472c7bbcd560f36e4177 = $(`<div id="html_02b3365bcf74472c7bbcd560f36e4177" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Centro de Informática (CIn), UFPE<br><b>cidade:</b> Recife<br><b>nome:</b> Pesquisa Realmente Aplicada em Inteligência Artificial: Educação para a 4ª Revolução Industrial (PRAIA Educação)<br><b>url:</b> https://portal.cin.ufpe.br/<br><b>email:</b> contato@cin.ufpe.br<br><b>coordenador:</b> Prof. Geber Lisboa Ramalho<br><b>latitude:</b> -8.055459<br><b>longitude:</b> -34.95133<br></div>`)[0];
+                popup_8f500e0527aed36618755c75f93720bc.setContent(html_02b3365bcf74472c7bbcd560f36e4177);
+            
+        
+
+        marker_3e99e601f44ca07d89bae4d18eaf7778.bindPopup(popup_8f500e0527aed36618755c75f93720bc)
+        ;
+
+        
+    
+    
+            marker_3e99e601f44ca07d89bae4d18eaf7778.bindTooltip(
+                `<div>
+                     Pesquisa Realmente Aplicada em Inteligência Artificial: Educação para a 4ª Revolução Industrial (PRAIA Educação)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_cc38b4015f9de3d547e71ccd38af986d = L.marker(
+                [-8.055459, -34.95133],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_e386bcd3a19227215ba5f61e136831f6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f48582cd696302144c6743bc7fae1203 = $(`<div id="html_f48582cd696302144c6743bc7fae1203" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Centro de Informática (CIn), UFPE<br><b>cidade:</b> Recife<br><b>nome:</b> Centro de Excelência em Inteligência Artificial para Segurança Cibernética<br><b>url:</b> https://portal.cin.ufpe.br/<br><b>email:</b> contato@cin.ufpe.br<br><b>latitude:</b> -8.055459<br><b>longitude:</b> -34.95133<br></div>`)[0];
+                popup_e386bcd3a19227215ba5f61e136831f6.setContent(html_f48582cd696302144c6743bc7fae1203);
+            
+        
+
+        marker_cc38b4015f9de3d547e71ccd38af986d.bindPopup(popup_e386bcd3a19227215ba5f61e136831f6)
+        ;
+
+        
+    
+    
+            marker_cc38b4015f9de3d547e71ccd38af986d.bindTooltip(
+                `<div>
+                     Centro de Excelência em Inteligência Artificial para Segurança Cibernética
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_95244ea0a2e6c665f6dfd6df85fce1db = L.marker(
+                [-5.498398, -39.320624],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_65a35006388ef644153e24d6d3c1fcf1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6648a045a26ef677c7a63bd19a8b6c7d = $(`<div id="html_6648a045a26ef677c7a63bd19a8b6c7d" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Reitoria, Universidade Federal do Ceará (UFC)<br><b>cidade:</b> Não encontrado<br><b>nome:</b> Centro de Referência em Inteligência Artificial (CEREIA)<br><b>coordenador:</b> Prof. José Andrade Júnior<br><b>latitude:</b> -5.498398<br><b>longitude:</b> -39.320624<br></div>`)[0];
+                popup_65a35006388ef644153e24d6d3c1fcf1.setContent(html_6648a045a26ef677c7a63bd19a8b6c7d);
+            
+        
+
+        marker_95244ea0a2e6c665f6dfd6df85fce1db.bindPopup(popup_65a35006388ef644153e24d6d3c1fcf1)
+        ;
+
+        
+    
+    
+            marker_95244ea0a2e6c665f6dfd6df85fce1db.bindTooltip(
+                `<div>
+                     Centro de Referência em Inteligência Artificial (CEREIA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_79b6c4bc7ff26e9bf3eba401069ced39 = L.marker(
+                [-3.746648, -38.573703],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_fd6c18c12b9b3993eef6d454e702e814 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_385b933fd1436f4f19051fac8ba9d4e3 = $(`<div id="html_385b933fd1436f4f19051fac8ba9d4e3" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Bloco 910, Campus do Pici – Pici, Fortaleza - CE, 60440-900.<br><b>cidade:</b> Fortaleza<br><b>departamento:</b> Departamento de Computação, UFC<br><b>nome:</b> Grupo de Lógica e Inteligência Artificial (LogIA)<br><b>latitude:</b> -3.746648<br><b>longitude:</b> -38.573703<br></div>`)[0];
+                popup_fd6c18c12b9b3993eef6d454e702e814.setContent(html_385b933fd1436f4f19051fac8ba9d4e3);
+            
+        
+
+        marker_79b6c4bc7ff26e9bf3eba401069ced39.bindPopup(popup_fd6c18c12b9b3993eef6d454e702e814)
+        ;
+
+        
+    
+    
+            marker_79b6c4bc7ff26e9bf3eba401069ced39.bindTooltip(
+                `<div>
+                     Grupo de Lógica e Inteligência Artificial (LogIA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d01ffbf6f061e4847021e239f446c48f = L.marker(
+                [-12.923431, -38.388062],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_00b1d5e216dc45c225b842a3d5ff2ef4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3ce39bf46ed4ad2ca55f44a27d376e30 = $(`<div id="html_3ce39bf46ed4ad2ca55f44a27d376e30" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Rua Mundo, nº 121, sala 315 – Edifício Tecnocentro, Parque Tecnológico da Bahia – Trobogy, Salvador - BA, 41745-715.<br><b>cidade:</b> Salvador<br><b>departamento:</b> Hospital Universitário Onofre Lopes (HUOL), UFRN<br><b>nome:</b> Laboratório de Inovação Tecnológica em Saúde (LAIS)<br><b>url:</b> https://lais.huol.ufrn.br/<br><b>email:</b> secretariado@lais.huol.ufrn.br<br><b>latitude:</b> -12.923431<br><b>longitude:</b> -38.388062<br></div>`)[0];
+                popup_00b1d5e216dc45c225b842a3d5ff2ef4.setContent(html_3ce39bf46ed4ad2ca55f44a27d376e30);
+            
+        
+
+        marker_d01ffbf6f061e4847021e239f446c48f.bindPopup(popup_00b1d5e216dc45c225b842a3d5ff2ef4)
+        ;
+
+        
+    
+    
+            marker_d01ffbf6f061e4847021e239f446c48f.bindTooltip(
+                `<div>
+                     Laboratório de Inovação Tecnológica em Saúde (LAIS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_39142e24a9bb3a591deec4947bac9478 = L.marker(
+                [-12.923431, -38.388062],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_3e9f5ce55ae44ffe6df6844bc1bded44 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4da3e9c7c36ca7ccde0bc8de725876a5 = $(`<div id="html_4da3e9c7c36ca7ccde0bc8de725876a5" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Rua Mundo, 121, Salas 315-320 – Trobogy, Salvador - BA, 41745-715 [1, 2].<br><b>cidade:</b> Salvador<br><b>departamento:</b> Fiocruz Bahia<br><b>nome:</b> Centro de Integração de Dados e Conhecimentos para Saúde (CIDACS)<br><b>url:</b> https://cidacs.bahia.fiocruz.br/<br><b>pesquisadores:</b> 170 pessoas (crescimento de 180% desde 2017), equipes multidisciplinares em epidemiologia, saúde coletiva, estatística, economia, bioinformática e computação<br><b>latitude:</b> -12.923431<br><b>longitude:</b> -38.388062<br></div>`)[0];
+                popup_3e9f5ce55ae44ffe6df6844bc1bded44.setContent(html_4da3e9c7c36ca7ccde0bc8de725876a5);
+            
+        
+
+        marker_39142e24a9bb3a591deec4947bac9478.bindPopup(popup_3e9f5ce55ae44ffe6df6844bc1bded44)
+        ;
+
+        
+    
+    
+            marker_39142e24a9bb3a591deec4947bac9478.bindTooltip(
+                `<div>
+                     Centro de Integração de Dados e Conhecimentos para Saúde (CIDACS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bf22b15da20631590bebc18c61c2f70b = L.marker(
+                [-12.923431, -38.388062],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_2a62cbe9ac4367dbc881a0ef70e3c3fe = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9afcbb80b1c9d3d5cdce47d013993a48 = $(`<div id="html_9afcbb80b1c9d3d5cdce47d013993a48" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Rua Mundo, 121, sala 315 – Edifício Tecnocentro, Parque Tecnológico da Bahia – Trobogy, Salvador - BA, 41745-715.<br><b>cidade:</b> Salvador<br><b>nome:</b> Observatório de Desenvolvimento e Desigualdades em Saúde e Inteligência Artificial (Odisseia)<br><b>latitude:</b> -12.923431<br><b>longitude:</b> -38.388062<br></div>`)[0];
+                popup_2a62cbe9ac4367dbc881a0ef70e3c3fe.setContent(html_9afcbb80b1c9d3d5cdce47d013993a48);
+            
+        
+
+        marker_bf22b15da20631590bebc18c61c2f70b.bindPopup(popup_2a62cbe9ac4367dbc881a0ef70e3c3fe)
+        ;
+
+        
+    
+    
+            marker_bf22b15da20631590bebc18c61c2f70b.bindTooltip(
+                `<div>
+                     Observatório de Desenvolvimento e Desigualdades em Saúde e Inteligência Artificial (Odisseia)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ecad45bb5755888fc337689d6f3afa31 = L.marker(
+                [-16.60211, -49.263865],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_282aba4cfa8e46746594e83d908ff735 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_748f1105bf1cb801bc076ca86517b87f = $(`<div id="html_748f1105bf1cb801bc076ca86517b87f" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Alameda Palmeiras, Quadra D, Câmpus Samambaia (UFG) – Chácaras Califórnia, Goiânia - GO, CEP 74690-900.<br><b>cidade:</b> Goiânia<br><b>nome:</b> Centro de Excelência em Inteligência Artificial (CEIA)<br><b>latitude:</b> -16.60211<br><b>longitude:</b> -49.263865<br></div>`)[0];
+                popup_282aba4cfa8e46746594e83d908ff735.setContent(html_748f1105bf1cb801bc076ca86517b87f);
+            
+        
+
+        marker_ecad45bb5755888fc337689d6f3afa31.bindPopup(popup_282aba4cfa8e46746594e83d908ff735)
+        ;
+
+        
+    
+    
+            marker_ecad45bb5755888fc337689d6f3afa31.bindTooltip(
+                `<div>
+                     Centro de Excelência em Inteligência Artificial (CEIA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5e680fb4a7b5783187e879f71e5b7e1f = L.marker(
+                [-16.60211, -49.263866],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_3842a54e2fcb0d315d4f335240142863 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a72544983405dbc23487684cde84edcd = $(`<div id="html_a72544983405dbc23487684cde84edcd" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Alameda Palmeiras, Quadra D, Câmpus Samambaia – Chácaras Califórnia, Goiânia - GO, 74690-900 [1, 2].<br><b>cidade:</b> Goiânia<br><b>departamento:</b> Centro de Estudos e Pesquisas Aplicadas do Setor Público (CEPASP), UFG<br><b>nome:</b> Rede de Pesquisa de Inteligência Artificial Aplicada às Políticas Públicas (IA2PP)<br><b>latitude:</b> -16.60211<br><b>longitude:</b> -49.263866<br></div>`)[0];
+                popup_3842a54e2fcb0d315d4f335240142863.setContent(html_a72544983405dbc23487684cde84edcd);
+            
+        
+
+        marker_5e680fb4a7b5783187e879f71e5b7e1f.bindPopup(popup_3842a54e2fcb0d315d4f335240142863)
+        ;
+
+        
+    
+    
+            marker_5e680fb4a7b5783187e879f71e5b7e1f.bindTooltip(
+                `<div>
+                     Rede de Pesquisa de Inteligência Artificial Aplicada às Políticas Públicas (IA2PP)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5406b0dfefbfcde0d0508af6fc041865 = L.marker(
+                [-7.216098, -35.914351],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_30f2246ed734554a8582b039e4fb4f9a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_76f8fb3a8280d8a363f11f598462ad75 = $(`<div id="html_76f8fb3a8280d8a363f11f598462ad75" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Rua Aprígio Veloso, 1500 – Bodocongó, Campina Grande - PB, 58429-140.<br><b>cidade:</b> Campina Grande<br><b>departamento:</b> Centro de Engenharia Elétrica e Informática (CEEI), UFCG<br><b>nome:</b> Núcleo de Pesquisa, Desenvolvimento e Inovação em Tecnologia da Informação, Comunicação e Automação (VIRTUS)<br><b>latitude:</b> -7.216098<br><b>longitude:</b> -35.914351<br></div>`)[0];
+                popup_30f2246ed734554a8582b039e4fb4f9a.setContent(html_76f8fb3a8280d8a363f11f598462ad75);
+            
+        
+
+        marker_5406b0dfefbfcde0d0508af6fc041865.bindPopup(popup_30f2246ed734554a8582b039e4fb4f9a)
+        ;
+
+        
+    
+    
+            marker_5406b0dfefbfcde0d0508af6fc041865.bindTooltip(
+                `<div>
+                     Núcleo de Pesquisa, Desenvolvimento e Inovação em Tecnologia da Informação, Comunicação e Automação (VIRTUS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_116a17eea014091d3bdaf63dc726b13a = L.marker(
+                [-22.83119, -47.062763],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_67876b9f4e6f42c3bbac2bfd774c82eb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_94bd7a546f5b24eda38ec0c1260138f6 = $(`<div id="html_94bd7a546f5b24eda38ec0c1260138f6" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Rua Tessália Vieira de Camargo, 126 – Cidade Universitária "Zeferino Vaz", Campinas - SP, 13083-887.<br><b>cidade:</b> Campinas<br><b>nome:</b> Departamento de Saúde Coletiva (DSC)<br><b>latitude:</b> -22.83119<br><b>longitude:</b> -47.062763<br></div>`)[0];
+                popup_67876b9f4e6f42c3bbac2bfd774c82eb.setContent(html_94bd7a546f5b24eda38ec0c1260138f6);
+            
+        
+
+        marker_116a17eea014091d3bdaf63dc726b13a.bindPopup(popup_67876b9f4e6f42c3bbac2bfd774c82eb)
+        ;
+
+        
+    
+    
+            marker_116a17eea014091d3bdaf63dc726b13a.bindTooltip(
+                `<div>
+                     Departamento de Saúde Coletiva (DSC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_69c8c82b22999265119b7fbb79f129a4 = L.marker(
+                [-8.055359, -34.950673],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_15f600d82c98222145e1868715c1a85b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_81ede55386f38bd83e28a8e0d240cecf = $(`<div id="html_81ede55386f38bd83e28a8e0d240cecf" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Jornalista Aníbal Fernandes, s/n – Cidade Universitária, Recife - PE, CEP 50740-560.<br><b>cidade:</b> Recife<br><b>departamento:</b> Hospital Israelita Albert Einstein<br><b>nome:</b> Health Innovation Techcenter (HIT)<br><b>latitude:</b> -8.055359<br><b>longitude:</b> -34.950673<br></div>`)[0];
+                popup_15f600d82c98222145e1868715c1a85b.setContent(html_81ede55386f38bd83e28a8e0d240cecf);
+            
+        
+
+        marker_69c8c82b22999265119b7fbb79f129a4.bindPopup(popup_15f600d82c98222145e1868715c1a85b)
+        ;
+
+        
+    
+    
+            marker_69c8c82b22999265119b7fbb79f129a4.bindTooltip(
+                `<div>
+                     Health Innovation Techcenter (HIT)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ec26129448d26c5875771f291ba798b7 = L.marker(
+                [-8.055359, -34.950673],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_5526ec259d96d8266ded1ab3756b45d4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7be8e4c4b501891b15b0b4fb057b8a18 = $(`<div id="html_7be8e4c4b501891b15b0b4fb057b8a18" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Jornalista Aníbal Fernandes, s/n – Cidade Universitária, Recife - PE, 50740-560.<br><b>cidade:</b> Recife<br><b>nome:</b> Instituto Nacional de Inteligência Artificial (IAIA)<br><b>latitude:</b> -8.055359<br><b>longitude:</b> -34.950673<br></div>`)[0];
+                popup_5526ec259d96d8266ded1ab3756b45d4.setContent(html_7be8e4c4b501891b15b0b4fb057b8a18);
+            
+        
+
+        marker_ec26129448d26c5875771f291ba798b7.bindPopup(popup_5526ec259d96d8266ded1ab3756b45d4)
+        ;
+
+        
+    
+    
+            marker_ec26129448d26c5875771f291ba798b7.bindTooltip(
+                `<div>
+                     Instituto Nacional de Inteligência Artificial (IAIA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_cb28c59af498b9d2ce34d98e8f74f2e1 = L.marker(
+                [-12.939134, -38.386686],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_97c69a35601b346b4452960116e0b19b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_57893810ebd0607a16b65e7796c747ce = $(`<div id="html_57893810ebd0607a16b65e7796c747ce" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Orlando Gomes, nº 1845 – Piatã, Salvador - BA, CEP 41650-010.<br><b>cidade:</b> Salvador<br><b>nome:</b> Centro de Pesquisa Aplicada em Inteligência Artificial para a Indústria (CPA-IA SENAI CIMATEC)<br><b>coordenador:</b> Antônio José da Silva Neto<br><b>latitude:</b> -12.939134<br><b>longitude:</b> -38.386686<br></div>`)[0];
+                popup_97c69a35601b346b4452960116e0b19b.setContent(html_57893810ebd0607a16b65e7796c747ce);
+            
+        
+
+        marker_cb28c59af498b9d2ce34d98e8f74f2e1.bindPopup(popup_97c69a35601b346b4452960116e0b19b)
+        ;
+
+        
+    
+    
+            marker_cb28c59af498b9d2ce34d98e8f74f2e1.bindTooltip(
+                `<div>
+                     Centro de Pesquisa Aplicada em Inteligência Artificial para a Indústria (CPA-IA SENAI CIMATEC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2861c5d2e38bf6ef273c6672249d9961 = L.marker(
+                [-20.758898, -42.871803],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_cd90d35817183c4adf21bd3cd440f446 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d351d602c70e375c1c3c3ced1d32d92b = $(`<div id="html_d351d602c70e375c1c3c3ced1d32d92b" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Peter Henry Rolfs, s/n – Campus Universitário, Viçosa - MG, CEP 36570-900.<br><b>cidade:</b> Viçosa<br><b>departamento:</b> UFLA<br><b>nome:</b> Laboratório de Agricultura Digital (ZETTA)<br><b>latitude:</b> -20.758898<br><b>longitude:</b> -42.871803<br></div>`)[0];
+                popup_cd90d35817183c4adf21bd3cd440f446.setContent(html_d351d602c70e375c1c3c3ced1d32d92b);
+            
+        
+
+        marker_2861c5d2e38bf6ef273c6672249d9961.bindPopup(popup_cd90d35817183c4adf21bd3cd440f446)
+        ;
+
+        
+    
+    
+            marker_2861c5d2e38bf6ef273c6672249d9961.bindTooltip(
+                `<div>
+                     Laboratório de Agricultura Digital (ZETTA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_705bacb3c5d3879b7951a0b87b5af7b4 = L.marker(
+                [-8.055359, -34.950673],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_29815a1106290f4512b23e2be481b296 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_607df95e2172b5e03d1dc3040750f6e3 = $(`<div id="html_607df95e2172b5e03d1dc3040750f6e3" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Jornalista Aníbal Fernandes, s/n – Cidade Universitária, Recife - PE, CEP 50740-560.<br><b>cidade:</b> Recife<br><b>departamento:</b> CESAR<br><b>nome:</b> Centro de Inteligência em Segurança e Sistemas Autônomos (CISSA)<br><b>latitude:</b> -8.055359<br><b>longitude:</b> -34.950673<br></div>`)[0];
+                popup_29815a1106290f4512b23e2be481b296.setContent(html_607df95e2172b5e03d1dc3040750f6e3);
+            
+        
+
+        marker_705bacb3c5d3879b7951a0b87b5af7b4.bindPopup(popup_29815a1106290f4512b23e2be481b296)
+        ;
+
+        
+    
+    
+            marker_705bacb3c5d3879b7951a0b87b5af7b4.bindTooltip(
+                `<div>
+                     Centro de Inteligência em Segurança e Sistemas Autônomos (CISSA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f07cba658ad073a2423743fd4050466f = L.marker(
+                [-19.869623, -43.964573],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_b046a9d5c3e5cf8f28090661f41a8852 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bffff3fa44fbc79345b8fc0dd83dd357 = $(`<div id="html_bffff3fa44fbc79345b8fc0dd83dd357" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Antônio Carlos, 6627 – Prédio do ICEx, Pampulha, Belo Horizonte - MG, CEP 31270-901.<br><b>cidade:</b> Belo Horizonte<br><b>nome:</b> Instituto Nacional de Ciência e Tecnologia em Cibersegurança (INCT-IAcber)<br><b>latitude:</b> -19.869623<br><b>longitude:</b> -43.964573<br></div>`)[0];
+                popup_b046a9d5c3e5cf8f28090661f41a8852.setContent(html_bffff3fa44fbc79345b8fc0dd83dd357);
+            
+        
+
+        marker_f07cba658ad073a2423743fd4050466f.bindPopup(popup_b046a9d5c3e5cf8f28090661f41a8852)
+        ;
+
+        
+    
+    
+            marker_f07cba658ad073a2423743fd4050466f.bindTooltip(
+                `<div>
+                     Instituto Nacional de Ciência e Tecnologia em Cibersegurança (INCT-IAcber)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_390cea7ec8da7c4b5a10b6cb29fe6ec8 = L.marker(
+                [-19.869623, -43.964573],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_3805f3d2db8fde4abab66e204ab1b2fd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_05c3e93261fd8d68225db02178256e9b = $(`<div id="html_05c3e93261fd8d68225db02178256e9b" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Antônio Carlos, 6627 – Prédio do ICEx, Pampulha, Belo Horizonte - MG, 31270-901.<br><b>cidade:</b> Belo Horizonte<br><b>departamento:</b> Belo Horizonte<br><b>nome:</b> Instituto Nacional de Ciência e Tecnologia em IA e Sustentabilidade (INCT-IAS)<br><b>latitude:</b> -19.869623<br><b>longitude:</b> -43.964573<br></div>`)[0];
+                popup_3805f3d2db8fde4abab66e204ab1b2fd.setContent(html_05c3e93261fd8d68225db02178256e9b);
+            
+        
+
+        marker_390cea7ec8da7c4b5a10b6cb29fe6ec8.bindPopup(popup_3805f3d2db8fde4abab66e204ab1b2fd)
+        ;
+
+        
+    
+    
+            marker_390cea7ec8da7c4b5a10b6cb29fe6ec8.bindTooltip(
+                `<div>
+                     Instituto Nacional de Ciência e Tecnologia em IA e Sustentabilidade (INCT-IAS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_71e55e3a07a9a393a6e37676a8f50891 = L.marker(
+                [-22.004067, -47.898604],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_1caf26f74dc05fedf927e0cc287f2cc1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1cadf766cf15cde5b053c59d3da6541f = $(`<div id="html_1cadf766cf15cde5b053c59d3da6541f" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Trabalhador São-Carlense, 400 – Centro, São Carlos - SP, 13566-590.<br><b>cidade:</b> São Carlos<br><b>nome:</b> Instituto Nacional de Ciência e Tecnologia em IA Responsável para Linguística Computacional (TILD-IAR)<br><b>latitude:</b> -22.004067<br><b>longitude:</b> -47.898604<br></div>`)[0];
+                popup_1caf26f74dc05fedf927e0cc287f2cc1.setContent(html_1cadf766cf15cde5b053c59d3da6541f);
+            
+        
+
+        marker_71e55e3a07a9a393a6e37676a8f50891.bindPopup(popup_1caf26f74dc05fedf927e0cc287f2cc1)
+        ;
+
+        
+    
+    
+            marker_71e55e3a07a9a393a6e37676a8f50891.bindTooltip(
+                `<div>
+                     Instituto Nacional de Ciência e Tecnologia em IA Responsável para Linguística Computacional (TILD-IAR)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e5c14ee399327eb5c36938d8d86288ed = L.marker(
+                [-9.555185, -35.77555],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_c7690dba21998da485219c0d6c03fa6f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_40a1b522999ca3b0da4a06cfd053b5b6 = $(`<div id="html_40a1b522999ca3b0da4a06cfd053b5b6" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Lourival Melo Mota, s/n – Campus A. C. Simões, Tabuleiro do Martins, Maceió - AL, 57072-900.<br><b>cidade:</b> Maceió<br><b>departamento:</b> Maceió<br><b>nome:</b> Instituto Nacional de Ciência e Tecnologia em IA na Educação Disruptiva (INCT IA.Edu)<br><b>latitude:</b> -9.555185<br><b>longitude:</b> -35.77555<br></div>`)[0];
+                popup_c7690dba21998da485219c0d6c03fa6f.setContent(html_40a1b522999ca3b0da4a06cfd053b5b6);
+            
+        
+
+        marker_e5c14ee399327eb5c36938d8d86288ed.bindPopup(popup_c7690dba21998da485219c0d6c03fa6f)
+        ;
+
+        
+    
+    
+            marker_e5c14ee399327eb5c36938d8d86288ed.bindTooltip(
+                `<div>
+                     Instituto Nacional de Ciência e Tecnologia em IA na Educação Disruptiva (INCT IA.Edu)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9d43a1806975fa1752f17f756ca6ac07 = L.marker(
+                [-8.055359, -34.950673],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_daf2db04c1098a4f8e8e78b5678a34eb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_61e7d8f3b96cd95815cbe28cc1d9f3f1 = $(`<div id="html_61e7d8f3b96cd95815cbe28cc1d9f3f1" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Jornalista Aníbal Fernandes, s/n – Cidade Universitária, Recife - PE, 50740-560.<br><b>cidade:</b> Recife<br><b>nome:</b> Instituto Nacional de Ciência e Tecnologia em Engenharia de Software Baseada em IA (INÊS IA)<br><b>latitude:</b> -8.055359<br><b>longitude:</b> -34.950673<br></div>`)[0];
+                popup_daf2db04c1098a4f8e8e78b5678a34eb.setContent(html_61e7d8f3b96cd95815cbe28cc1d9f3f1);
+            
+        
+
+        marker_9d43a1806975fa1752f17f756ca6ac07.bindPopup(popup_daf2db04c1098a4f8e8e78b5678a34eb)
+        ;
+
+        
+    
+    
+            marker_9d43a1806975fa1752f17f756ca6ac07.bindTooltip(
+                `<div>
+                     Instituto Nacional de Ciência e Tecnologia em Engenharia de Software Baseada em IA (INÊS IA)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_219bc8f82c40bbef807e72f7523828c8 = L.marker(
+                [-19.869623, -43.964573],
+                {
+}
+            ).addTo(marker_cluster_d11119ed12bcd0a22dd4c595653e21ad);
+        
+    
+        var popup_a51590a7caad362808399d0ef1f73553 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5eace35a9c93625115a90193f0d3b148 = $(`<div id="html_5eace35a9c93625115a90193f0d3b148" style="width: 100.0%; height: 100.0%;"><b>sede:</b> Avenida Antônio Carlos, 6627 – Prédio do ICEx, Pampulha, Belo Horizonte - MG, 31270-901.<br><b>cidade:</b> Belo Horizonte<br><b>departamento:</b> Universidade de São Paulo (USP): 6 centros/laboratórios<br><b>nome:</b> Instituto Nacional de Ciência e Tecnologia em IA para o Bem Social (IAPROBEM)<br><b>latitude:</b> -19.869623<br><b>longitude:</b> -43.964573<br></div>`)[0];
+                popup_a51590a7caad362808399d0ef1f73553.setContent(html_5eace35a9c93625115a90193f0d3b148);
+            
+        
+
+        marker_219bc8f82c40bbef807e72f7523828c8.bindPopup(popup_a51590a7caad362808399d0ef1f73553)
+        ;
+
+        
+    
+    
+            marker_219bc8f82c40bbef807e72f7523828c8.bindTooltip(
+                `<div>
+                     Instituto Nacional de Ciência e Tecnologia em IA para o Bem Social (IAPROBEM)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            marker_cluster_d11119ed12bcd0a22dd4c595653e21ad.addTo(map_2ca34991cd73e676bc8071f2564eef08);
+        
+</script>
+</html>
