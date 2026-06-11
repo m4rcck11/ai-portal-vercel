@@ -65,6 +65,8 @@
 
     // Paleta OCIAAM
     const P = '#0a6878', PM = '#1694aa', PL = '#e0f2f7';
+    // Cor de destaque das barras (coral → rosa por tamanho)
+    const BAR_LO = '#fb7185', BAR_HI = '#e11d48';
 
     function Panel({ d, onClose }) {
       if (!d) return null;
@@ -129,7 +131,7 @@
 
       // Altura da barra (raiz p/ distribuir melhor) e cor teal claro→escuro por tamanho
       const altitude = (d) => 0.02 + 0.30 * Math.sqrt(d.n / maxN);
-      const pointColor = (d) => lerpColor(PM, P, Math.sqrt(d.n / maxN));
+      const pointColor = (d) => lerpColor(BAR_LO, BAR_HI, Math.sqrt(d.n / maxN));
 
       React.useEffect(() => {
         document.getElementById('count').textContent = data.length;
@@ -159,6 +161,12 @@
             polygonSideColor={() => 'rgba(22,148,170,0.35)'}
             polygonStrokeColor={() => '#e0f2f7'}
             polygonAltitude={0.007}
+            polygonLabel={({ properties: p }) => `
+              <div style="font-family:'Plus Jakarta Sans',system-ui;font-size:12px;font-weight:700;
+                   color:#fff;background:${P};padding:4px 10px;border-radius:6px;
+                   box-shadow:0 4px 12px rgba(10,104,120,.3)">
+                ${p.NAME || p.ADMIN || ''}
+              </div>`}
             pointsData={data}
             pointLat="lat"
             pointLng="lng"
