@@ -42,6 +42,26 @@
       color: var(--t3); background: none; border: none; font-size: 20px; line-height: 1;
     }
     #panel .close:hover { color: var(--p); }
+    #controls {
+      position: absolute; left: 16px; bottom: 16px; z-index: 20; max-width: 340px;
+      color: var(--t2); background: rgba(255,255,255,.92); backdrop-filter: blur(8px);
+      padding: 12px 14px; border-radius: 12px; font-size: 13px;
+      border: 1px solid var(--pl); box-shadow: 0 8px 30px rgba(10,104,120,.15);
+    }
+    #controls .ctl-label { color: var(--pm); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+    #controls .seg { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    #controls .seg button {
+      border: 1px solid var(--pl); background: #fff; color: var(--t2);
+      padding: 6px 10px; border-radius: 8px; cursor: pointer; font: inherit; font-size: 12px;
+      transition: all .15s ease;
+    }
+    #controls .seg button:hover { border-color: var(--pm); }
+    #controls .seg button.active { background: var(--p); border-color: var(--p); color: #fff; }
+    #controls select {
+      width: 100%; padding: 7px 9px; border: 1px solid var(--pl); border-radius: 8px;
+      background: #fff; color: var(--t2); font: inherit; font-size: 12px; cursor: pointer;
+    }
+    #controls .hint { margin-top: 8px; font-size: 11px; color: var(--t3); }
   </style>
 </head>
 <body>
@@ -94,9 +114,29 @@
       );
     }
 
-    // Conta pesquisadores a partir da lista separada por vírgula
-    const countResearchers = (m) =>
-      (m.pesquisadores || '').split(',').map(s => s.trim()).filter(Boolean).length;
+    // Conta itens de uma lista separada por vírgula
+    const countList = (s) => (s || '').split(',').map(x => x.trim()).filter(Boolean).length;
+    const countResearchers = (m) => countList(m.pesquisadores);
+    const countAreas = (m) => countList(m['áreas']);
+
+    // Normaliza o nome do país: remove parênteses (ex.: "China (中国)") e unifica grafias/idiomas
+    const ALIAS = {
+      'united states of america': 'United States', 'united states': 'United States',
+      'canadá': 'Canada', 'méxico': 'Mexico', 'espanha': 'Spain', 'eslovenia': 'Slovenia',
+    };
+    const cleanCountry = (raw) => (raw || '').replace(/\s*[\(（].*$/, '').trim();
+    const canonCountry = (raw) => {
+      const c = cleanCountry(raw);
+      return ALIAS[c.toLowerCase()] || c;
+    };
+    const countryOf = (m) => canonCountry((m.cidade || '').split(',').pop());
+
+    // Métricas selecionáveis: rótulo + valor por centro + unidade no tooltip
+    const METRICS = {
+      pesq:  { label: 'Pesquisadores', val: d => d.nPesq,  bars: 'pesquisadores' },
+      areas: { label: 'Tópicos',       val: d => d.nAreas, bars: 'tópicos de pesquisa' },
+      pais:  { label: 'Centros/país',  val: d => d.nPais,  bars: 'centros no país' },
+    };
 
     // Interpola entre dois hex (#rrggbb) por t∈[0,1]
     const lerpColor = (a, b, t) => {
@@ -112,6 +152,7 @@
     function App() {
       const [selected, setSelected] = useState(null);
       const [countries, setCountries] = useState([]);
+      const [metric, setMetric] = useState('pesq');
 
       // Carrega os países (Natural Earth, vetorial = nítido em qualquer zoom)
       React.useEffect(() => {
@@ -121,22 +162,35 @@
           .catch(() => {});
       }, []);
 
-      const { data, maxN, rings } = useMemo(() => {
-        const arr = (window.MARKERS || []).map(m => ({ ...m, n: countResearchers(m) }));
-        const maxN = Math.max(1, ...arr.map(d => d.n));
-        // Anéis pulsantes nos 25 centros com mais pesquisadores
-        const rings = [...arr].sort((a, b) => b.n - a.n).slice(0, 25);
-        return { data: arr, maxN, rings };
+      // Enriquece cada centro com as métricas e localização; calcula os máximos (escala fixa)
+      const { data, maxByMetric } = useMemo(() => {
+        const base = (window.MARKERS || []).map(m => {
+          const country = countryOf(m);
+          return { ...m, nPesq: countResearchers(m), nAreas: countAreas(m), country };
+        });
+        const perCountry = {};
+        base.forEach(d => { perCountry[d.country] = (perCountry[d.country] || 0) + 1; });
+        const arr = base.map(d => ({ ...d, nPais: perCountry[d.country] }));
+        const maxByMetric = {};
+        Object.keys(METRICS).forEach(k => { maxByMetric[k] = Math.max(1, ...arr.map(METRICS[k].val)); });
+        return { data: arr, maxByMetric };
       }, []);
 
-      // Altura da barra (raiz p/ distribuir melhor) e cor teal claro→escuro por tamanho
-      const altitude = (d) => 0.02 + 0.30 * Math.sqrt(d.n / maxN);
-      const pointColor = (d) => lerpColor(BAR_LO, BAR_HI, Math.sqrt(d.n / maxN));
+      // Valor da métrica atual, normalizado pela escala global
+      const M = METRICS[metric];
+      const maxN = maxByMetric[metric];
+      const norm = (d) => Math.sqrt(M.val(d) / maxN);
+      const altitude = (d) => 0.02 + 0.30 * norm(d);
+      const pointColor = (d) => lerpColor(BAR_LO, BAR_HI, norm(d));
 
-      React.useEffect(() => {
-        document.getElementById('count').textContent = data.length;
-        document.getElementById('loading').style.display = 'none';
-      }, []);
+      // Anéis pulsantes nos 25 maiores da métrica atual
+      const rings = useMemo(
+        () => [...data].sort((a, b) => M.val(b) - M.val(a)).slice(0, 25),
+        [data, metric]
+      );
+
+      React.useEffect(() => { document.getElementById('loading').style.display = 'none'; }, []);
+      React.useEffect(() => { document.getElementById('count').textContent = data.length; }, [data]);
 
       const tip = (d) => `
         <div style="font-family:'Plus Jakarta Sans',system-ui;font-size:12px;color:#374151;background:#fff;
@@ -144,7 +198,7 @@
           <div style="font-weight:700;margin-bottom:3px;color:${P}">${d.nome || 'Centro de IA'}</div>
           ${d.universidade ? `<div style="opacity:.85">${d.universidade}</div>` : ''}
           ${d.cidade ? `<div style="opacity:.6;margin-top:3px">${d.cidade}</div>` : ''}
-          ${d.n ? `<div style="margin-top:4px;color:${PM};font-weight:600">${d.n} pesquisador${d.n>1?'es':''}</div>` : ''}
+          <div style="margin-top:4px;color:${PM};font-weight:600">${M.val(d)} ${M.bars}</div>
         </div>`;
 
       // Anéis pulsantes: destaques fixos + o ponto selecionado
@@ -174,6 +228,7 @@
             pointAltitude={altitude}
             pointRadius={0.22}
             pointLabel={tip}
+            pointsTransitionDuration={800}
             onPointClick={(d) => setSelected(d)}
             ringsData={ringsData}
             ringLat="lat"
@@ -186,6 +241,19 @@
             atmosphereAltitude={0.2}
           />
           <Panel d={selected} onClose={() => setSelected(null)} />
+          <div id="controls">
+            <div className="ctl-label">Altura das torres</div>
+            <div className="seg">
+              {Object.entries(METRICS).map(([k, m]) => (
+                <button
+                  key={k}
+                  className={k === metric ? 'active' : ''}
+                  onClick={() => setMetric(k)}
+                >{m.label}</button>
+              ))}
+            </div>
+            <div className="hint">As barras representam: <strong>{M.bars}</strong>.</div>
+          </div>
         </React.Fragment>
       );
     }
