@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globo interativo — IA no mundo</title>
+    <style>
+        /* Tema alinhado ao index.html (paleta teal) */
+        :root {
+            --p:   #0a6878;
+            --pm:  #1694aa;
+            --pl:  #e0f2f7;
+            --bg:  #ffffff;
+            --t3:  #6b7280;
+            --fb:  'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            font-family: var(--fb);
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .globe-stage {
+            position: relative;
+            width: min(100%, 100vh);
+            aspect-ratio: 1 / 1;
+            max-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        canvas#cobe {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            cursor: grab;
+            contain: layout paint size;
+            opacity: 0;
+            transition: opacity 1s ease;
+            touch-action: none; /* permite arrastar sem rolar a página */
+        }
+        canvas#cobe.ready { opacity: 1; }
+        .hint {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            letter-spacing: .02em;
+            color: var(--t3);
+            background: rgba(255,255,255,.7);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 5px 12px;
+            border-radius: 999px;
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="globe-stage">
+        <canvas id="cobe" width="600" height="600"></canvas>
+        <span class="hint">Arraste para girar o globo</span>
+    </div>
+
+    <!-- cobe@latest — https://cobe.vercel.app -->
+    <script type="module">
+        import createGlobe from 'https://esm.sh/cobe@latest';
+
+        const canvas = document.getElementById('cobe');
+
+        // Principais polos de pesquisa em IA (lat, long aproximados).
+        const markers = [
+            { location: [-23.5505, -46.6333], size: 0.06 }, // São Paulo
+            { location: [-22.9068, -43.1729], size: 0.05 }, // Rio de Janeiro
+            { location: [-15.7942, -47.8822], size: 0.04 }, // Brasília
+            { location: [-30.0346, -51.2177], size: 0.04 }, // Porto Alegre
+            { location: [-19.9167, -43.9345], size: 0.04 }, // Belo Horizonte
+            { location: [37.7749, -122.4194], size: 0.07 }, // San Francisco
+            { location: [42.3601, -71.0589],  size: 0.06 }, // Boston
+            { location: [51.5074, -0.1278],   size: 0.06 }, // Londres
+            { location: [48.8566, 2.3522],    size: 0.05 }, // Paris
+            { location: [52.5200, 13.4050],   size: 0.05 }, // Berlim
+            { location: [47.3769, 8.5417],    size: 0.05 }, // Zurique
+            { location: [39.9042, 116.4074],  size: 0.07 }, // Pequim
+            { location: [35.6762, 139.6503],  size: 0.06 }, // Tóquio
+            { location: [1.3521, 103.8198],   size: 0.05 }, // Singapura
+            { location: [12.9716, 77.5946],   size: 0.05 }, // Bangalore
+            { location: [-33.8688, 151.2093], size: 0.04 }, // Sydney
+            { location: [43.6532, -79.3832],  size: 0.05 }, // Toronto
+            { location: [55.7558, 37.6173],   size: 0.04 }, // Moscou
+            { location: [32.0853, 34.7818],   size: 0.04 }, // Tel Aviv
+        ];
+
+        let phi = 0;            // rotação base (auto-giro)
+        let width = 0;          // largura em CSS px
+        let pointerInteracting = null;
+        let pointerMovement = 0;
+
+        const onResize = () => { width = canvas.offsetWidth; };
+        window.addEventListener('resize', onResize);
+        onResize();
+
+        const globe = createGlobe(canvas, {
+            devicePixelRatio: 2,
+            width: width * 2,
+            height: width * 2,
+            phi: 0,
+            theta: 0.25,
+            dark: 0,                       // claro, para casar com o fundo branco
+            diffuse: 1.2,
+            mapSamples: 16000,
+            mapBrightness: 5.5,
+            baseColor: [0.92, 0.96, 0.98], // pontos do mapa (cinza-azulado claro)
+            markerColor: [0.039, 0.408, 0.471], // teal --p (#0a6878)
+            glowColor: [0.878, 0.949, 0.969],   // teal claro --pl
+            markers,
+        });
+
+        // cobe v2 (@latest) NÃO tem loop interno nem callback onRender: nós
+        // mesmos dirigimos a animação chamando globe.update() a cada frame.
+        const tick = () => {
+            // Auto-giro quando o usuário não está interagindo.
+            if (pointerInteracting === null) phi += 0.004;
+            globe.update({
+                phi: phi + pointerMovement / 200,
+                width: width * 2,    // mantém o canvas nítido em qualquer tamanho
+                height: width * 2,
+            });
+            requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+
+        // ── Interação: arrastar para girar ──────────────────────────
+        const onPointerDown = (clientX) => {
+            pointerInteracting = clientX;
+            canvas.style.cursor = 'grabbing';
+        };
+        const onPointerUp = () => {
+            if (pointerInteracting !== null) {
+                phi += pointerMovement / 200; // funde o arraste na rotação base (sem salto)
+                pointerMovement = 0;
+            }
+            pointerInteracting = null;
+            canvas.style.cursor = 'grab';
+        };
+        const onPointerMove = (clientX) => {
+            if (pointerInteracting !== null) {
+                pointerMovement = clientX - pointerInteracting;
+            }
+        };
+
+        canvas.addEventListener('pointerdown', (e) => onPointerDown(e.clientX));
+        window.addEventListener('pointerup', onPointerUp);
+        window.addEventListener('pointercancel', onPointerUp);
+        window.addEventListener('pointermove', (e) => onPointerMove(e.clientX));
+
+        // Fade-in suave quando o primeiro frame estiver pronto.
+        requestAnimationFrame(() => canvas.classList.add('ready'));
+    </script>
+</body>
+</html>
