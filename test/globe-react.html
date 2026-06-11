@@ -104,8 +104,20 @@
       return `rgb(${m(r1,r2)},${m(g1,g2)},${m(b1,b2)})`;
     };
 
+    // Oceano: cor sólida teal claro (#e0f2f7) como textura 1px
+    const OCEAN = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEElEQVR42mN48Ok7EDFAKABNrgslwcN+/wAAAABJRU5ErkJggg==';
+
     function App() {
       const [selected, setSelected] = useState(null);
+      const [countries, setCountries] = useState([]);
+
+      // Carrega os países (Natural Earth, vetorial = nítido em qualquer zoom)
+      React.useEffect(() => {
+        fetch('./countries.geojson')
+          .then(r => r.json())
+          .then(geo => setCountries(geo.features))
+          .catch(() => {});
+      }, []);
 
       const { data, maxN, rings } = useMemo(() => {
         const arr = (window.MARKERS || []).map(m => ({ ...m, n: countResearchers(m) }));
@@ -140,8 +152,13 @@
         <React.Fragment>
           <Globe
             backgroundColor="#ffffff"
-            globeImageUrl="https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-            bumpImageUrl="https://unpkg.com/three-globe/example/img/earth-topology.png"
+            globeImageUrl={OCEAN}
+            showGraticules={true}
+            polygonsData={countries}
+            polygonCapColor={() => 'rgba(10,104,120,0.92)'}
+            polygonSideColor={() => 'rgba(22,148,170,0.35)'}
+            polygonStrokeColor={() => '#e0f2f7'}
+            polygonAltitude={0.007}
             pointsData={data}
             pointLat="lat"
             pointLng="lng"
