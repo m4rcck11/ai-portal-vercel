@@ -1169,16 +1169,23 @@
                 const area = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
                 return AREA_COLORS[area] || '#888';
             }
-            rawNodes.forEach(n => {
+            // Adiciona os nós de área (tipo 'topic') por último para que sejam
+            // renderizados por cima dos nós de pessoas (que são mais numerosos
+            // e, do contrário, cobririam as áreas na visualização).
+            const orderedNodes = [...rawNodes].sort((a, b) => (a.tipo === 'topic' ? 1 : 0) - (b.tipo === 'topic' ? 1 : 0));
+            orderedNodes.forEach(n => {
+                // Reduz o tamanho dos nós de pessoas para abrir espaço e evitar
+                // que cubram os nós de área (que mantêm o tamanho original).
+                const size = n.tipo === 'topic' ? n.size : n.size * 0.6;
                 graph.addNode(n.id, {
-                    x: n.x, y: n.y, size: n.size,
+                    x: n.x, y: n.y, size,
                     color: n.vizColor || dominantColor(n.id),
                     label: n.label, idlattes: n.idlattes, works: n.works, inst: n.inst, tipo: n.tipo
                 });
             });
             rawEdges.forEach(e => {
                 const ec = AREA_COLORS[e.area] || '#bbb';
-                graph.addEdgeWithKey(e.key, e.source, e.target, { size: 0.5, color: ec, baseColor: ec, area: e.area, year: e.year });
+                graph.addEdgeWithKey(e.key, e.source, e.target, { size: 0.5, color: '#e8e8e8', baseColor: ec, area: e.area, year: e.year });
             });
 
             sigmaInstance = new Sigma(graph, document.getElementById('sigma' + suffix), {
@@ -1197,7 +1204,7 @@
                     const connectedEdges = new Set(graph.edges(nodeId));
                     graph.forEachEdge((edge, attrs) => { graph.setEdgeAttribute(edge, 'color', connectedEdges.has(edge) ? attrs.baseColor : '#e8e8e8'); });
                 } else {
-                    graph.forEachEdge((edge, attrs) => { graph.setEdgeAttribute(edge, 'color', attrs.baseColor); });
+                    graph.forEachEdge((edge) => { graph.setEdgeAttribute(edge, 'color', '#e8e8e8'); });
                 }
                 sigmaInstance.refresh();
             }
