@@ -62,17 +62,6 @@
       background: #fff; color: var(--t2); font: inherit; font-size: 12px; cursor: pointer;
     }
     #controls .hint { margin-top: 8px; font-size: 11px; color: var(--t3); }
-    #back {
-      position: absolute; top: 16px; right: 16px; z-index: 30;
-      display: inline-flex; align-items: center; gap: 7px;
-      color: var(--p); background: rgba(255,255,255,.92); backdrop-filter: blur(8px);
-      padding: 9px 14px; border-radius: 10px; font-size: 13px; font-weight: 600;
-      text-decoration: none; border: 1px solid var(--pl);
-      box-shadow: 0 4px 20px rgba(10,104,120,.12); transition: all .15s ease;
-    }
-    #back:hover { background: var(--p); color: #fff; border-color: var(--p); }
-    /* Painel de detalhes abre abaixo do botão de voltar */
-    #panel { top: 64px; max-height: calc(100vh - 80px); }
   </style>
 </head>
 <body>
@@ -81,12 +70,6 @@
     <div><span class="count" id="count">…</span> instituições</div>
     <div style="margin-top:6px; opacity:.7">Passe o mouse sobre um ponto. Arraste para girar, clique para ver os detalhes.</div>
   </div>
-  <a id="back" href="../index.html#mundo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15">
-      <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
-    </svg>
-    Voltar ao portal
-  </a>
   <div class="loading" id="loading">Carregando globo…</div>
   <div id="globe"></div>
 
@@ -314,3 +297,27 @@
   </script>
 </body>
 </html>
+<script>
+const t0 = Date.now();
+(function poll() {
+  if (Date.now() - t0 > 40000) { console.log('TEST_RESULT ' + JSON.stringify({error: 'timeout: __threeObj never bound'})); return; }
+  const M = window.MARKERS || [];
+  const n = s => (s||'').split(',').map(x=>x.trim()).filter(Boolean).length;
+  const top = M.length ? M.reduce((a,b) => n(b.pesquisadores) > n(a.pesquisadores) ? b : a) : null;
+  if (!top || !top.__threeObj) { setTimeout(poll, 500); return; }
+  setTimeout(() => {
+    const before = top.__threeObj.scale.y;
+    const btn = [...document.querySelectorAll('#controls .seg button')].find(b => b.textContent.includes('Tópicos'));
+    if (!btn) { console.log('TEST_RESULT ' + JSON.stringify({error: 'no Tópicos button'})); return; }
+    btn.click();
+    setTimeout(() => {
+      const obj = top.__threeObj;
+      console.log('TEST_RESULT ' + JSON.stringify({
+        nome: top.nome, nPesq: n(top.pesquisadores), nAreas: n(top['áreas']),
+        before, after: obj ? obj.scale.y : null,
+        stillBound: !!obj, objType: obj ? obj.type : null
+      }));
+    }, 2500);
+  }, 2000);
+})();
+</script>
