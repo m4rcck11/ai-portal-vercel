@@ -20,6 +20,9 @@ CLAUDE.md
 # Backup
 _backup/
 
+# Documentação interna (não versionada)
+documentacao/
+
 # OS
 .DS_Store
 Thumbs.db

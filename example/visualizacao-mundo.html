@@ -152,6 +152,11 @@
     // empilha as torres no mesmo ponto: a torre visível é a mais alta do grupo,
     // mas o tooltip pode ser de outro centro. Espalha os co-localizados numa
     // espiral (phyllotaxis) para que cada torre fique distinta.
+    // O raio é normalizado pelo tamanho do grupo (i/(n-1)) e limitado a R_MAX,
+    // então TODO o grupo cabe num disco de ~4 km da posição real — independente
+    // de ter 2 ou 28 pontos. (Antes era 0.35*sqrt(i), que jogava grupos grandes
+    // até ~200 km, parando no mar.) Mantém a fidelidade geográfica.
+    const R_MAX = 0.04; // graus (~4.4 km)
     const spreadOverlaps = (arr) => {
       const groups = {};
       arr.forEach(d => {
@@ -162,7 +167,7 @@
       Object.values(groups).forEach(g => {
         if (g.length < 2) return;
         g.forEach((d, i) => {
-          const r = 0.35 * Math.sqrt(i); // i=0 mantém a posição original
+          const r = R_MAX * Math.sqrt(i / (g.length - 1)); // i=0 mantém a posição original
           d.lat += r * Math.sin(i * GA);
           d.lng += r * Math.cos(i * GA) / Math.max(0.2, Math.cos(d.lat * Math.PI / 180));
         });
