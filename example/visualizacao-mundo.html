@@ -93,7 +93,10 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/react-globe.gl@2.27.3/dist/react-globe.gl.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Pinned to 7.x: Babel 8's preset-react defaults to the automatic JSX runtime,
+       which injects `import {jsx} from "react/jsx-runtime"` into the compiled inline
+       script and breaks it (this page uses the classic runtime via the UMD React global). -->
+  <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
   <script src="./markers.js"></script>
 
   <script type="text/babel" data-presets="react">
