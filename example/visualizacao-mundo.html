@@ -74,6 +74,9 @@
     /* Painel de detalhes abre abaixo do botão de voltar */
     #panel { top: 64px; max-height: calc(100vh - 80px); }
   </style>
+
+  <!-- Vercel Web Analytics (sem cookies, dados agregados/anônimos — respeita LGPD) -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
   <div id="info">
@@ -319,6 +322,32 @@
     }
 
     ReactDOM.createRoot(document.getElementById('globe')).render(<App />);
+  </script>
+
+  <!-- Vercel Analytics: tempo gasto no globo (anônimo/agregado) -->
+  <script>
+    (function () {
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      var segStart = Date.now(), accumMs = 0, sent = false;
+
+      function pause()  { if (segStart) { accumMs += Date.now() - segStart; segStart = 0; } }
+      function resume() { if (!segStart) { segStart = Date.now(); } }
+
+      function flush() {
+        if (sent) return;
+        pause();
+        var secs = Math.round(accumMs / 1000);
+        if (secs >= 2) window.va('event', { name: 'globo_time', data: { seconds: secs } });
+        accumMs = 0;   // zera para não contar de novo se a pessoa voltar e sair outra vez
+        sent = true;
+      }
+
+      // pausa/retoma ao trocar de aba; envia o tempo final ao fechar/sair
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'hidden') { pause(); flush(); } else { sent = false; resume(); }
+      });
+      window.addEventListener('pagehide', flush);
+    })();
   </script>
 </body>
 </html>
