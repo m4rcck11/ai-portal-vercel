@@ -23,6 +23,11 @@ _backup/
 # Documentação interna (não versionada)
 documentacao/
 
+# Arquivos de backup e teste (não devem ir a público)
+*.bak
+*.bak*
+__test_*
+
 # OS
 .DS_Store
 Thumbs.db
