@@ -1624,12 +1624,22 @@
         function pause()  { if (activeMap && segStart) { accumMs += Date.now() - segStart; segStart = 0; } }
         function resume() { if (activeMap && !segStart) { segStart = Date.now(); } }
 
+        // agrupa a duração em faixas (o Vercel conta eventos, não soma segundos)
+        function durBucket(s) {
+            if (s < 10)  return '0-10s';
+            if (s < 30)  return '10-30s';
+            if (s < 60)  return '30-60s';
+            if (s < 120) return '1-2min';
+            if (s < 300) return '2-5min';
+            return '5min+';
+        }
+
         function flushDwell() {
             if (!activeMap) return;
             pause();
             var secs = Math.round(accumMs / 1000);
             if (secs >= 2) {  // ignora aberturas acidentais (< 2s); máx. 2 propriedades (plano Pro)
-                window.va('event', { name: 'map_time', data: { map: activeMap, seconds: secs } });
+                window.va('event', { name: 'map_time', data: { map: activeMap, faixa: durBucket(secs) } });
             }
             activeMap = null; accumMs = 0; segStart = 0;
         }

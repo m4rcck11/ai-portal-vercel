@@ -333,11 +333,21 @@
       function pause()  { if (segStart) { accumMs += Date.now() - segStart; segStart = 0; } }
       function resume() { if (!segStart) { segStart = Date.now(); } }
 
+      // agrupa a duração em faixas (o Vercel conta eventos, não soma segundos)
+      function durBucket(s) {
+        if (s < 10)  return '0-10s';
+        if (s < 30)  return '10-30s';
+        if (s < 60)  return '30-60s';
+        if (s < 120) return '1-2min';
+        if (s < 300) return '2-5min';
+        return '5min+';
+      }
+
       function flush() {
         if (sent) return;
         pause();
         var secs = Math.round(accumMs / 1000);
-        if (secs >= 2) window.va('event', { name: 'globo_time', data: { seconds: secs } });
+        if (secs >= 2) window.va('event', { name: 'globo_time', data: { faixa: durBucket(secs) } });
         accumMs = 0;   // zera para não contar de novo se a pessoa voltar e sair outra vez
         sent = true;
       }
