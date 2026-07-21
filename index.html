@@ -514,119 +514,6 @@
             .footer-top { grid-template-columns: 1fr; gap: 36px; }
         }
 
-        /* ─── Graph Split Sections ───────────────────────────── */
-        section.graph-section {
-            background: transparent;
-            padding: 0;
-            overflow: visible;
-            position: relative;
-        }
-
-        .gs-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .gs-blue > .gs-bg {
-            background: #0c7081;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 64px), 0 100%);
-        }
-        .gs-light > .gs-bg {
-            background: var(--bg);
-        }
-
-        section.graph-section.gs-blue { padding-bottom: 64px; }
-
-        .gs-wrap {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 55fr 45fr;
-            min-height: 580px;
-        }
-        .gs-wrap.gs-rev { grid-template-columns: 45fr 55fr; }
-
-        .gs-viz {
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .gs-viz > .viz-card {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            border: none;
-            border-radius: 0;
-            box-shadow: none;
-        }
-        .gs-viz .sigma-container {
-            flex: 1;
-            height: auto;
-            min-height: 500px;
-        }
-
-        .gs-text {
-            padding: 60px 52px 60px 44px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .gs-wrap.gs-rev .gs-text { padding: 60px 44px 60px 52px; }
-
-        /* Blue variant — text */
-        .gs-blue .gs-text .sec-num          { color: rgba(255,255,255,.58); }
-        .gs-blue .gs-text .sec-num::before  { background: rgba(255,255,255,.38); }
-        .gs-blue .gs-text .sec-title        { color: #fff; }
-        .gs-blue .gs-text .sec-meta         { color: rgba(255,255,255,.7); }
-        .gs-blue .gs-text .sec-meta strong  { color: rgba(255,255,255,.92); }
-        .gs-blue .gs-text .sec-meta a       { color: rgba(255,255,255,.8); }
-        .gs-blue .gs-text .sec-meta a:hover { color: #fff; }
-
-        /* Blue variant — filters bar (same light blue as default) */
-        .gs-blue .filters {
-            background: var(--pl);
-            border-bottom-color: rgba(10,104,120,.18);
-        }
-        .gs-blue .filters label { color: var(--t3); }
-        .gs-blue .filters select {
-            background-color: var(--bg);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b7280'/%3E%3C/svg%3E");
-            color: var(--t1);
-            border-color: var(--bd);
-        }
-        .gs-blue .filters select:focus { border-color: var(--pm); box-shadow: 0 0 0 3px rgba(22,148,170,.12); }
-        .gs-blue .filters input[type=text] {
-            background-color: var(--bg);
-            color: var(--t1);
-            border-color: var(--bd);
-        }
-        .gs-blue .filters input[type=text]:focus { border-color: var(--pm); box-shadow: 0 0 0 3px rgba(22,148,170,.12); }
-        .gs-blue .filters input[type=text]::placeholder { color: var(--t3); }
-        .gs-blue .legend {
-            background: var(--pl);
-            border-bottom-color: rgba(10,104,120,.18);
-            color: var(--t2);
-        }
-        .gs-blue .range-val { color: var(--p); }
-        .gs-blue .year-range-group .noUi-target  { background: var(--bd) !important; }
-        .gs-blue .year-range-group .noUi-connect { background: var(--pm) !important; }
-        .gs-blue .year-range-group .noUi-handle  { background: var(--p) !important; border-color: #fff !important; box-shadow: 0 1px 4px rgba(10,104,120,.35) !important; }
-        .gs-blue .search-suggestions {
-            background: var(--surf);
-            border-color: var(--bd);
-        }
-        .gs-blue .search-suggestions div { color: var(--t2); }
-        .gs-blue .search-suggestions div:hover { background: var(--pl); color: var(--p); }
-
-        /* ─── Responsive graph sections ──────────────────────── */
-        @media (max-width: 900px) {
-            .gs-wrap, .gs-wrap.gs-rev    { grid-template-columns: 1fr; }
-            .gs-text,
-            .gs-wrap.gs-rev .gs-text     { padding: 36px 24px 28px; }
-            .gs-blue > .gs-bg            { clip-path: none; }
-            section.graph-section.gs-blue { padding-bottom: 0; }
-        }
     </style>
 
     <!-- Vercel Web Analytics (sem cookies, dados agregados/anônimos — respeita LGPD) -->
@@ -999,11 +886,28 @@
 <!-- ═══════════════════════════════════════════════════════════
      05 — REDE DE COLABORAÇÃO
 ═══════════════════════════════════════════════════════════ -->
-<section class="section graph-section gs-blue" id="colaboracao">
-    <div class="gs-bg" aria-hidden="true"></div>
-    <div class="gs-wrap">
-        <div class="gs-viz fi" data-d="1">
-            <div class="viz-card">
+<section class="section" id="colaboracao">
+    <div class="sec-geo" aria-hidden="true">
+        <svg width="100%" height="100%" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="1200" cy="310" r="310" fill="#0a6878" fill-opacity=".048"/>
+            <circle cx="1200" cy="310" r="200" fill="none" stroke="#0a6878" stroke-width="1.5" stroke-opacity=".09"/>
+            <circle cx="210"  cy="540" r="130" fill="#1694aa" fill-opacity=".038"/>
+            <circle cx="50"   cy="70"  r="65"  fill="#1694aa" fill-opacity=".06"/>
+            <circle cx="580"  cy="580" r="6"   fill="#0a6878" fill-opacity=".22"/>
+            <circle cx="620"  cy="560" r="4"   fill="#1694aa" fill-opacity=".28"/>
+        </svg>
+    </div>
+    <div class="sec-inner">
+        <div class="sec-head fi">
+            <div class="sec-num">05 — Grafo</div>
+            <h2 class="sec-title">Rede de Colaboração em publicações</h2>
+            <div class="sec-meta">
+                <p><strong>Fonte de dados:</strong> Currículo Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>) e OpenAlex (<a href="https://openalex.org" target="_blank">openalex.org</a>).</p>
+                <p><strong>Metodologia:</strong> Ligações de coautoria coletadas entre a lista de autores de trabalhos acadêmicos de área relacionadas a inteligência artificial dentro do registro do OpenAlex e manualmente curada pelos desenvolvedores desta página. Os autores das publicações indexadas foram filtrados também pela presença no currículo Lattes afiliados a uma instituição brasileira.</p>
+                <p><strong>Visualização:</strong> Use a ferramenta de zoom para ver detalhes e clique sobre os nós para ter mais informações sobre os autores da rede. A rede pode ser filtrada nos controles abaixo por datas de publicação, subáreas e número de publicações compartilhadas. É possível também fazer busca por nome do autor.</p>
+            </div>
+        </div>
+        <div class="viz-card fi" data-d="1">
                 <div class="filters" id="filters1">
                     <div class="filter-group search-wrap">
                         <label>Autor:</label>
@@ -1050,16 +954,6 @@
                         <div id="np-collaborators1"></div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="gs-text fi">
-            <div class="sec-num">05 — Grafo</div>
-            <h2 class="sec-title">Rede de Colaboração em publicações</h2>
-            <div class="sec-meta">
-                <p><strong>Fonte de dados:</strong> Currículo Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>) e OpenAlex (<a href="https://openalex.org" target="_blank">openalex.org</a>).</p>
-                <p><strong>Metodologia:</strong> Ligações de coautoria coletadas entre a lista de autores de trabalhos acadêmicos de área relacionadas a inteligência artificial dentro do registro do OpenAlex e manualmente curada pelos desenvolvedores desta página. Os autores das publicações indexadas foram filtrados também pela presença no currículo Lattes afiliados a uma instituição brasileira.</p>
-                <p><strong>Visualização:</strong> Use a ferramenta de zoom para ver detalhes e clique sobre os nós para ter mais informações sobre os autores da rede. A rede pode ser filtrada nos controles abaixo por datas de publicação, subáreas e número de publicações compartilhadas. É possível também fazer busca por nome do autor.</p>
-            </div>
         </div>
     </div>
 </section>
@@ -1067,10 +961,19 @@
 <!-- ═══════════════════════════════════════════════════════════
      06 — COMUNIDADES
 ═══════════════════════════════════════════════════════════ -->
-<section class="section graph-section gs-light" id="comunidades">
-    <div class="gs-bg" aria-hidden="true"></div>
-    <div class="gs-wrap gs-rev">
-        <div class="gs-text fi">
+<section class="section" id="comunidades">
+    <div class="sec-geo" aria-hidden="true">
+        <svg width="100%" height="100%" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="0"    cy="310" r="290" fill="#1694aa" fill-opacity=".048"/>
+            <circle cx="0"    cy="310" r="190" fill="none" stroke="#1694aa" stroke-width="1.5" stroke-opacity=".1"/>
+            <circle cx="1060" cy="80"  r="105" fill="#0a6878" fill-opacity=".048"/>
+            <circle cx="810"  cy="540" r="75"  fill="none" stroke="#0a6878" stroke-width="1.5" stroke-opacity=".08"/>
+            <circle cx="610"  cy="30"  r="28"  fill="#1694aa" fill-opacity=".18"/>
+            <circle cx="658"  cy="28"  r="6"   fill="#0a6878" fill-opacity=".28"/>
+        </svg>
+    </div>
+    <div class="sec-inner">
+        <div class="sec-head fi">
             <div class="sec-num">06 — Grafo</div>
             <h2 class="sec-title">Comunidades de Inteligência Artificial</h2>
             <div class="sec-meta">
@@ -1079,8 +982,7 @@
                 <p><strong>Visualização:</strong> As relações de co-autoria estão expressas pelas ligações entre cada pesquisador (representados pelas várias esferas coloridas). Podem ser traçadas entre os autores produzindo o gráfico mostrado com filtros das subáreas e ano de publicação. Na barra acima, é possível filtrar por período temporal, nome do autor e/ou área de pesquisa.</p>
             </div>
         </div>
-        <div class="gs-viz fi" data-d="1">
-            <div class="viz-card">
+        <div class="viz-card fi" data-d="1">
                 <div class="filters" id="filters2">
                     <div class="filter-group search-wrap">
                         <label>Autor:</label>
@@ -1127,7 +1029,6 @@
                         <div id="np-collaborators2"></div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </section>
@@ -1135,11 +1036,28 @@
 <!-- ═══════════════════════════════════════════════════════════
      07 — TÓPICOS E AUTORES
 ═══════════════════════════════════════════════════════════ -->
-<section class="section graph-section gs-blue" id="topicos">
-    <div class="gs-bg" aria-hidden="true"></div>
-    <div class="gs-wrap">
-        <div class="gs-viz fi" data-d="1">
-            <div class="viz-card">
+<section class="section" id="topicos">
+    <div class="sec-geo" aria-hidden="true">
+        <svg width="100%" height="100%" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="1200" cy="310" r="310" fill="#0a6878" fill-opacity=".048"/>
+            <circle cx="1200" cy="310" r="200" fill="none" stroke="#0a6878" stroke-width="1.5" stroke-opacity=".09"/>
+            <circle cx="210"  cy="540" r="130" fill="#1694aa" fill-opacity=".038"/>
+            <circle cx="50"   cy="70"  r="65"  fill="#1694aa" fill-opacity=".06"/>
+            <circle cx="580"  cy="580" r="6"   fill="#0a6878" fill-opacity=".22"/>
+            <circle cx="620"  cy="560" r="4"   fill="#1694aa" fill-opacity=".28"/>
+        </svg>
+    </div>
+    <div class="sec-inner">
+        <div class="sec-head fi">
+            <div class="sec-num">07 — Grafo</div>
+            <h2 class="sec-title">Áreas de Pesquisa no Brasil e seus pesquisadores Associados</h2>
+            <div class="sec-meta">
+                <p><strong>Fonte de dados:</strong> Currículo Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>) e OpenAlex (<a href="https://openalex.org" target="_blank">openalex.org</a>).</p>
+                <p><strong>Metodologia:</strong> A base de publicações acadêmicas OpenAlex oferece uma classificação das diferentes áreas de pesquisa em diferentes campos do conhecimento. Fizemos uma curadoria dessas áreas de pesquisa, selecionando aquelas que consideramos relacionados à grande área da Inteligência Artificial. Para elaboração do grafo abaixo, foram considerados apenas os autores com filiação a instituições brasileiras. Além da declaração da afiliação na publicação acadêmica, essa informação foi posteriormente verificada pela presença desses autores no currículo Lattes com endereço de afiliação no Brasil.</p>
+                <p><strong>Visualização:</strong> As relações entre o pesquisador e a(s) área(s) de pesquisa da qual(is) participa estão expressas pelas ligações entre as esferas (na cor rosa) que representam os pesquisadores e as esferas (na cor verde) que representam as áreas de pesquisa. Para buscar por período temporal, autor e/ou área, use a barra superior.</p>
+            </div>
+        </div>
+        <div class="viz-card fi" data-d="1">
                 <div class="filters" id="filters3">
                     <div class="filter-group search-wrap">
                         <label>Autor:</label>
@@ -1186,16 +1104,6 @@
                         <div id="np-collaborators3"></div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="gs-text fi">
-            <div class="sec-num">07 — Grafo</div>
-            <h2 class="sec-title">Áreas de Pesquisa no Brasil e seus pesquisadores Associados</h2>
-            <div class="sec-meta">
-                <p><strong>Fonte de dados:</strong> Currículo Lattes (<a href="https://lattes.cnpq.br" target="_blank">lattes.cnpq.br</a>) e OpenAlex (<a href="https://openalex.org" target="_blank">openalex.org</a>).</p>
-                <p><strong>Metodologia:</strong> A base de publicações acadêmicas OpenAlex oferece uma classificação das diferentes áreas de pesquisa em diferentes campos do conhecimento. Fizemos uma curadoria dessas áreas de pesquisa, selecionando aquelas que consideramos relacionados à grande área da Inteligência Artificial. Para elaboração do grafo abaixo, foram considerados apenas os autores com filiação a instituições brasileiras. Além da declaração da afiliação na publicação acadêmica, essa informação foi posteriormente verificada pela presença desses autores no currículo Lattes com endereço de afiliação no Brasil.</p>
-                <p><strong>Visualização:</strong> As relações entre o pesquisador e a(s) área(s) de pesquisa da qual(is) participa estão expressas pelas ligações entre as esferas (na cor rosa) que representam os pesquisadores e as esferas (na cor verde) que representam as áreas de pesquisa. Para buscar por período temporal, autor e/ou área, use a barra superior.</p>
-            </div>
         </div>
     </div>
 </section>
@@ -1203,10 +1111,20 @@
 <!-- ═══════════════════════════════════════════════════════════
      08 — COLABORAÇÃO EM PROJETOS
 ═══════════════════════════════════════════════════════════ -->
-<section class="section graph-section gs-light" id="projetos">
-    <div class="gs-bg" aria-hidden="true"></div>
-    <div class="gs-wrap gs-rev">
-        <div class="gs-text fi">
+<section class="section" id="projetos">
+    <div class="sec-geo" aria-hidden="true">
+        <svg width="100%" height="100%" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="0"    cy="310" r="290" fill="#1694aa" fill-opacity=".048"/>
+            <circle cx="0"    cy="310" r="190" fill="none" stroke="#1694aa" stroke-width="1.5" stroke-opacity=".1"/>
+            <circle cx="1160" cy="80"  r="85"  fill="#0a6878" fill-opacity=".055"/>
+            <circle cx="920"  cy="370" r="55"  fill="none" stroke="#1694aa" stroke-width="1.5" stroke-opacity=".11"/>
+            <circle cx="700"  cy="40"  r="4"   fill="#0a6878" fill-opacity=".18"/>
+            <circle cx="742"  cy="40"  r="4"   fill="#0a6878" fill-opacity=".18"/>
+            <circle cx="784"  cy="40"  r="4"   fill="#0a6878" fill-opacity=".18"/>
+        </svg>
+    </div>
+    <div class="sec-inner">
+        <div class="sec-head fi">
             <div class="sec-num">08 — Grafo</div>
             <h2 class="sec-title">Colaboração em Projetos</h2>
             <div class="sec-meta">
@@ -1214,8 +1132,7 @@
                 <p><strong>Metodologia:</strong> Coleta de projetos e classificação em áreas pela descrição, com identificação dos participantes declarados nas fontes de dados.</p>
             </div>
         </div>
-        <div class="gs-viz fi" data-d="1">
-            <div class="viz-card">
+        <div class="viz-card fi" data-d="1">
                 <div class="filters" id="filters4">
                     <div class="filter-group search-wrap">
                         <label>Autor:</label>
@@ -1262,7 +1179,6 @@
                         <div id="np-collaborators4"></div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </section>
@@ -1328,6 +1244,9 @@
         });
     }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+    /* ── Busca insensível a acentos (joão === joao) ──────── */
+    const norm = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
     /* ── Graph utilities ─────────────────────────────────── */
     function hslToHex(h, s, l) {
@@ -1423,11 +1342,21 @@
 
             /* Node selection */
             let selectedNode = null;
+            let labeledNodes = [];
             function selectNode(nodeId) {
-                if (selectedNode) graph.setNodeAttribute(selectedNode, 'highlighted', false);
+                labeledNodes.forEach(n => graph.setNodeAttribute(n, 'highlighted', false));
+                labeledNodes = [];
                 selectedNode = nodeId;
                 if (nodeId) {
-                    graph.setNodeAttribute(nodeId, 'highlighted', true);
+                    // Etiqueta (balão) no nó selecionado + vizinhos mais fortes.
+                    // Limitado aos 8 de maior peso (mesmo critério do painel
+                    // lateral) — rotular todos sobrepõe os balões e vira ruído.
+                    // No grafo 3 (tópicos × autores) só o selecionado.
+                    const topNeighbors = graph.neighbors(nodeId)
+                        .map(nb => ({ nb, w: graph.edges(nodeId, nb).concat(graph.edges(nb, nodeId)).reduce((s, e) => s + (graph.getEdgeAttribute(e, 'weight') || 1), 0) }))
+                        .sort((a, b) => b.w - a.w).slice(0, 8).map(x => x.nb);
+                    labeledNodes = suffix === '3' ? [nodeId] : [nodeId, ...topNeighbors];
+                    labeledNodes.forEach(n => graph.setNodeAttribute(n, 'highlighted', true));
                     const connectedEdges = new Set(graph.edges(nodeId));
                     graph.forEachEdge((edge, attrs) => { graph.setEdgeAttribute(edge, 'color', connectedEdges.has(edge) ? attrs.baseColor : '#e8e8e8'); });
                 } else {
@@ -1484,11 +1413,11 @@
             const searchInput = document.getElementById('searchInput' + suffix);
             const suggestions = document.getElementById('searchSuggestions' + suffix);
             searchInput.addEventListener('input', () => {
-                const q = searchInput.value.trim().toLowerCase();
+                const q = norm(searchInput.value.trim());
                 suggestions.innerHTML = '';
                 if (!q) { suggestions.style.display = 'none'; return; }
                 const matches = [];
-                graph.forEachNode((id, attrs) => { if (attrs.label && attrs.label.toLowerCase().includes(q)) matches.push({ id, label: attrs.label }); });
+                graph.forEachNode((id, attrs) => { if (attrs.label && norm(attrs.label).includes(q)) matches.push({ id, label: attrs.label }); });
                 if (!matches.length) { suggestions.style.display = 'none'; return; }
                 matches.slice(0, 10).forEach(m => {
                     const div = document.createElement('div'); div.textContent = m.label;
@@ -1714,26 +1643,26 @@
 
             function applyFilters() {
                 const st = document.getElementById(stateId).value;
-                const q  = document.getElementById(searchId).value.toLowerCase();
-                const qr = researcherSearchId ? document.getElementById(researcherSearchId).value.toLowerCase() : '';
-                const qc = citySearchId       ? document.getElementById(citySearchId).value.toLowerCase()       : '';
+                const q  = norm(document.getElementById(searchId).value);
+                const qr = researcherSearchId ? norm(document.getElementById(researcherSearchId).value) : '';
+                const qc = citySearchId       ? norm(document.getElementById(citySearchId).value)       : '';
                 cluster.clearLayers();
                 allMarkers.forEach(m => {
                     const stateOk = !st || m.state === st;
-                    const nameOk  = !q  || m.name.toLowerCase().includes(q);
-                    const researcherOk = !qr || m.researchers.some(r => r.toLowerCase().includes(qr));
-                    const cityOk  = !qc || m.city.toLowerCase().includes(qc);
+                    const nameOk  = !q  || norm(m.name).includes(q);
+                    const researcherOk = !qr || m.researchers.some(r => norm(r).includes(qr));
+                    const cityOk  = !qc || norm(m.city).includes(qc);
                     if (stateOk && nameOk && researcherOk && cityOk) cluster.addLayer(m.layer);
                 });
             }
             function showSuggestions() {
-                const q = document.getElementById(searchId).value.toLowerCase();
+                const q = norm(document.getElementById(searchId).value);
                 const st = document.getElementById(stateId).value;
                 const sugg = document.getElementById(suggestionsId);
                 sugg.innerHTML = '';
                 if (!q) { sugg.style.display = 'none'; return; }
                 const seen = {};
-                const matches = allMarkers.filter(m => (!st || m.state === st) && m.name.toLowerCase().includes(q))
+                const matches = allMarkers.filter(m => (!st || m.state === st) && norm(m.name).includes(q))
                     .filter(m => { if (seen[m.name]) return false; seen[m.name] = true; return true; }).slice(0, 15);
                 if (!matches.length) { sugg.style.display = 'none'; return; }
                 matches.forEach(m => {
@@ -1745,12 +1674,12 @@
             }
             function showResearcherSuggestions() {
                 if (!researcherSearchId) return;
-                const q = document.getElementById(researcherSearchId).value.toLowerCase();
+                const q = norm(document.getElementById(researcherSearchId).value);
                 const sugg = document.getElementById(researcherSuggestId);
                 sugg.innerHTML = '';
                 if (!q) { sugg.style.display = 'none'; return; }
                 const seen = {};
-                const matches = allMarkers.flatMap(m => m.researchers).filter(r => r.toLowerCase().includes(q))
+                const matches = allMarkers.flatMap(m => m.researchers).filter(r => norm(r).includes(q))
                     .filter(r => { if (seen[r]) return false; seen[r] = true; return true; }).sort().slice(0, 15);
                 if (!matches.length) { sugg.style.display = 'none'; return; }
                 matches.forEach(r => {
@@ -1771,12 +1700,12 @@
             }
             if (citySearchId) {
                 function showCitySuggestions() {
-                    const q = document.getElementById(citySearchId).value.toLowerCase();
+                    const q = norm(document.getElementById(citySearchId).value);
                     const sugg = document.getElementById(citySuggestId);
                     sugg.innerHTML = '';
                     if (!q) { sugg.style.display = 'none'; return; }
                     const seen = {};
-                    const matches = allMarkers.map(m => m.city).filter(c => c.toLowerCase().includes(q))
+                    const matches = allMarkers.map(m => m.city).filter(c => norm(c).includes(q))
                         .filter(c => { if (seen[c]) return false; seen[c] = true; return true; }).sort().slice(0, 15);
                     if (!matches.length) { sugg.style.display = 'none'; return; }
                     matches.forEach(c => {

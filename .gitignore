@@ -22,6 +22,7 @@ _backup/
 
 # Documentação interna (não versionada)
 documentacao/
+ANALYTICS.md
 
 # Arquivos de backup e teste (não devem ir a público)
 *.bak
