@@ -518,6 +518,7 @@
 
     <!-- Vercel Web Analytics (sem cookies, dados agregados/anônimos — respeita LGPD) -->
     <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/aviso-cookies.js"></script>
 </head>
 <body>
 
@@ -1548,10 +1549,12 @@
             'overlay-sigma4':   'projetos'
         };
 
-        var activeMap = null, segStart = 0, accumMs = 0;
+        // cada mapa aberto tem seu próprio cronômetro, que só corre enquanto
+        // a visualização está na tela (rolar para outra seção pausa)
+        var dwell = {};   // rótulo -> { segStart, accumMs, onScreen }
 
-        function pause()  { if (activeMap && segStart) { accumMs += Date.now() - segStart; segStart = 0; } }
-        function resume() { if (activeMap && !segStart) { segStart = Date.now(); } }
+        function pause(d)  { if (d.segStart) { d.accumMs += Date.now() - d.segStart; d.segStart = 0; } }
+        function resume(d) { if (d.onScreen && !d.segStart && document.visibilityState !== 'hidden') d.segStart = Date.now(); }
 
         // agrupa a duração em faixas (o Vercel conta eventos, não soma segundos)
         function durBucket(s) {
@@ -1564,25 +1567,45 @@
         }
 
         function flushDwell() {
-            if (!activeMap) return;
-            pause();
-            var secs = Math.round(accumMs / 1000);
-            if (secs >= 2) {  // ignora aberturas acidentais (< 2s); máx. 2 propriedades (plano Pro)
-                window.va('event', { name: 'map_time', data: { map: activeMap, faixa: durBucket(secs) } });
-            }
-            activeMap = null; accumMs = 0; segStart = 0;
+            Object.keys(dwell).forEach(function (label) {
+                var d = dwell[label];
+                pause(d);
+                var secs = Math.round(d.accumMs / 1000);
+                if (secs >= 2) {  // ignora aberturas acidentais (< 2s); máx. 2 propriedades (plano Pro)
+                    window.va('event', { name: 'map_time', data: { map: label, faixa: durBucket(secs) } });
+                }
+                d.accumMs = 0;  // zera para não contar de novo se a pessoa voltar à aba
+            });
         }
 
+        // "na tela" = ao menos metade da visualização visível, ou ocupando metade da janela
+        var viewIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                var d = dwell[e.target.dataset.mapLabel];
+                if (!d) return;
+                d.onScreen = e.intersectionRatio >= 0.5 || e.intersectionRect.height >= window.innerHeight * 0.5;
+                if (d.onScreen) resume(d); else pause(d);
+            });
+        }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+
         window.trackMapOpen = function (overlayId) {
-            flushDwell(); // fecha a contagem do mapa anterior
             var label = MAP_LABELS[overlayId] || overlayId || 'desconhecido';
             window.va('event', { name: 'map_open', data: { map: label } });
-            activeMap = label; accumMs = 0; segStart = Date.now();
+            if (dwell[label]) return;
+            // acabou de clicar, então está na tela; o observer corrige se não estiver
+            dwell[label] = { segStart: 0, accumMs: 0, onScreen: true };
+            resume(dwell[label]);
+            var el = document.getElementById(overlayId).parentElement;
+            el.dataset.mapLabel = label;
+            viewIO.observe(el);
         };
 
-        // pausa/retoma ao trocar de aba; envia o tempo final ao sair da página
+        // ao esconder a aba ou sair, pausa e envia o tempo de cada mapa; ao voltar, retoma
         document.addEventListener('visibilitychange', function () {
-            if (document.visibilityState === 'hidden') pause(); else resume();
+            Object.keys(dwell).forEach(function (label) {
+                if (document.visibilityState === 'hidden') pause(dwell[label]); else resume(dwell[label]);
+            });
+            if (document.visibilityState === 'hidden') flushDwell();
         });
         window.addEventListener('pagehide', flushDwell);
     })();

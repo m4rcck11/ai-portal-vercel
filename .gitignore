@@ -32,3 +32,4 @@ __test_*
 # OS
 .DS_Store
 Thumbs.db
+export-analytics/
